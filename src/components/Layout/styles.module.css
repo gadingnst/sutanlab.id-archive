@@ -1,0 +1,32 @@
+.header {
+  @apply
+    fixed flex w-full items-center p-12
+    z-30 transition-all duration-500 md:px-16 md:py-16;
+}
+
+.header-mobile {
+  @apply
+    fixed w-[95%] z-30 rounded-12 transition-all duration-300
+    px-28 py-20 my-12 mx-auto shadow-all;
+}
+
+.header-container {
+  @apply
+    container w-full flex flex-grow font-courgette font-bold
+    text-white text-2xl mx-auto px-16 lg:max-w-5xl xl:px-0;
+}
+
+.footer {
+  min-height: 200px;
+  &::before {
+    content: "";
+    z-index: -1;
+    top: 78px;
+    height: 2000px;
+    transform: skew(0, -6.25deg);
+    @apply
+      absolute left-0 right-0 transition-colors duration-300
+      bg-light-70;
+  }
+  @apply relative overflow-hidden p-16 mt-56;
+}

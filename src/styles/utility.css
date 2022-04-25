@@ -1,0 +1,13 @@
+/**
+  This files used for custom utility that not provided on Tailwind
+*/
+
+@layer base {
+  .text-shadow {
+    text-shadow: 2px 2px 15px #000;
+  }
+
+  .underline-dotted {
+    text-decoration: underline dotted;
+  }
+}
