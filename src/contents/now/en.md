@@ -29,6 +29,7 @@ Working as a [Core](https://www.google.com/search?q=what+is+core+team) [Frontend
 - Jest, React Testing Library
 - Storybook
 - Bots, Automation, Task Runner, Data Collection
+
 And, I would be open-mind to learning other Tech Stacks if needed.
 
 ### Some Tools that I use

@@ -18,18 +18,19 @@ Jika kamu mempunyai situsmu sendiri, mungkin kamu harus membuatnya juga.
 Bekerja sebagai [Core](https://www.google.com/search?q=what+is+core+team) [Frontend Engineer](https://www.google.com/search?q=what+is+frontend+developer+do) di [Orami](https://www.google.com/search?q=orami+indonesia) dibawah [SIRCLO Group](https://www.google.com/search?q=sirclo+group).
 
 ### Aktivitas
-- Investasi, and mempelajari Cryptocurrency
+- Berinvestasi, and mempelajari Cryptocurrency
 - Belajar dan riset beberapa teknologi dari internet.
 - Sosmed, ngoding, membaca dan menulis blog untuk bersenang-senang.
 - Menikmati waktu dengan keluarga dan pasanganku hampir setiap minggu.
 
 ### Pengalaman Tech
-- Pure JavaScript/TypeScript Environment
+- Ekosistem Murni JavaScript/TypeScript
 - React Web/Native/NextJS, Vue/NuxtJS
 - Jest, React Testing Library
 - Storybook
 - Bots, Automation, Task Runner, Data Collection
-And, I would be open-mind to learning other Tech Stacks if needed.
+
+Dan saya bisa terbuka untuk mempelajari Stack Teknologi lain jika dibutuhkan.
 
 ### Beberapa Peralatan yang saya gunakan
 - Perangkat Utama: MacBook Pro M1 (2020)
@@ -39,4 +40,4 @@ And, I would be open-mind to learning other Tech Stacks if needed.
 - Peramban: Google Chrome and Safari
 - Lain-lain: Jira/Trello, Postman, Spotify
 
-Terakhir diperbarui: April, 2022 dari Palembang, Sumatera Selatan. Indonesia. [Riwayat](https://github.com/gadingnst/gading.dev/commits/main/src/contents/now/index.md)
+Terakhir diperbarui: April, 2022. Palembang, Sumatera Selatan. Indonesia. [Riwayat](https://github.com/gadingnst/gading.dev/commits/main/src/contents/now/index.md)
