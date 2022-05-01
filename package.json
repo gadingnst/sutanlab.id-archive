@@ -16,19 +16,19 @@
   "dependencies": {
     "@gadingnst/store-swr": "^0.3.0",
     "dayjs": "^1.11.1",
-    "next": "12.1.4",
+    "next": "12.1.5",
     "react": "18.0.0",
     "react-dom": "18.0.0",
-    "react-inlinesvg": "^2.3.0",
+    "react-inlinesvg": "^3.0.0",
     "react-parallax": "^3.3.0",
     "swr": "^1.2.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.0.0",
-    "@types/react": "18.0.0",
+    "@types/react": "18.0.8",
     "@typescript-eslint/eslint-plugin": "^5.18.0",
-    "@typescript-eslint/parser": "^5.18.0",
+    "@typescript-eslint/parser": "^5.21.0",
     "autoprefixer": "^10.4.4",
     "clsx": "^1.1.1",
     "eslint": "^8.13.0",
