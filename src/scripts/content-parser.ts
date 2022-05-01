@@ -51,18 +51,20 @@ export const contentsDir = path.join(rootDir, 'contents');
 /**
  *
  * @param slugParam slug of the content
- * @param ext extension of the content file
+ * @param language language of the content (default: en)
  * @see https://www.learnnext.blog/blogs/lets-build-a-blog-with-tailwind-mdx-bundler-and-next#creating-the-mdxjs-file
  * @returns content meta & detail
  */
-async function parseContent(slugParam: string): Promise<MDContents> {
+async function parseContent(slugParam: string, language = 'en'): Promise<MDContents> {
   const slug = slugParam.replace(/\.(md|mdx)$/, '');
   const fullPath = path.join(contentsDir, slug);
-  const files = await Fs.readdir(fullPath);
-  const file = files.find((file) => file.endsWith('.md') || file.endsWith('.mdx'));
+  const files = await Fs.readdir(fullPath).catch(() => []);
+  const file = files.find((file) => file.endsWith(`${language}.md`) || file.endsWith(`${language}.mdx`));
+  let fallbackFile;
 
-  if (!file) throw new Error(`No content found on directory ${fullPath}`);
-  const fileContents = await Fs.readFile(path.join(fullPath, file), 'utf8');
+  if (files.length === 0) throw new Error(`No content found on directory ${fullPath}`);
+  if (!file) fallbackFile = files.find((file) => file.endsWith('.md') || file.endsWith('.mdx'));
+  const fileContents = await Fs.readFile(path.join(fullPath, file || fallbackFile as string), 'utf8');
 
   const result = await bundleMDX({
     source: fileContents,

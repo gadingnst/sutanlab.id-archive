@@ -11,6 +11,7 @@ Under development 🚧
 - [x] Mobile friendly
 - [x] Beautiful but performant
 - [x] Image optimized
+- [ ] i18n (internationalization)
 - [ ] Offline-first
 - [ ] Push notifications support
 - [ ] Reading-time

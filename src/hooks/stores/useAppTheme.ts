@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { APP_THEME } from 'stores/App';
 import useStore from '@gadingnst/store-swr';
 
 export type Theme = 'light'|'dark';
@@ -13,7 +12,11 @@ export interface ThemeState {
  * @returns theme state
  */
 function useAppTheme() {
-  const [theme, setTheme] = useStore(APP_THEME);
+  const [theme, setTheme] = useStore({
+    key: '@app/theme',
+    initial: 'light',
+    persist: true
+  });
 
   const nextTheme = theme === 'light' ? 'dark' : 'light';
 

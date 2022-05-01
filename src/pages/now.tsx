@@ -1,15 +1,16 @@
-import { GetStaticPropsResult, NextPage } from 'next';
+import { GetStaticPropsContext, GetStaticPropsResult, NextPage } from 'next';
 import { Content, Footer, Navbar, Banner, CardHero, Layout, ContentParser } from 'components';
 
 import imgBanner from 'assets/images/banners/8.jpg';
-import parseContent, { MDContents } from 'utils/scripts/content-parser';
+import parseContent, { MDContents } from 'scripts/content-parser';
 
 interface Props {
   contents: MDContents;
 }
 
-export const getStaticProps = async(): Promise<GetStaticPropsResult<Props>> => {
-  const contents = await parseContent('now');
+export const getStaticProps = async(ctx: GetStaticPropsContext): Promise<GetStaticPropsResult<Props>> => {
+  const { locale } = ctx;
+  const contents = await parseContent('now', locale);
   return {
     props: {
       contents

@@ -7,7 +7,7 @@ import clsxm from 'utils/helpers/clsxm';
 import iconHamburger from 'assets/icons/tools/hamburger.svg';
 import styles from './styles.module.css';
 import Icon from 'components/Image/Icon';
-import useToggler from 'utils/hooks/useToggler';
+import useToggler from 'hooks/useToggler';
 import { useRouter } from 'next/router';
 
 export interface Props {

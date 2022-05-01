@@ -18,12 +18,10 @@ If you have your own site, maybe you should to make one, too.
 Working as a [Core](https://www.google.com/search?q=what+is+core+team) [Frontend Engineer](https://www.google.com/search?q=what+is+frontend+developer+do) at [Orami](https://www.google.com/search?q=orami+indonesia) by [SIRCLO Group](https://www.google.com/search?q=sirclo+group).
 
 ### Activities
-- Trading, Investing, and Learning Cryptocurrency
+- Investing, and Learning Cryptocurrency
 - Learning and research some technology stuff from the internet.
 - Social Media, coding, reading and blogging for fun.
 - Making quality time for my family and girlfriend every weekend.
-
-> Dengan cara mengerjakan apa yang kita cintai, dan bisa dibayar karena hal itu, kita sebenarnya sudah mencapai Work-Life balance itu sendiri. Jika kita tidak bisa seperti itu, cobalah untuk mencari kegiatan apa yang bisa kita cintai dan dibayar. Jika tidak bisa juga, cobalah mencintai pekerjaan yang kita miliki sekarang.
 
 ### Tech Experiences
 - Pure JavaScript/TypeScript Environment
@@ -33,9 +31,9 @@ Working as a [Core](https://www.google.com/search?q=what+is+core+team) [Frontend
 - Bots, Automation, Task Runner, Data Collection
 And, I would be open-mind to learning other Tech Stacks if needed.
 
-### Tools that I use
+### Some Tools that I use
 - Main Device: MacBook Pro M1 (2020)
-- OS: MacOS Monterey
+- Operating System: MacOS Monterey
 - Code Editor: Visual Studio Code
 - Database GUI: DBEaver, PhpMyAdmin and Robo 3T
 - Browsers: Google Chrome and Safari
