@@ -17,6 +17,7 @@
     "@gadingnst/store-swr": "^0.3.0",
     "dayjs": "^1.11.1",
     "next": "12.1.5",
+    "nextjs-progressbar": "^0.0.14",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-inlinesvg": "^2.3.0",
