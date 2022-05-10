@@ -14,7 +14,7 @@
     "test:unit:coverage": "jest --ci --json --coverage --testLocationInResults --outputFile=report.json"
   },
   "dependencies": {
-    "@gadingnst/store-swr": "^0.3.0",
+    "@gadingnst/store-swr": "^0.3.1",
     "dayjs": "^1.11.1",
     "next": "12.1.5",
     "nextjs-progressbar": "^0.0.14",
