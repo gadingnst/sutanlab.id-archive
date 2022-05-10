@@ -23,6 +23,8 @@ jobs:
           restore-keys: |
             node_modules-
       - name: Install Dependency Package
+        env:
+          GITHUB_PACKAGE_TOKEN: ${{ secrets.NPMGITHUB_PACKAGE_TOKEN }}
         run: |
           npm install
 
