@@ -27,7 +27,7 @@ const Layout: FunctionComponent<PropsWithChildren<Props>> = (props) => {
 };
 
 export const withLayoutPage = <T extends UnknownProps>(
-  PageComponent: NextPage, layoutProps: Props
+  PageComponent: NextPage<T>, layoutProps: Props
 ) => {
   const LayoutPage: FunctionComponent<T> = (pageProps) => {
     return (

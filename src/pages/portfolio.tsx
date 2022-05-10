@@ -1,4 +1,4 @@
-import { NextPage } from 'next';
+import { GetStaticPropsContext, GetStaticPropsResult, NextPage } from 'next';
 import { Fragment } from 'react';
 import {
   Content,
@@ -10,10 +10,31 @@ import {
   withLayoutPage
 } from 'components';
 
-import portfolio from 'contents/portfolio';
 import imgBanner from 'assets/images/banners/2.jpg';
+import { Portfolio } from 'types/contents';
 
-const PortfolioPage: NextPage = () => {
+type Props = {
+  contents: Portfolio[];
+};
+
+export const getStaticProps = async(ctx: GetStaticPropsContext): Promise<GetStaticPropsResult<Props>> => {
+  const { locale } = ctx;
+  const { default: contents } = await import(`contents/portfolio/${locale}`)
+    .catch((err) => {
+      if (err.code === 'MODULE_NOT_FOUND') {
+        return import(`contents/portfolio/en`);
+      }
+      throw err;
+    });
+  return {
+    props: {
+      contents
+    }
+  };
+};
+
+const PortfolioPage: NextPage<Props> = (props) => {
+  const { contents } = props;
   return (
     <Fragment>
       <Navbar />
@@ -32,7 +53,7 @@ const PortfolioPage: NextPage = () => {
       </Banner>
       <Content className="flex items-center justify-center">
         <div className="grid grid-cols-1 gap-28 max-w-5xl md:grid-cols-2 lg:grid-cols-3 -mt-80">
-          {portfolio.map(item => (
+          {contents.map(item => (
             <Card hoverEffect className="rounded-12 overflow-hidden" key={item.image}>
               <div className="relative w-full h-[200px]">
                 <Image

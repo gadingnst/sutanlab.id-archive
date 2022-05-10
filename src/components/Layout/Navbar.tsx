@@ -1,14 +1,14 @@
 import Link from 'components/Link';
 import SwitchTheme from 'components/Switch/Theme';
 import ButtonClose from 'components/Button/Close';
-import { Fragment, FunctionComponent, ReactNode, useEffect, useState } from 'react';
+import { Fragment, FunctionComponent, ReactNode, useState } from 'react';
 import { SITE_NAME } from 'utils/config';
 import clsxm from 'utils/helpers/clsxm';
 import iconHamburger from 'assets/icons/tools/hamburger.svg';
 import styles from './styles.module.css';
 import Icon from 'components/Image/Icon';
-import useToggler from 'utils/hooks/useToggler';
 import { useRouter } from 'next/router';
+import { useToggler, useMounted } from 'hooks';
 
 export interface Props {
   title?: ReactNode|string;
@@ -37,13 +37,13 @@ const Navbar: FunctionComponent<Props> = (props) => {
     setTransparent(window.scrollY < 80);
   };
 
-  useEffect(() => {
+  useMounted(() => {
     setTransparent(window.scrollY < 80);
     window.addEventListener('scroll', onScroll);
     return () => {
       window.removeEventListener('scroll', onScroll);
     };
-  }, []);
+  });
 
   return (
     <Fragment>
@@ -68,11 +68,10 @@ const Navbar: FunctionComponent<Props> = (props) => {
                   )}
                 >
                   <span
-                    className={clsxm(
-                      pathname === href
-                        ? 'text-accent dark:text-accent-2'
-                        : 'text-white dark:text-white'
-                    )}
+                    className={clsxm({
+                      'text-accent dark:text-accent-2': pathname === href,
+                      'text-white dark:text-white': pathname !== href
+                    })}
                   >
                     {label}
                   </span>

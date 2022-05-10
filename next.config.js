@@ -7,6 +7,10 @@ const nextConfig = {
   images: {
     domains: ['raw.githubusercontent.com']
   },
+  i18n: {
+    locales: ['en', 'id'],
+    defaultLocale: 'en'
+  },
   headers: () => {
     return [
       {
