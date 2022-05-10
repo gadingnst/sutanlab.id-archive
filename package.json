@@ -18,7 +18,7 @@
     "dayjs": "^1.11.1",
     "next": "12.1.5",
     "nextjs-progressbar": "^0.0.14",
-    "react": "18.0.0",
+    "react": "18.1.0",
     "react-dom": "18.0.0",
     "react-inlinesvg": "^2.3.0",
     "react-parallax": "^3.3.0",
@@ -27,7 +27,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.0.0",
-    "@types/react": "18.0.8",
+    "@types/react": "18.0.9",
     "@typescript-eslint/eslint-plugin": "^5.18.0",
     "@typescript-eslint/parser": "^5.21.0",
     "autoprefixer": "^10.4.4",
