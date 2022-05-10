@@ -52,8 +52,8 @@ export const contentsDir = path.join(rootDir, 'contents');
  *
  * @param slugParam slug of the content
  * @param language language of the content (default: en)
- * @see https://www.learnnext.blog/blogs/lets-build-a-blog-with-tailwind-mdx-bundler-and-next#creating-the-mdxjs-file
  * @returns content meta & detail
+ * @see https://www.learnnext.blog/blogs/lets-build-a-blog-with-tailwind-mdx-bundler-and-next#creating-the-mdxjs-file
  */
 async function parseContent(slugParam: string, language = 'en'): Promise<MDContents> {
   const slug = slugParam.replace(/\.(md|mdx)$/, '');

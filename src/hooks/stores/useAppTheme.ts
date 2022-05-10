@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import useStore from '@gadingnst/store-swr';
 
 export type Theme = 'light'|'dark';
@@ -18,18 +17,10 @@ function useAppTheme() {
     persist: true
   });
 
-  const nextTheme = theme === 'light' ? 'dark' : 'light';
-
-  useEffect(() => {
-    const root = window.document.documentElement;
-    root.classList.remove(nextTheme as Theme);
-    root.classList.add(theme as Theme);
-  }, [theme]);
-
   return [
     {
       current: theme,
-      next: nextTheme
+      next: theme === 'light' ? 'dark' : 'light'
     } as ThemeState,
     setTheme
   ] as const;
