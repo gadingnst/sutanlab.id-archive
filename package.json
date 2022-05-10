@@ -14,7 +14,7 @@
     "test:unit:coverage": "jest --ci --json --coverage --testLocationInResults --outputFile=report.json"
   },
   "dependencies": {
-    "@gadingnst/store-swr": "^0.3.0",
+    "@gadingnst/store-swr": "^0.3.1",
     "dayjs": "^1.11.1",
     "next": "12.1.5",
     "nextjs-progressbar": "^0.0.14",
@@ -30,7 +30,7 @@
     "@types/react": "18.0.8",
     "@typescript-eslint/eslint-plugin": "^5.18.0",
     "@typescript-eslint/parser": "^5.21.0",
-    "autoprefixer": "^10.4.4",
+    "autoprefixer": "^10.4.7",
     "clsx": "^1.1.1",
     "eslint": "^8.13.0",
     "eslint-config-next": "^12.1.4",
