@@ -3,7 +3,6 @@ import { Fragment } from 'react';
 import { Content, Footer, Navbar, Banner, CardHero, Image, withLayoutPage } from 'components';
 import { AUTHOR_NAME } from 'utils/config';
 
-import styles from 'styles/pages/about.module.css';
 import imgBanner from 'assets/images/banners/0.jpg';
 import imgProfile from 'assets/images/authors/gading-talks.jpeg';
 
@@ -27,7 +26,7 @@ const AboutPage: NextPage = () => {
             <div>
               <p>Hello</p>
             </div>
-            <div className={styles['profile-pic']}>
+            <div className="-mt-100 w-[180px] h-[180px]">
               <Image
                 classNameWrapper="absolute rounded-full mx-auto shadow-all transition-all hover:-mt-12"
                 src={imgProfile}

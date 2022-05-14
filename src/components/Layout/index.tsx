@@ -11,7 +11,6 @@ export type UnknownProps = Record<string, unknown>;
 
 const Layout: FunctionComponent<PropsWithChildren<Props>> = (props) => {
   const { children, title } = props;
-
   return (
     <Fragment>
       <Head>
@@ -26,12 +25,20 @@ const Layout: FunctionComponent<PropsWithChildren<Props>> = (props) => {
   );
 };
 
+/**
+ * Higher-order component that wraps the provided component in a `<Layout>` component.
+ * @param PageComponent The page component to wrap with the layout
+ * @param layoutProps The props to pass to the layout
+ * @returns NextPage
+ */
 export const withLayoutPage = <T extends UnknownProps>(
-  PageComponent: NextPage<T>, layoutProps: Props
+  PageComponent: NextPage<T>, layoutProps: Props|((pageProps: T) => Props)
 ) => {
   const LayoutPage: FunctionComponent<T> = (pageProps) => {
+    const layoutPropsWithPageProps = typeof layoutProps === 'function'
+      ? layoutProps(pageProps) : layoutProps;
     return (
-      <Layout {...layoutProps}>
+      <Layout {...layoutPropsWithPageProps}>
         <PageComponent {...pageProps} />
       </Layout>
     );

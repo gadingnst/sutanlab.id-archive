@@ -61,6 +61,7 @@ const PortfolioPage: NextPage<Props> = (props) => {
                   layout="fill"
                   objectFit="contain"
                   alt={item.name}
+                  className="transition-transform duration-300 hover:scale-110"
                 />
               </div>
               <div className="flex flex-col pt-12 pb-16 px-16">

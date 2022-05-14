@@ -67,7 +67,7 @@ a {
   @apply text-primary dark:text-accent-2;
 }
 
-p, h1, h2, h3, h4, h5, h6, span, ul, blockquote {
+p, h1, h2, h3, h4, h5, h6, span, ul, ol, blockquote {
   @apply text-dark-70 dark:text-white;
 }
 
@@ -102,7 +102,7 @@ p {
 blockquote {
   width: auto;
   @apply
-    block float-none max-w-3xl my-16 mx-auto py-0 px-32
+    block float-none max-w-3xl my-16 mx-auto py-0 px-24
     border-l-4 border-l-primary-1 dark:border-l-accent-2;
   p {
     @apply m-0 italic;

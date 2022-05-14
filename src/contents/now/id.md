@@ -12,7 +12,7 @@ sourceJS: []
 
 Pertama-tama, saya berterima kasih kepada [Fariz Rizaldy](https://faultable.dev/now/), [Afrijal Dzuhri](https://afrijaldzuhri.wordpress.com/now), [Afwa Bagas Wahuda](https://www.wahudamon.com/now). Karena mereka semua, saya terinspirasi membuat halaman ini untuk mendeskripsikan tentang ***apa yang sedang kulakukan sekarang***. Jadi, mungkin kamu tak perlu bertanya-tanya lagi tentang itu.
 
-Jika kamu mempunyai situsmu sendiri, mungkin kamu harus membuatnya juga.
+> Jika kamu mempunyai situsmu sendiri, mungkin kamu harus membuatnya juga.
 
 ### Karir
 Bekerja sebagai [Core](https://www.google.com/search?q=what+is+core+team) [Frontend Engineer](https://www.google.com/search?q=what+is+frontend+developer+do) di [Orami](https://www.google.com/search?q=orami+indonesia) dibawah [SIRCLO Group](https://www.google.com/search?q=sirclo+group).
@@ -24,13 +24,13 @@ Bekerja sebagai [Core](https://www.google.com/search?q=what+is+core+team) [Front
 - Menikmati waktu dengan keluarga dan pasanganku hampir setiap minggu.
 
 ### Pengalaman Tech
-- Ekosistem Murni JavaScript/TypeScript
-- React Web/Native/NextJS, Vue/NuxtJS
-- Jest, React Testing Library
-- Storybook
-- Bots, Automation, Task Runner, Data Collection
+1. Ekosistem Murni JavaScript/TypeScript
+2. React Web/Native/NextJS, Vue/NuxtJS
+3. Jest, React Testing Library
+4. Storybook
+5. Bots, Automation, Task Runner, Data Collection
 
-Dan saya bisa terbuka untuk mempelajari Stack Teknologi lain jika dibutuhkan.
+*Dan saya bisa terbuka untuk mempelajari Stack Teknologi lain jika dibutuhkan.*
 
 ### Beberapa Peralatan yang saya gunakan
 - Perangkat Utama: MacBook Pro M1 (2020)
@@ -40,4 +40,4 @@ Dan saya bisa terbuka untuk mempelajari Stack Teknologi lain jika dibutuhkan.
 - Peramban: Google Chrome and Safari
 - Lain-lain: Jira/Trello, Postman, Spotify
 
-Terakhir diperbarui: April, 2022. Palembang, Sumatera Selatan. Indonesia. [Riwayat](https://github.com/gadingnst/gading.dev/commits/main/src/contents/now/index.md)
+*Terakhir diperbarui: April, 2022. Palembang, Sumatera Selatan. Indonesia. [Riwayat](https://github.com/gadingnst/gading.dev/commits/main/src/contents/now/index.md)*

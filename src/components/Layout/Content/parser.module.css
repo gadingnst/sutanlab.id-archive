@@ -1,6 +1,26 @@
 .parser {
   h1, h2, h3, h4, h5, h6 {
-    line-height: 1.4;
+    line-height: 2;
     @apply font-bold;
+  }
+
+  p, ul, ol, dl, pre, table, blockquote, form, fieldset, .article-content {
+    line-height: 1.8;
+    @apply mb-16;
+  }
+
+  ul, ol {
+    li {
+      @apply pl-4;
+    }
+    @apply ml-32;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal;
   }
 }

@@ -1,12 +1,13 @@
 import { GetStaticPropsContext, GetStaticPropsResult, NextPage } from 'next';
-import { Content, Footer, Navbar, Banner, CardHero, Layout, ContentParser } from 'components';
+import { Content, Footer, Navbar, Banner, CardHero, ContentParser, withLayoutPage } from 'components';
 
 import imgBanner from 'assets/images/banners/8.jpg';
 import parseContent, { MDContents } from 'scripts/content-parser';
+import { Fragment } from 'react';
 
-interface Props {
+type Props = {
   contents: MDContents;
-}
+};
 
 export const getStaticProps = async(ctx: GetStaticPropsContext): Promise<GetStaticPropsResult<Props>> => {
   const { locale } = ctx;
@@ -22,7 +23,7 @@ const NowPage: NextPage<Props> = (props) => {
   const { contents } = props;
   const { meta, content } = contents;
   return (
-    <Layout title={meta.title}>
+    <Fragment>
       <Navbar />
       <Banner
         bgImage={imgBanner.src}
@@ -45,8 +46,13 @@ const NowPage: NextPage<Props> = (props) => {
         </CardHero>
       </Content>
       <Footer />
-    </Layout>
+    </Fragment>
   );
 };
 
-export default NowPage;
+export default withLayoutPage(NowPage, (props) => {
+  const { title } = props.contents.meta;
+  return {
+    title
+  };
+});
