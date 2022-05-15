@@ -7,11 +7,11 @@ import { DependencyList, EffectCallback, useEffect, useRef } from 'react';
  * @returns void
  */
 function useUpdated(callback: EffectCallback, deps: DependencyList) {
-  const didMount = useRef(false);
+  const mounted = useRef(false);
 
   useEffect(() => {
-    if (didMount.current) return callback();
-    else didMount.current = true;
+    if (mounted.current) return callback();
+    else mounted.current = true;
   }, deps);
 }
 

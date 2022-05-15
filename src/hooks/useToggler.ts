@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import { useState } from 'react';
 
 /**
  *
@@ -6,13 +6,15 @@ import { useReducer } from 'react';
  * @returns The state of the toogler
  */
 function useToggler(initial = false) {
-  const [enable, toggler] = useReducer(
-    (prev: boolean, passValue?: boolean|any) => (
-      typeof prev !== 'boolean' ? !prev : passValue
-    ),
-    initial
+  const [toggle, setToggle] = useState(initial);
+
+  const toggler = (value?: boolean|any) => setToggle(
+    typeof value !== 'boolean'
+      ? !toggle
+      : value
   );
-  return [enable, toggler] as const;
+
+  return [toggle, toggler] as const;
 }
 
 export default useToggler;

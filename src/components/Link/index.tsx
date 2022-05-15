@@ -9,6 +9,7 @@ export interface Props {
   disabled?: boolean;
   target?: string;
   title?: string;
+  locale?: string;
   onClick?: (event: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>) => void;
 }
 
@@ -23,6 +24,7 @@ const Link: FunctionComponent<PropsWithChildren<Props>> = (props) => {
     className,
     title,
     target,
+    locale,
     onClick
   } = props;
 
@@ -30,13 +32,16 @@ const Link: FunctionComponent<PropsWithChildren<Props>> = (props) => {
 
   const clickHandler = (event: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>) => {
     event.preventDefault();
-    if (onClick && !disabled) {
-      onClick(event);
-    } else if (link && !disabled && link !== '#') {
+    if (onClick && !disabled) onClick(event);
+    if (link && !disabled && link !== '#') {
       if (isURL(link)) {
         window.open(link, target);
       } else {
-        router.push(link);
+        if (locale) {
+          router.push(link, link, { locale });
+        } else {
+          router.push(link);
+        }
       }
     }
   };

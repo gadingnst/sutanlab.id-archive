@@ -8,6 +8,7 @@ import iconHamburger from 'assets/icons/tools/hamburger.svg';
 import styles from './styles.module.css';
 import Icon from 'components/Image/Icon';
 import Modal from 'components/Modal';
+import Dropdown from 'components/Dropdown';
 import { useRouter } from 'next/router';
 import { useToggler, useMounted } from 'hooks';
 
@@ -23,12 +24,16 @@ export const menus = [
   { label: 'About', href: '/about' }
 ];
 
+export const i18nList = new Map([
+  ['en', <>🇺🇸&nbsp;&nbsp;&nbsp;EN</>],
+  ['id', <>🇮🇩&nbsp;&nbsp;&nbsp;ID</>]
+]);
+
 const Navbar: FunctionComponent<Props> = (props) => {
   const { title, className } = props;
   const [transparent, setTransparent] = useState(true);
   const [modalVisibility, modalToggler] = useToggler();
-
-  const { pathname } = useRouter();
+  const { pathname, locale } = useRouter();
 
   const headerClass = transparent
     ? 'bg-transparent text-shadow'
@@ -57,6 +62,21 @@ const Navbar: FunctionComponent<Props> = (props) => {
             {title}
           </Link>
           <div className="flex flex-grow font-poppins font-bold justify-end ml-16">
+            <Dropdown
+              className="bg-transparent pt-8 px-8"
+              title={i18nList.get(locale || 'en')}
+            >
+              {Array.from(i18nList).map(([code, label]) => (
+                <Link
+                  key={code}
+                  href={pathname}
+                  locale={code}
+                  className="text-shadow-none text-white dark:text-white"
+                >
+                  {label}
+                </Link>
+              ))}
+            </Dropdown>
             <SwitchTheme className="px-8" />
             <div className="hidden md:block">
               {menus.map(({ label, href }, idx) => (
@@ -91,6 +111,7 @@ const Navbar: FunctionComponent<Props> = (props) => {
       </nav>
       <Modal
         show={modalVisibility}
+        toggler={modalToggler}
         className={clsxm(
           styles['header-mobile'],
           'bg-white self-start justify-self-center dark:bg-dark-60'
