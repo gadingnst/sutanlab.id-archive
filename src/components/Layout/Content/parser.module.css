@@ -1,12 +1,11 @@
 .parser {
   h1, h2, h3, h4, h5, h6 {
-    line-height: 2;
-    @apply font-bold;
+    @apply font-bold mt-24 mb-12;
   }
 
   p, ul, ol, dl, pre, table, blockquote, form, fieldset, .article-content {
     line-height: 1.8;
-    @apply mb-16;
+    @apply mb-12;
   }
 
   ul, ol {

@@ -1,12 +1,12 @@
 .header {
   @apply
     fixed flex w-full items-center p-12
-    z-30 transition-all duration-500 md:px-16 md:py-16;
+    z-30 transition-all duration-200 md:px-16 md:py-16;
 }
 
 .header-mobile {
   @apply
-    fixed w-[95%] z-30 rounded-12 transition-all duration-300
+    fixed w-[95%] z-30 rounded-12 transition-all duration-200
     px-28 py-20 my-12 mx-auto shadow-all;
 }
 
@@ -25,7 +25,7 @@
     height: 2000px;
     transform: skew(0, -6.25deg);
     @apply
-      absolute left-0 right-0 transition-colors duration-300
+      absolute left-0 right-0 transition-colors duration-200
       bg-light-70;
   }
   @apply relative overflow-hidden p-16 mt-56;

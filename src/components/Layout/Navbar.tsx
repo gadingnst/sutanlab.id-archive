@@ -7,6 +7,7 @@ import clsxm from 'utils/helpers/clsxm';
 import iconHamburger from 'assets/icons/tools/hamburger.svg';
 import styles from './styles.module.css';
 import Icon from 'components/Image/Icon';
+import Modal from 'components/Modal';
 import { useRouter } from 'next/router';
 import { useToggler, useMounted } from 'hooks';
 
@@ -88,40 +89,38 @@ const Navbar: FunctionComponent<Props> = (props) => {
           </div>
         </div>
       </nav>
-      <div className="relative flex justify-center">
-        <div
-          className={clsxm(
-            styles['header-mobile'],
-            modalVisibility ? 'scale-100' : 'scale-0',
-            'bg-white dark:bg-dark-60 md:hidden'
-          )}
-        >
-          <div className="flex items-center justify-between">
-            <Link href="/" className="font-courgette font-bold text-xl text-dark dark:text-white hover:scale-105">
-              {title}
-            </Link>
-            <ButtonClose onClick={modalToggler} />
-          </div>
-          <hr className="my-8" />
-          <div className="flex flex-col justify-center">
-            {menus.map(({ label, href }, idx) => (
-              <Link
-                key={href}
-                href={href}
-                className={clsxm(
-                  'font-bold my-4 hover:scale-105',
-                  idx === (menus.length - 1) ? 'mb-0' : '',
-                  pathname === href
-                    ? 'text-accent dark:text-accent-2'
-                    : 'text-dark dark:text-white'
-                )}
-              >
-                {label}
-              </Link>
-            ))}
-          </div>
+      <Modal
+        show={modalVisibility}
+        className={clsxm(
+          styles['header-mobile'],
+          'bg-white self-start justify-self-center dark:bg-dark-60'
+        )}
+      >
+        <div className="flex items-center justify-between">
+          <Link href="/" className="font-courgette font-bold text-xl text-dark dark:text-white hover:scale-105">
+            {title}
+          </Link>
+          <ButtonClose onClick={modalToggler} />
         </div>
-      </div>
+        <hr className="my-8" />
+        <div className="flex flex-col justify-center">
+          {menus.map(({ label, href }, idx) => (
+            <Link
+              key={href}
+              href={href}
+              className={clsxm(
+                'font-bold my-4 hover:scale-105',
+                idx === (menus.length - 1) ? 'mb-0' : '',
+                pathname === href
+                  ? 'text-accent dark:text-accent-2'
+                  : 'text-dark dark:text-white'
+              )}
+            >
+              {label}
+            </Link>
+          ))}
+        </div>
+      </Modal>
     </Fragment>
   );
 };

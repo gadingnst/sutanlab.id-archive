@@ -11,7 +11,7 @@ const Card: FunctionComponent<PropsWithChildren<Props>> = (props) => {
   return (
     <div
       className={clsxm(
-        'bg-white shadow-all transition-all duration-300 z-20 dark:bg-dark-60',
+        'bg-white shadow-all transition-all duration-200 z-20 dark:bg-dark-60',
         hoverEffect && 'hover:scale-105',
         className
       )}
