@@ -21,14 +21,15 @@ const Dropdown: FunctionComponent<PropsWithChildren<Props>> = (props) => {
   } = props;
 
   const [show, toggler] = useToggler();
-  const refContent = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useOutsideClick(() => {
     toggler(false);
-  }, refContent);
+  }, ref);
 
   return (
     <div
+      ref={ref}
       className={clsxm(
         styles.dropdown,
         className
@@ -42,7 +43,6 @@ const Dropdown: FunctionComponent<PropsWithChildren<Props>> = (props) => {
       </Button>
       {show && (
         <div
-          ref={refContent}
           className={clsxm(
             styles['dropdown-content'],
             'bg-primary dark:bg-dark-40',

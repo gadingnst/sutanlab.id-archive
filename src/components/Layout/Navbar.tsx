@@ -4,13 +4,14 @@ import ButtonClose from 'components/Button/Close';
 import { Fragment, FunctionComponent, ReactNode, useState } from 'react';
 import { SITE_NAME } from 'utils/config';
 import clsxm from 'utils/helpers/clsxm';
-import iconHamburger from 'assets/icons/tools/hamburger.svg';
 import styles from './styles.module.css';
 import Icon from 'components/Image/Icon';
 import Modal from 'components/Modal';
 import Dropdown from 'components/Dropdown';
 import { useRouter } from 'next/router';
 import { useToggler, useMounted } from 'hooks';
+import iconAppLogo from 'assets/icons/app/logo.svg';
+import iconHamburger from 'assets/icons/tools/hamburger.svg';
 
 export interface Props {
   title?: ReactNode|string;
@@ -55,15 +56,16 @@ const Navbar: FunctionComponent<Props> = (props) => {
     <Fragment>
       <nav className={clsxm(styles.header, headerClass, className)}>
         <div className={styles['header-container']}>
+          <Icon className="inline-block xs:hidden mr-8" src={iconAppLogo} size={32} />
           <Link
             href="/"
-            className="text-white dark:text-white transition-all duration-150 hover:scale-105 hover:text-light-50"
+            className="text-white dark:text-white transition-all duration-150 hidden xs:block hover:scale-105 hover:text-light-50"
           >
             {title}
           </Link>
-          <div className="flex flex-grow font-poppins font-bold justify-end ml-16">
+          <div className="flex flex-grow font-poppins font-bold justify-end items-center ml-16">
             <Dropdown
-              className="bg-transparent pt-8 px-8"
+              className="bg-transparent pt-8 px-8 -mt-[3px]"
               title={i18nList.get(locale || 'en')}
             >
               {Array.from(i18nList).map(([code, label]) => (
@@ -118,7 +120,7 @@ const Navbar: FunctionComponent<Props> = (props) => {
         )}
       >
         <div className="flex items-center justify-between">
-          <Link href="/" className="font-courgette font-bold text-xl text-dark dark:text-white hover:scale-105">
+          <Link href="/" className="font-courgette transition-all duration-200 font-bold text-xl text-dark dark:text-white hover:scale-105">
             {title}
           </Link>
           <ButtonClose onClick={modalToggler} />
@@ -130,7 +132,7 @@ const Navbar: FunctionComponent<Props> = (props) => {
               key={href}
               href={href}
               className={clsxm(
-                'font-bold my-4 hover:scale-105',
+                'font-bold my-4 transition-all duration-200 hover:scale-105',
                 idx === (menus.length - 1) ? 'mb-0' : '',
                 pathname === href
                   ? 'text-accent dark:text-accent-2'

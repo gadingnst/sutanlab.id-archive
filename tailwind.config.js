@@ -136,7 +136,11 @@ module.exports = {
       28: '28px',
       full: '50%'
     },
-    extend: {}
+    extend: {
+      screens: {
+        xs: '428px'
+      }
+    }
   },
   variants: {
     extend: {
