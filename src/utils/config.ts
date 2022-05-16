@@ -9,3 +9,4 @@ export const INSTAGRAM_USERNAME = 'gadingnst';
 export const GITHUB_USERNAME = 'gadingnst';
 export const LINKEDIN_USERNAME = 'gadingnst';
 export const DISQUS_SHORTNAME = 'sutanlab';
+export const BLOG_PAGINATION_LIMIT = 6;

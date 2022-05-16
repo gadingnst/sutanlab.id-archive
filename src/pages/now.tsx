@@ -2,7 +2,7 @@ import { GetStaticPropsContext, GetStaticPropsResult, NextPage } from 'next';
 import { Content, Footer, Navbar, Banner, CardHero, ContentParser, withLayoutPage } from 'components';
 
 import imgBanner from 'assets/images/banners/8.jpg';
-import parseContent, { MDContents } from 'scripts/content-parser';
+import { MDContents, parseContent } from 'scripts/content-parser';
 import { Fragment } from 'react';
 
 type Props = {
