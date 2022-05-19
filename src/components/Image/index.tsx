@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { FunctionComponent, MouseEventHandler, useCallback, useRef } from 'react';
+import { MouseEventHandler, useCallback, useRef } from 'react';
 import NextImage, { ImageProps } from 'next/image';
 import SVG from 'react-inlinesvg';
 import clsxm from 'utils/helpers/clsxm';
@@ -14,7 +14,7 @@ export type Props = ImageProps & {
 
 export const DEFAULT = 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';
 
-const Image: FunctionComponent<Props> = (props) => {
+const Image = (props: Props) => {
   const {
     inline,
     fallbackSrc,
@@ -34,8 +34,7 @@ const Image: FunctionComponent<Props> = (props) => {
   const source = (src as any)?.src || src || fallbackSrc || DEFAULT;
   const isSvg = source.endsWith('.svg');
   const imgRef = useRef<HTMLImageElement>(null);
-
-  let Component = <NextImage {...nextImageProps} />;
+  const Component = useRef(<NextImage {...nextImageProps} />);
 
   const onError = useCallback(() => {
     if (imgRef.current) {
@@ -44,7 +43,7 @@ const Image: FunctionComponent<Props> = (props) => {
   }, []);
 
   if (isSvg && inline) {
-    Component = (
+    Component.current = (
       <SVG
         cacheRequests
         src={source}
@@ -66,12 +65,12 @@ const Image: FunctionComponent<Props> = (props) => {
     );
   }
 
-  return !classNameWrapper ? Component : (
+  return !classNameWrapper ? Component.current : (
     <div
       className={clsxm('inline-block overflow-hidden', classNameWrapper)}
       style={{ width, height }}
     >
-      {Component}
+      {Component.current}
     </div>
   );
 };
