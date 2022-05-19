@@ -56,14 +56,14 @@ const Navbar: FunctionComponent<Props> = (props) => {
     <Fragment>
       <nav className={clsxm(styles.header, headerClass, className)}>
         <div className={styles['header-container']}>
-          <Icon className="inline-block xs:hidden mr-8" src={iconAppLogo} size={32} />
+          <Icon className="inline-block xxs:hidden mr-8" src={iconAppLogo} size={32} />
           <Link
             href="/"
-            className="text-white dark:text-white transition-all duration-150 hidden xs:block hover:scale-105 hover:text-light-50"
+            className="hidden xxs:inline-block mt-4 text-base transition-all duration-150 xs:text-2xl xs:mt-0 text-white dark:text-white hover:scale-105 hover:text-light-50"
           >
             {title}
           </Link>
-          <div className="flex flex-grow font-poppins font-bold justify-end items-center ml-16">
+          <div className="flex flex-grow font-poppins font-bold justify-end items-center xs:ml-16">
             <Dropdown
               className="bg-transparent pt-8 px-8 -mt-[3px]"
               title={i18nList.get(locale || 'en')}

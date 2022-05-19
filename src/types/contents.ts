@@ -1,3 +1,8 @@
+export enum I18n {
+  en = 'en',
+  id = 'id',
+}
+
 export interface Portfolio {
   name: string;
   category: string;

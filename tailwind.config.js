@@ -138,6 +138,7 @@ module.exports = {
     },
     extend: {
       screens: {
+        xxs: '360px',
         xs: '428px'
       }
     }

@@ -24,7 +24,7 @@ export interface MetaContents {
   tags: string[];
   sourceCSS: string[];
   sourceJS: string[];
-  readTime?: FormatReadingTime;
+  readTime: FormatReadingTime;
 }
 
 export interface MDContents {
