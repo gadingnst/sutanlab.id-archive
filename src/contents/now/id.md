@@ -14,16 +14,16 @@ Pertama-tama, saya berterima kasih kepada [Fariz Rizaldy](https://faultable.dev/
 
 > Jika kamu mempunyai situsmu sendiri, mungkin kamu harus membuatnya juga.
 
-### Karir
+#### 💼 Karir
 Bekerja sebagai [Core](https://www.google.com/search?q=what+is+core+team) [Frontend Engineer](https://www.google.com/search?q=what+is+frontend+developer+do) di [Orami](https://www.google.com/search?q=orami+indonesia) dibawah [SIRCLO Group](https://www.google.com/search?q=sirclo+group).
 
-### Aktivitas
+#### ☕️ Aktivitas
 - Berinvestasi, and mempelajari Cryptocurrency
 - Belajar dan riset beberapa teknologi dari internet.
 - Sosmed, ngoding, membaca dan menulis blog untuk bersenang-senang.
 - Menikmati waktu dengan keluarga dan pasanganku hampir setiap minggu.
 
-### Pengalaman Tech
+#### 💡 Pengalaman Tech
 1. Ekosistem Murni JavaScript/TypeScript
 2. React Web/Native/NextJS, Vue/NuxtJS
 3. Jest, React Testing Library
@@ -32,8 +32,24 @@ Bekerja sebagai [Core](https://www.google.com/search?q=what+is+core+team) [Front
 
 *Dan saya bisa terbuka untuk mempelajari Stack Teknologi lain jika dibutuhkan.*
 
-### Beberapa Peralatan yang saya gunakan
-- Perangkat Utama: MacBook Pro M1 (2020)
+#### 🖥 Pengaturan Ruang-Kerja
+- MacBook Pro M1 8/512 (2020). [Link](https://shopee.co.id/Apple-MacBook-Pro-(13.3-inci-M1-2020)-8GB-RAM-512GB-SSD-Space-Grey-i.241308147.5176302064?sp_atk=3db06e93-1ed2-4045-bf33-249549e4df4c&xptdk=3db06e93-1ed2-4045-bf33-249549e4df4c)
+- Keychron Keyboard K2 V2 with RGB Backlight & Alumunium Frame. [Link](https://www.tokopedia.com/ptnmtindo/keychron-k2-v2-hot-swappble-rgb-backlight-aluminum-frame-brown-switch)
+- Robot Mouse M350 MX Master with Silent Click. [Link](https://www.tokopedia.com/vivanjkt/mouse-silent-dual-mode-bluetooth-wireless-2-4ghz-robot-m350-mx-master-hitam)
+- Redmi NF 27" Full HD Monitor. [Link](https://www.tokopedia.com/minimusinc/monitor-gaming-full-hd-1080p-75hz-ips-27-inch-xiaomi-redmi-6-bulan?src=topads)
+- JBL Go 3 Speaker. [Link](https://www.tokopedia.com/jbl-official/jbl-go-3-waterproof-bluetooth-speaker)
+- Wooden Keyboard Wrist Rest. [Link](https://www.tokopedia.com/woodnstationery/wood-wrist-rest-75-percent-size-for-keychron-k2-k6-etc-black-white)
+- Ergonomic Silicon Mouse Wrist Pad. [Link](https://www.tokopedia.com/raja-banting/soft-silicone-mouse-wrist-pad-anti-slip-anti-bakteri-ergonomic-food-gd-biru)
+- Danycase Laptop Stand Holder Aluminium with Cooling Fan. [Link](https://www.tokopedia.com/cauzastore/stand-holder-laptop-adjustable-aluminium-with-cooling-fan)
+- Inbex Cup Phone Holder Desktop Stand. [Link](https://www.tokopedia.com/inbexelectronic/inbex-cup-phone-holder-serbaguna-penyangga-360-putar-desktop-stand)
+- Inbex Mini Phone Holder Portable. [Link](https://www.tokopedia.com/inbexelectronic/inbex-mini-phone-holder-foldable-lifting-portable-table-stand-black)
+- Bardi Smart Aroma Diffuser. [Link](https://www.tokopedia.com/bardistore/bardi-smart-aroma-diffuser)
+- Bardi Smart LED Strip. [Link](https://www.tokopedia.com/bardistore/bardi-bundling-led-strip-rgbww-wifi-2m-adaptor-4m)
+- Bardi Smart Light Bulb. [Link](https://www.tokopedia.com/bardistore/bardi-smart-light-bulb-rgb-ww-12w-wifi-wireless-iot-home-automation)
+- Standard Wood Table. [Link](https://www.tokopedia.com/alfaproofficial/meja-kerja-meja-kantor-meja-belajar-meja-gaming-murah-minimalis-modern-dark?src=topads)
+- Holi Gaming Chair with Footrest. [Link](https://www.tokopedia.com/holiofficialstore/holi-kursi-gaming-chair-computer-bangku-gaming-game-murah-hl-502-putih-footrest)
+
+#### 🛠 Beberapa Perangkat Lunak yang saya gunakan sehari-hari
 - Sistem Operasi: MacOS Monterey
 - Kode Editor: Visual Studio Code
 - GUI Basis Data: DBEaver, PhpMyAdmin and Robo 3T

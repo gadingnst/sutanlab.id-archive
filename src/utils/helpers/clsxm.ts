@@ -3,10 +3,10 @@ import { twMerge } from 'tailwind-merge';
 
 /**
  *
- * @param classes tailwind class names
- * @returns string of tailwind classes
+ * @param classes - class names
+ * @returns {string} - class names joined by space
  */
-function clsxm(...classes: ClassValue[]) {
+function clsxm(...classes: ClassValue[]): string {
   return twMerge(clsx(...classes));
 }
 

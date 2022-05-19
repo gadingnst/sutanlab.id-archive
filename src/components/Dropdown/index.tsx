@@ -21,7 +21,7 @@ const Dropdown: FunctionComponent<PropsWithChildren<Props>> = (props) => {
   } = props;
 
   const [show, toggler] = useToggler();
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef(null);
 
   useOutsideClick(() => {
     toggler(false);

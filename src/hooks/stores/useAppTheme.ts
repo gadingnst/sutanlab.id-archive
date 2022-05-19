@@ -8,10 +8,10 @@ export interface ThemeState {
 
 /**
  *
- * @returns theme state
+ * @returns - theme state
  */
 function useAppTheme() {
-  const [theme, setTheme] = useStore({
+  const [theme, setTheme] = useStore<Theme>({
     key: '@app/theme',
     initial: 'light',
     persist: true

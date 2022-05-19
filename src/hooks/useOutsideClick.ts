@@ -1,23 +1,25 @@
-import { RefObject } from 'react';
+import { RefObject, useCallback } from 'react';
 import useUpdated from './useUpdated';
 
 /**
- *
- * @param callback - The callback to run only when user clicks outside of the element
+ * React hook that listens for clicks outside of a given ref.
+ * @param callback - The callback to run when user clicks outside of the element
  * @param ref - The ref of the element to listen to
+ * @returns {void} - void
  */
-function useOutsideClick<T extends Node>(callback: () => void, ref: RefObject<T>) {
+function useOutsideClick<T extends Node>(callback: () => void, ref: RefObject<T>): void {
+  const handleOutsideClick = useCallback((event: MouseEvent) => {
+    const refElement = ref?.current;
+    if (refElement && !refElement?.contains(event?.target as Node)) {
+      callback();
+    }
+  }, []);
   useUpdated(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (ref?.current && !ref.current.contains(event?.target as Node)) {
-        callback();
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('mousedown', handleOutsideClick);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('mousedown', handleOutsideClick);
     };
-  }, [ref]);
+  }, []);
 }
 
 export default useOutsideClick;

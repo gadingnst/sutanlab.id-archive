@@ -35,8 +35,8 @@ export interface MDContents {
 
 /**
  *
- * @param content content to be parsed
- * @returns formatted reading time
+ * @param content - content to be parsed
+ * @returns {FormatReadingTime} - formatted reading time
  */
 const formatReadingTime = (content: string): FormatReadingTime => {
   const { minutes, ...otherResult } = readingTime(content);
@@ -47,9 +47,9 @@ const formatReadingTime = (content: string): FormatReadingTime => {
 
 /**
  *
- * @param filePath path to file
- * @param language language of file
- * @returns content string
+ * @param filePath - path to file
+ * @param language - language of file
+ * @returns {Promise<string>} - asynchronouse content string
  */
 const readContent = async(filePath: string, language = 'en'): Promise<string> => {
   const files = await Fs.readdir(filePath).catch(() => []);
@@ -65,9 +65,9 @@ export const contentsDir = path.join(rootDir, 'contents');
 
 /**
  *
- * @param slugParam slug of the content
- * @param language language of the content (default: en)
- * @returns content meta & detail
+ * @param slugParam - slug of the content
+ * @param language - language of the content (default: en)
+ * @returns {Promise<MDContents>} - asynchronous content meta & detail
  * @see https://www.learnnext.blog/blogs/lets-build-a-blog-with-tailwind-mdx-bundler-and-next#creating-the-mdxjs-file
  */
 export async function parseContent(slugParam: string, language = 'en'): Promise<MDContents> {
@@ -104,8 +104,8 @@ export async function parseContent(slugParam: string, language = 'en'): Promise<
 
 /**
  *
- * @param language language of the content (default: en)
- * @returns all content meta
+ * @param language - language of the content (default: en)
+ * @returns {Promise<MDContents[]>} - asynchronous all content meta
  */
 export const getBlogList = async(language = 'en'): Promise<MDContents[]> => {
   const fullPath = path.join(contentsDir, 'posts', 'published');

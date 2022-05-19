@@ -27,9 +27,9 @@ const Layout: FunctionComponent<PropsWithChildren<Props>> = (props) => {
 
 /**
  * Higher-order component that wraps the provided component in a `<Layout>` component.
- * @param PageComponent The page component to wrap with the layout
- * @param layoutProps The props to pass to the layout
- * @returns NextPage
+ * @param PageComponent - The page component to wrap with the layout
+ * @param layoutProps - The props to pass to the layout
+ * @returns - NextPage
  */
 export const withLayoutPage = <T extends UnknownProps>(
   PageComponent: NextPage<T>, layoutProps: Props|((pageProps: T) => Props)

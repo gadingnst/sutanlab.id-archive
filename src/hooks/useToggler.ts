@@ -3,7 +3,7 @@ import { useState } from 'react';
 /**
  *
  * @param initial - The initial state of the toogler
- * @returns The state of the toogler
+ * @returns - The state of the toogler
  */
 function useToggler(initial = false) {
   const [toggle, setToggle] = useState(initial);
