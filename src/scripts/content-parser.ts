@@ -10,27 +10,27 @@ import rehypePrism from 'rehype-prism-plus';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 
+export interface FormatReadingTime extends ReadTimeResults {
+  cups: string;
+}
+
 export interface MetaContents {
   title: string;
   slug: string;
-  date: string;
+  date: Date|string;
   description: string;
   keywords: string;
   image: string;
   tags: string[];
   sourceCSS: string[];
   sourceJS: string[];
-}
-
-export interface FormatReadingTime extends ReadTimeResults {
-  cups: string;
+  readTime?: FormatReadingTime;
 }
 
 export interface MDContents {
   slug: string;
   content: string;
   meta: MetaContents;
-  readTime: FormatReadingTime;
 }
 
 /**
@@ -99,7 +99,8 @@ export async function parseContent(slugParam: string, language = 'en'): Promise<
   const { code: content, frontmatter: meta } = result;
   const readTime = formatReadingTime(source);
   meta.date = day(meta.date).format('YYYY-MM-DD');
-  return { slug, meta, content, readTime } as MDContents;
+  meta.readTime = readTime;
+  return { slug, meta, content } as MDContents;
 }
 
 /**
@@ -107,7 +108,7 @@ export async function parseContent(slugParam: string, language = 'en'): Promise<
  * @param language - language of the content (default: en)
  * @returns {Promise<MDContents[]>} - asynchronous all content meta
  */
-export const getBlogList = async(language = 'en'): Promise<MDContents[]> => {
+export const getBlogList = async(language = 'en'): Promise<MetaContents[]> => {
   const fullPath = path.join(contentsDir, 'posts', 'published');
   const dirs = await Fs.readdir(fullPath).catch(() => []);
   return Promise.all(dirs.map(async(dir) => {
@@ -115,6 +116,6 @@ export const getBlogList = async(language = 'en'): Promise<MDContents[]> => {
     const fileContents = await readContent(filePath, language);
     const { content, data } = matter(fileContents);
     const readTime = formatReadingTime(content);
-    return { ...data, readTime } as MDContents;
+    return { ...data, readTime } as MetaContents;
   }));
 };

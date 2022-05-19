@@ -3,13 +3,11 @@ import { Fragment } from 'react';
 import { Content, Footer, Navbar, Banner, CardHero, withLayoutPage } from 'components';
 import { SITE_NAME } from 'utils/config';
 
-import imgBanner from 'assets/images/banners/1.jpg';
-
 const HomePage: NextPage = () => {
   return (
     <Fragment>
       <Navbar />
-      <Banner bgImage={imgBanner.src} className="font-courgette text-white text-shadow text-center">
+      <Banner bgImage="/media/banners/1.jpg" className="font-courgette text-white text-shadow text-center">
         <div className="-mt-48">
           <h1 className="font-bold text-4xl mb-8 text-white dark:text-white">
             {SITE_NAME}

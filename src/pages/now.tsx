@@ -1,7 +1,5 @@
 import { GetStaticPropsContext, GetStaticPropsResult, NextPage } from 'next';
 import { Content, Footer, Navbar, Banner, CardHero, ContentParser, withLayoutPage } from 'components';
-
-import imgBanner from 'assets/images/banners/8.jpg';
 import { MDContents, parseContent } from 'scripts/content-parser';
 import { Fragment } from 'react';
 
@@ -26,7 +24,7 @@ const NowPage: NextPage<Props> = (props) => {
     <Fragment>
       <Navbar />
       <Banner
-        bgImage={imgBanner.src}
+        bgImage={meta.image}
         className="font-courgette text-white text-shadow text-center"
       >
         <div className="-mt-48">

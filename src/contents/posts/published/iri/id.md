@@ -5,7 +5,7 @@ date: 2020-04-22
 description: "Iri adalah sifat manusiawi. But, you don't really know about others background."
 keywords: 'iri, thoughts, sifat manusiawi, programming, instagram, twitter'
 tags: ['iri', 'life', 'thoughts']
-image: '/assets/img/collections/default-banners/0.jpg'
+image: '/media/banners/0.jpg'
 sourceCSS: []
 sourceJS: []
 ---

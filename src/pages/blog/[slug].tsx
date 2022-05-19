@@ -2,8 +2,6 @@ import { GetStaticPathsResult, GetStaticPropsResult, NextPage } from 'next';
 import { Fragment } from 'react';
 import { Content, Footer, Navbar, Banner, CardHero, withLayoutPage } from 'components';
 
-import imgBanner from 'assets/images/banners/5.jpg';
-
 type Props = {
   title: string;
 };
@@ -40,7 +38,7 @@ const BlogDetailPage: NextPage = () => {
   return (
     <Fragment>
       <Navbar />
-      <Banner bgImage={imgBanner.src} className="font-courgette text-white text-shadow text-center">
+      <Banner bgImage="/media/banners/5.jpg" className="font-courgette text-white text-shadow text-center">
         <div className="-mt-48">
           <h1 className="font-bold text-4xl mb-8 text-white dark:text-white">
             Blog

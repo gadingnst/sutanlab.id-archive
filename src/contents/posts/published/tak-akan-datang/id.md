@@ -5,7 +5,7 @@ date: 2019-05-07
 description: 'My bullshit motivation.'
 keywords: 'life, kehidupan, waktu, motivasi, motivation'
 tags: ['time', 'motivation']
-image: '/assets/img/collections/default-banners/1.jpg'
+image: '/media/banners/1.jpg'
 sourcsCSS: []
 sourceJS: []
 ---

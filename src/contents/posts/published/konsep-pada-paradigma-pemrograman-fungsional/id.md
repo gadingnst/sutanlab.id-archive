@@ -5,7 +5,7 @@ date: 2020-01-18
 description: 'Tidak hanya OOP, paradigma fungsional juga memiliki konsep dan aturan penggunaan yang menarik, apa saja itu ?'
 keywords: 'functional paradigm, paradigma fungsional, pure function, curried function, recursive function, currying, recursive, callback, closure, fungsi'
 tags: ['functional', 'purefunction', 'recursive', 'currying', 'closure', 'higherorderfunction']
-image: '/assets/img/collections/default-banners/5.jpg'
+image: '/media/banners/5.jpg'
 sourceCSS: []
 sourceJS: []
 ---

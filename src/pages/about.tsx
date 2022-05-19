@@ -3,14 +3,13 @@ import { Fragment } from 'react';
 import { Content, Footer, Navbar, Banner, CardHero, Image, withLayoutPage } from 'components';
 import { AUTHOR_NAME } from 'utils/config';
 
-import imgBanner from 'assets/images/banners/0.jpg';
 import imgProfile from 'assets/images/authors/gading-talks.jpeg';
 
 const AboutPage: NextPage = () => {
   return (
     <Fragment>
       <Navbar />
-      <Banner bgImage={imgBanner.src} className="font-courgette text-white text-shadow text-center">
+      <Banner bgImage="/media/banners/0.jpg" className="font-courgette text-white text-shadow text-center">
         <div className="-mt-48">
           <h1 className="font-bold text-4xl mb-8 text-white dark:text-white">
             {AUTHOR_NAME}

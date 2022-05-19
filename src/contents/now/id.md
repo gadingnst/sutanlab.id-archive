@@ -4,7 +4,7 @@ slug: "now"
 date: 2022-04-24
 description: "Apa yang sedang kulakukan sekarang?"
 keywords: "now, gading's activities, now page, gading now page, gading, gading sedang apa, halaman aktivitas"
-image: ""
+image: "/media/banners/8.jpg"
 tags: []
 sourceCSS: []
 sourceJS: []
@@ -15,7 +15,7 @@ Pertama-tama, saya berterima kasih kepada [Fariz Rizaldy](https://faultable.dev/
 > Jika kamu mempunyai situsmu sendiri, mungkin kamu harus membuatnya juga.
 
 #### 💼 Karir
-Bekerja sebagai [Core](https://www.google.com/search?q=what+is+core+team) [Frontend Engineer](https://www.google.com/search?q=what+is+frontend+developer+do) di [Orami](https://www.google.com/search?q=orami+indonesia) dibawah [SIRCLO Group](https://www.google.com/search?q=sirclo+group).
+Bekerja sebagai [Insinyur Perangkat Lunak](https://www.google.com/search?q=what+is+software+engineer+do), [Inti](https://www.google.com/search?q=what+is+core+team) di [Orami](https://www.google.com/search?q=orami+indonesia) dibawah [SIRCLO Group](https://www.google.com/search?q=sirclo+group).
 
 #### ☕️ Aktivitas
 - Berinvestasi, and mempelajari Cryptocurrency
@@ -32,7 +32,7 @@ Bekerja sebagai [Core](https://www.google.com/search?q=what+is+core+team) [Front
 
 *Dan saya bisa terbuka untuk mempelajari Stack Teknologi lain jika dibutuhkan.*
 
-#### 🖥 Pengaturan Ruang-Kerja
+#### 🖥 Pengaturan Bekerja dari Rumah
 - MacBook Pro M1 8/512 (2020). [Link](https://shopee.co.id/Apple-MacBook-Pro-(13.3-inci-M1-2020)-8GB-RAM-512GB-SSD-Space-Grey-i.241308147.5176302064?sp_atk=3db06e93-1ed2-4045-bf33-249549e4df4c&xptdk=3db06e93-1ed2-4045-bf33-249549e4df4c)
 - Keychron Keyboard K2 V2 with RGB Backlight & Alumunium Frame. [Link](https://www.tokopedia.com/ptnmtindo/keychron-k2-v2-hot-swappble-rgb-backlight-aluminum-frame-brown-switch)
 - Robot Mouse M350 MX Master with Silent Click. [Link](https://www.tokopedia.com/vivanjkt/mouse-silent-dual-mode-bluetooth-wireless-2-4ghz-robot-m350-mx-master-hitam)

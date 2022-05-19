@@ -9,20 +9,18 @@ import {
   Image,
   withLayoutPage
 } from 'components';
-
-import imgBanner from 'assets/images/banners/2.jpg';
-import { getBlogList } from 'scripts/content-parser';
+import { getBlogList, MetaContents } from 'scripts/content-parser';
 
 type Props = {
-  contents: any[];
+  contents: MetaContents[];
 };
 
 export const getStaticProps = async(ctx: GetStaticPropsContext): Promise<GetStaticPropsResult<Props>> => {
   const { locale } = ctx;
-  await getBlogList(locale);
+  const contents = await getBlogList(locale);
   return {
     props: {
-      contents: []
+      contents: JSON.parse(JSON.stringify(contents))
     }
   };
 };
@@ -33,7 +31,7 @@ const BlogListPage: NextPage<Props> = (props) => {
     <Fragment>
       <Navbar />
       <Banner
-        bgImage={imgBanner.src}
+        bgImage="/media/banners/5.jpg"
         className="font-courgette text-white text-shadow text-center"
       >
         <div className="-mt-48">
@@ -46,7 +44,7 @@ const BlogListPage: NextPage<Props> = (props) => {
         </div>
       </Banner>
       <Content className="flex items-center justify-center">
-        <div className="grid grid-cols-1 gap-28 max-w-5xl md:grid-cols-2 lg:grid-cols-3 -mt-80">
+        <div className="grid grid-cols-1 gap-28 max-w-5xl md:grid-cols-2 -mt-80">
           {contents.map(item => (
             <Card hoverEffect className="rounded-12 overflow-hidden" key={item.image}>
               <div className="relative w-full h-[200px]">
@@ -54,13 +52,14 @@ const BlogListPage: NextPage<Props> = (props) => {
                   src={item.image}
                   layout="fill"
                   objectFit="contain"
-                  alt={item.name}
+                  alt={item.title}
+                  placeholder="empty"
                   className="transition-transform duration-200 hover:scale-110"
                 />
               </div>
               <div className="flex flex-col pt-12 pb-16 px-16">
                 <p className="mb-4 text-primary dark:text-primary-2">
-                  {item.name}
+                  {item.title}
                 </p>
                 <p className="text-sm">
                   {item.description}

@@ -5,7 +5,7 @@ date: 2020-09-22
 description: 'Apakah tujuan kita meraih prestasi? Apakah bedanya prestasi dengan manfaat? Well, ga ada salahnya kamu mengejar prestasi. Namun, pastikan kalau kontribusimu juga bermanfaat buat orang lain.'
 keywords: 'prestasi, bermanfaat, menjadi orang yang berguna, meraih prestasi, kehidupan'
 tags: ['life', 'thoughts']
-image: '/assets/img/collections/default-banners/8.jpg'
+image: '/media/banners/8.jpg'
 sourceCSS: []
 sourceJS: []
 ---

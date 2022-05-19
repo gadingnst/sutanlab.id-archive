@@ -1,5 +1,5 @@
 import { RefObject, useCallback } from 'react';
-import useUpdated from './useUpdated';
+import useMounted from './useMounted';
 
 /**
  * React hook that listens for clicks outside of a given ref.
@@ -14,12 +14,12 @@ function useOutsideClick<T extends Node>(callback: () => void, ref: RefObject<T>
       callback();
     }
   }, []);
-  useUpdated(() => {
+  useMounted(() => {
     document.addEventListener('mousedown', handleOutsideClick);
     return () => {
       document.removeEventListener('mousedown', handleOutsideClick);
     };
-  }, []);
+  });
 }
 
 export default useOutsideClick;

@@ -5,7 +5,7 @@ date: 2019-08-03
 description: 'Apa yang harus aku lakukan pada bulan agustus ini ?'
 keywords: 'kampus, planning, rencana, wisuda, polsri'
 tags: ['campus', 'planning']
-image: '/assets/img/collections/default-banners/2.jpg'
+image: '/media/banners/2.jpg'
 sourceCSS: []
 sourceJS: []
 ---

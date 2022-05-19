@@ -131,7 +131,7 @@ initpost_content() {
     echo "description: \"\""
     echo "keywords: \"\""
     echo "tags: []"
-    echo "image: \"/images/banners/${RAND_NUM}.jpg\""
+    echo "image: \"/media/banners/${RAND_NUM}.jpg\""
     echo "sourceCSS: []"
     echo "sourceJS: []"
     echo "---"

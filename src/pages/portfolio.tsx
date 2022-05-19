@@ -9,8 +9,6 @@ import {
   Image,
   withLayoutPage
 } from 'components';
-
-import imgBanner from 'assets/images/banners/2.jpg';
 import { Portfolio } from 'types/contents';
 
 type Props = {
@@ -39,7 +37,7 @@ const PortfolioPage: NextPage<Props> = (props) => {
     <Fragment>
       <Navbar />
       <Banner
-        bgImage={imgBanner.src}
+        bgImage="/media/banners/2.jpg"
         className="font-courgette text-white text-shadow text-center"
       >
         <div className="-mt-48">
@@ -60,6 +58,7 @@ const PortfolioPage: NextPage<Props> = (props) => {
                   src={item.image}
                   layout="fill"
                   objectFit="contain"
+                  placeholder="empty"
                   alt={item.name}
                   className="transition-transform duration-200 hover:scale-110"
                 />

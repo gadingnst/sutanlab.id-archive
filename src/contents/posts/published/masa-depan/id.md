@@ -5,7 +5,7 @@ date: 2019-05-17
 description: 'Kenapa belajar lebih dalam tentang teknologi ? Apa alasannya ? Well, my code is my future'
 keywords: 'life, masa depan, koding, cita-cita, programming, technology, teknologi, pemrograman'
 tags: ['future', 'motivation']
-image: '/assets/img/collections/default-banners/3.jpg'
+image: '/media/banners/3.jpg'
 sourceCSS: []
 sourceJS: []
 ---
