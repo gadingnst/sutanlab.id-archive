@@ -38,8 +38,7 @@ export const DropdownItem: FunctionComponent<PropsWithChildren<DropdownItemProps
 };
 
 DropdownItem.defaultProps = {
-  active: false,
-  onClick: () => void 0
+  active: false
 };
 
 const Dropdown = (props: PropsWithChildren<Props>) => {
@@ -87,8 +86,8 @@ const Dropdown = (props: PropsWithChildren<Props>) => {
           {Items.map(({ props, key }: any) => (
             <DropdownItem
               key={key}
-              {...props || {}}
               onClick={onItemClick}
+              {...props || {}}
             />
           ))}
         </div>

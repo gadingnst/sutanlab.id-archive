@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 /**
  *
@@ -8,11 +8,11 @@ import { useState } from 'react';
 function useToggler(initial = false) {
   const [toggle, setToggle] = useState(initial);
 
-  const toggler = (value?: boolean|any) => setToggle(
+  const toggler = useCallback((value?: boolean|any) => setToggle(
     typeof value !== 'boolean'
       ? !toggle
       : value
-  );
+  ), [toggle]);
 
   return [toggle, toggler] as const;
 }

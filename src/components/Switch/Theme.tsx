@@ -1,4 +1,4 @@
-import { Fragment, FunctionComponent } from 'react';
+import { Fragment, FunctionComponent, useCallback } from 'react';
 import clsxm from 'utils/helpers/clsxm';
 import useAppTheme from 'hooks/stores/useAppTheme';
 
@@ -11,9 +11,9 @@ const SwitchTheme: FunctionComponent<Props> = (props) => {
   const { size, className } = props;
   const [theme, setTheme] = useAppTheme();
 
-  const onChangeTheme = () => {
+  const onChangeTheme = useCallback(() => {
     setTheme(theme.next);
-  };
+  }, [theme]);
 
   const Icon = theme.current === 'light'
     ? <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />

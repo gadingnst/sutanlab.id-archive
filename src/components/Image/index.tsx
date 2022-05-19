@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { createRef, FunctionComponent, MouseEventHandler } from 'react';
+import { FunctionComponent, MouseEventHandler, useCallback, useRef } from 'react';
 import NextImage, { ImageProps } from 'next/image';
 import SVG from 'react-inlinesvg';
 import clsxm from 'utils/helpers/clsxm';
@@ -33,18 +33,17 @@ const Image: FunctionComponent<Props> = (props) => {
 
   const source = (src as any)?.src || src || fallbackSrc || DEFAULT;
   const isSvg = source.endsWith('.svg');
+  const imgRef = useRef<HTMLImageElement>(null);
 
   let Component = <NextImage {...nextImageProps} />;
 
+  const onError = useCallback(() => {
+    if (imgRef.current) {
+      imgRef.current.src = fallbackSrc || DEFAULT;
+    }
+  }, []);
+
   if (isSvg && inline) {
-    const imgRef = createRef<HTMLImageElement>();
-
-    const onError = () => {
-      if (imgRef.current) {
-        imgRef.current.src = fallbackSrc || DEFAULT;
-      }
-    };
-
     Component = (
       <SVG
         cacheRequests

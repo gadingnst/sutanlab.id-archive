@@ -1,4 +1,4 @@
-import { FunctionComponent, MouseEvent, PropsWithChildren } from 'react';
+import { FunctionComponent, MouseEvent, PropsWithChildren, useCallback } from 'react';
 import { useRouter } from 'next/router';
 import { isURL } from 'utils/helpers/url';
 
@@ -30,7 +30,7 @@ const Link: FunctionComponent<PropsWithChildren<Props>> = (props) => {
 
   const link = href || to;
 
-  const clickHandler = (event: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>) => {
+  const clickHandler = useCallback((event: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>) => {
     event.preventDefault();
     if (onClick && !disabled) onClick(event);
     if (link && !disabled && link !== '#') {
@@ -44,7 +44,7 @@ const Link: FunctionComponent<PropsWithChildren<Props>> = (props) => {
         }
       }
     }
-  };
+  }, []);
 
   let classes = className;
   if (disabled) classes += ' cursor-not-allowed';

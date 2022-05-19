@@ -1,7 +1,7 @@
 import Link from 'components/Link';
 import SwitchTheme from 'components/Switch/Theme';
 import ButtonClose from 'components/Button/Close';
-import { Fragment, FunctionComponent, ReactNode, useState } from 'react';
+import { Fragment, FunctionComponent, ReactNode, useCallback, useState } from 'react';
 import { SITE_NAME } from 'utils/config';
 import clsxm from 'utils/helpers/clsxm';
 import styles from './styles.module.css';
@@ -40,9 +40,9 @@ const Navbar: FunctionComponent<Props> = (props) => {
   const headerClass = transparent
     ? 'bg-transparent' : 'bg-primary shadow-bottom dark:bg-dark-40';
 
-  const onScroll = () => {
+  const onScroll = useCallback(() => {
     setTransparent(window.scrollY < 80);
-  };
+  }, []);
 
   useMounted(() => {
     setTransparent(window.scrollY < 80);
