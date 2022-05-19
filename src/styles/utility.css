@@ -3,15 +3,15 @@
 */
 
 @layer base {
-  .text-shadow {
+  .util--text-shadow {
     text-shadow: 2px 2px 15px #000;
   }
 
-  .text-shadow-none {
+  .util--text-shadow-none {
     text-shadow: none;
   }
 
-  .underline-dotted {
+  .util--underline-dotted {
     text-decoration: underline dotted;
   }
 }

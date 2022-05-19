@@ -32,7 +32,7 @@ const BlogListPage: NextPage<Props> = (props) => {
       <Navbar />
       <Banner
         bgImage="/media/banners/5.jpg"
-        className="font-courgette text-white text-shadow text-center"
+        className="font-courgette text-white util--text-shadow text-center"
       >
         <div className="-mt-48">
           <h1 className="font-bold text-4xl mb-8 text-white dark:text-white">
@@ -46,9 +46,10 @@ const BlogListPage: NextPage<Props> = (props) => {
       <Content className="flex items-center justify-center">
         <div className="grid grid-cols-1 gap-28 max-w-5xl md:grid-cols-2 -mt-80">
           {contents.map(item => (
-            <Card hoverEffect className="rounded-12 overflow-hidden" key={item.image}>
+            <Card hoverEffect className="rounded-12 overflow-hidden" key={item.slug}>
               <div className="relative w-full h-[200px]">
                 <Image
+                  priority
                   src={item.image}
                   layout="fill"
                   objectFit="contain"

@@ -7,7 +7,7 @@ const HomePage: NextPage = () => {
   return (
     <Fragment>
       <Navbar />
-      <Banner bgImage="/media/banners/1.jpg" className="font-courgette text-white text-shadow text-center">
+      <Banner bgImage="/media/banners/1.jpg" className="font-courgette text-white util--text-shadow text-center">
         <div className="-mt-48">
           <h1 className="font-bold text-4xl mb-8 text-white dark:text-white">
             {SITE_NAME}

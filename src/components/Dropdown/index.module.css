@@ -5,11 +5,14 @@
   }
   .dropdown-content {
     @apply absolute max-w-[160px] overflow-auto shadow-all z-10 rounded-8 mt-2 py-8 px-12;
-    li {
-      @apply list-none shadow-none;
-    }
-    a {
-      @apply block shadow-none;
+    .dropdown-item {
+      @apply transition-all duration-150;
+      a, li {
+        @apply list-none shadow-none;
+      }
+      &.active {
+        @apply pointer-events-none;
+      }
     }
   }
 }

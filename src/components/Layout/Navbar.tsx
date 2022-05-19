@@ -35,10 +35,10 @@ const Navbar: FunctionComponent<Props> = (props) => {
   const [transparent, setTransparent] = useState(true);
   const [modalVisibility, modalToggler] = useToggler();
   const { pathname, locale } = useRouter();
+  const textShadowClass = transparent ? 'util--text-shadow' : '';
 
   const headerClass = transparent
-    ? 'bg-transparent text-shadow'
-    : 'bg-primary shadow-bottom dark:bg-dark-40';
+    ? 'bg-transparent' : 'bg-primary shadow-bottom dark:bg-dark-40';
 
   const onScroll = () => {
     setTransparent(window.scrollY < 80);
@@ -59,7 +59,10 @@ const Navbar: FunctionComponent<Props> = (props) => {
           <Icon className="inline-block xxs:hidden mr-8" src={iconAppLogo} size={32} />
           <Link
             href="/"
-            className="hidden xxs:inline-block mt-4 text-base transition-all duration-150 xs:text-2xl xs:mt-0 text-white dark:text-white hover:scale-105 hover:text-light-50"
+            className={clsxm(
+              'hidden xxs:inline-block mt-4 text-base transition-all duration-150 xs:text-2xl xs:mt-0 text-white dark:text-white hover:scale-105 hover:text-light-50',
+              textShadowClass
+            )}
           >
             {title}
           </Link>
@@ -69,17 +72,21 @@ const Navbar: FunctionComponent<Props> = (props) => {
               title={i18nList.get(locale || 'en')}
             >
               {Array.from(i18nList).map(([code, label]) => (
-                <Link
-                  key={code}
-                  href={pathname}
-                  locale={code}
-                  className="text-shadow-none text-white dark:text-white"
-                >
-                  {label}
-                </Link>
+                <Dropdown.Item key={code} active={code === locale}>
+                  <Link
+                    href={pathname}
+                    locale={code}
+                    className={clsxm(
+                      'text-dark-70 dark:text-white',
+                      code === locale && 'text-accent-1 dark:text-accent-2'
+                    )}
+                  >
+                    {label}
+                  </Link>
+                </Dropdown.Item>
               ))}
             </Dropdown>
-            <SwitchTheme className="px-8" />
+            <SwitchTheme className={clsxm(textShadowClass, 'px-8')} />
             <div className="hidden md:block">
               {menus.map(({ label, href }, idx) => (
                 <Link
@@ -87,7 +94,8 @@ const Navbar: FunctionComponent<Props> = (props) => {
                   href={href}
                   className={clsxm(
                     'font-bold text-lg mx-8 transition-all duration-200 hover:scale-105',
-                    idx === (menus.length - 1) ? 'mr-0' : ''
+                    idx === (menus.length - 1) ? 'mr-0' : '',
+                    textShadowClass
                   )}
                 >
                   <span

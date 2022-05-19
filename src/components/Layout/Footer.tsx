@@ -62,7 +62,7 @@ const Footer: FunctionComponent<Props> = (props) => {
         <span className="inline-block">&nbsp;&bull;&nbsp;</span>
         <Link className="inline-block" href={`https://github.com/${GITHUB_USERNAME}/gading.dev`}>Built</Link>
         <span className="inline-block">&nbsp;with&nbsp;</span>
-        <span className="inline-block underline-dotted">Bullshit</span>
+        <span className="inline-block util--underline-dotted">Bullshit</span>
         <span className="inline-block">&nbsp;by&nbsp;</span>
         <Link className="inline-block text-primary" href={`https://github.com/${GITHUB_USERNAME}`}>
           {AUTHOR_NAME}

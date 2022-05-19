@@ -37,7 +37,7 @@ Working as a [Software Engineer](https://www.google.com/search?q=what+is+softwar
 - Keychron Keyboard K2 V2 with RGB Backlight & Alumunium Frame. [Link](https://www.tokopedia.com/ptnmtindo/keychron-k2-v2-hot-swappble-rgb-backlight-aluminum-frame-brown-switch)
 - Robot Mouse M350 MX Master with Silent Click. [Link](https://www.tokopedia.com/vivanjkt/mouse-silent-dual-mode-bluetooth-wireless-2-4ghz-robot-m350-mx-master-hitam)
 - Redmi NF 27" Full HD Monitor. [Link](https://www.tokopedia.com/minimusinc/monitor-gaming-full-hd-1080p-75hz-ips-27-inch-xiaomi-redmi-6-bulan?src=topads)
-- JBL Go 3 Speaker. [Link](https://www.tokopedia.com/jbl-official/jbl-go-3-waterproof-bluetooth-speaker)
+- JBL Go 3 Portable Speaker. [Link](https://www.tokopedia.com/jbl-official/jbl-go-3-waterproof-bluetooth-speaker)
 - Wooden Keyboard Wrist Rest. [Link](https://www.tokopedia.com/woodnstationery/wood-wrist-rest-75-percent-size-for-keychron-k2-k6-etc-black-white)
 - Ergonomic Silicon Mouse Wrist Pad. [Link](https://www.tokopedia.com/raja-banting/soft-silicone-mouse-wrist-pad-anti-slip-anti-bakteri-ergonomic-food-gd-biru)
 - Danycase Laptop Stand Holder Aluminium with Cooling Fan. [Link](https://www.tokopedia.com/cauzastore/stand-holder-laptop-adjustable-aluminium-with-cooling-fan)

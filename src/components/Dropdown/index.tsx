@@ -1,6 +1,7 @@
+import { FunctionComponent, PropsWithChildren, ReactNode, useCallback, useRef } from 'react';
+import { getChildrenByType } from 'react-nanny';
 import Button from 'components/Button';
 import Icon from 'components/Image/Icon';
-import { FunctionComponent, PropsWithChildren, ReactNode, useRef } from 'react';
 import clsxm from 'utils/helpers/clsxm';
 import styles from './index.module.css';
 import iconCaretDown from 'assets/icons/tools/caret-down.svg';
@@ -12,7 +13,36 @@ export interface Props {
   contentClassName?: string;
 }
 
-const Dropdown: FunctionComponent<PropsWithChildren<Props>> = (props) => {
+export interface DropdownItemProps {
+  active?: boolean;
+  onClick?: () => void;
+}
+
+export const DropdownItem: FunctionComponent<PropsWithChildren<DropdownItemProps>> = (props) => {
+  const { children, active, onClick } = props;
+  return (
+    <div
+      onClick={onClick}
+      className={clsxm(
+        styles['dropdown-item'],
+        'text-dark-70 dark:text-white',
+        active && [
+          styles['active'],
+          'text-accent-1 dark:text-accent-2'
+        ]
+      )}
+    >
+      {children}
+    </div>
+  );
+};
+
+DropdownItem.defaultProps = {
+  active: false,
+  onClick: () => void 0
+};
+
+const Dropdown = (props: PropsWithChildren<Props>) => {
   const {
     title,
     children,
@@ -22,6 +52,11 @@ const Dropdown: FunctionComponent<PropsWithChildren<Props>> = (props) => {
 
   const [show, toggler] = useToggler();
   const ref = useRef(null);
+  const Items = getChildrenByType(children, DropdownItem);
+
+  const onItemClick = useCallback(() => {
+    toggler(false);
+  }, []);
 
   useOutsideClick(() => {
     toggler(false);
@@ -45,11 +80,17 @@ const Dropdown: FunctionComponent<PropsWithChildren<Props>> = (props) => {
         <div
           className={clsxm(
             styles['dropdown-content'],
-            'bg-primary dark:bg-dark-40',
+            'bg-white dark:bg-dark-40',
             contentClassName
           )}
         >
-          {children}
+          {Items.map(({ props, key }: any) => (
+            <DropdownItem
+              key={key}
+              {...props || {}}
+              onClick={onItemClick}
+            />
+          ))}
         </div>
       )}
     </div>
@@ -58,7 +99,9 @@ const Dropdown: FunctionComponent<PropsWithChildren<Props>> = (props) => {
 
 Dropdown.defaultProps = {
   title: '',
-  className: 'bg-primary text-white'
+  className: ''
 };
+
+Dropdown.Item = DropdownItem;
 
 export default Dropdown;
