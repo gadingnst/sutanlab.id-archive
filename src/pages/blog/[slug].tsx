@@ -1,58 +1,67 @@
-import { GetStaticPathsResult, GetStaticPropsResult, NextPage } from 'next';
+import { GetStaticPathsResult, GetStaticPropsContext, GetStaticPropsResult, NextPage } from 'next';
 import { Fragment } from 'react';
-import { Content, Footer, Navbar, Banner, CardHero, withLayoutPage } from 'components';
+import { Content, Footer, Navbar, Banner, CardHero, withLayoutPage, ContentParser } from 'components';
+import { getBlogPaths, MDContents, parseContent } from 'scripts/content-parser';
+import { IS_DEV } from 'utils/config';
 
 type Props = {
-  title: string;
+  contents: MDContents;
 };
 
 export const getStaticPaths = async(): Promise<GetStaticPathsResult> => {
+  const paths = await getBlogPaths();
   return {
-    paths: [
-      {
-        params: {
-          slug: 'helloworld'
-        },
-        locale: 'en'
-      },
-      {
-        params: {
-          slug: 'helloworld'
-        },
-        locale: 'id'
-      }
-    ],
+    paths,
     fallback: false
   };
 };
 
-export const getStaticProps = async(): Promise<GetStaticPropsResult<Props>> => {
+export const getStaticProps = async(ctx: GetStaticPropsContext): Promise<GetStaticPropsResult<Props>> => {
+  const { locale, params } = ctx;
+  const { slug } = params as any;
+  const contents = await parseContent(`posts/published/${slug}`, locale)
+    .catch((err: any) => {
+      if (IS_DEV && err.message.includes('ERRNOTFOUND')) {
+        return parseContent(`posts/drafts/${slug}`, locale);
+      }
+      return null;
+    });
+  if (contents) {
+    return {
+      props: {
+        contents
+      }
+    };
+  }
   return {
-    props: {
-      title: 'Hello World'
-    }
+    notFound: true
   };
 };
 
-const BlogDetailPage: NextPage = () => {
+const BlogDetailPage: NextPage<Props> = (props) => {
+  const { contents } = props;
+  const { meta, content } = contents;
   return (
     <Fragment>
       <Navbar />
-      <Banner bgImage="/media/banners/5.jpg" className="font-courgette text-white util--text-shadow text-center">
+      <Banner
+        bgImage={meta.image}
+        className="font-courgette text-white util--text-shadow text-center"
+      >
         <div className="-mt-48">
           <h1 className="font-bold text-4xl mb-8 text-white dark:text-white">
-            Blog
+            {meta.title}
           </h1>
           <p className="text-lg px-8 text-white dark:text-white">
-            Coding, work, life, and whatever i want.”
+            {meta.description}”
           </p>
         </div>
       </Banner>
       <Content>
         <CardHero>
-          <div className="relative flex justify-around mb-56">
-            <h2>🚧 Under Construction.</h2>
-          </div>
+          <ContentParser>
+            {content}
+          </ContentParser>
         </CardHero>
       </Content>
       <Footer />
@@ -60,6 +69,9 @@ const BlogDetailPage: NextPage = () => {
   );
 };
 
-export default withLayoutPage(BlogDetailPage, {
-  title: 'Blog'
+export default withLayoutPage(BlogDetailPage, (props) => {
+  const { title } = props.contents.meta;
+  return {
+    title
+  };
 });
