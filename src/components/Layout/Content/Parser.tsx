@@ -1,8 +1,8 @@
 import { FunctionComponent, PropsWithChildren, useMemo } from 'react';
 import { getMDXComponent, MDXContentProps } from 'mdx-bundler/client';
-import * as SharedComponents from 'components';
+import * as SharedComponents from '@/components';
 
-import clsxm from 'utils/helpers/clsxm';
+import clsxm from '@/utils/helpers/clsxm';
 import styles from './parser.module.css';
 
 export interface Props extends MDXContentProps {

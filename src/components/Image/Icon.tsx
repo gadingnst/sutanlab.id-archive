@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react';
-import Image, { Props as ImageProps } from 'components/Image';
+import Image, { Props as ImageProps } from '@/components/Image';
 
 type Size = {
   width: number;

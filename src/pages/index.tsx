@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import { Fragment } from 'react';
-import { Content, Footer, Navbar, Banner, CardHero, withLayoutPage } from 'components';
-import { SITE_NAME } from 'utils/config';
+import { Content, Footer, Navbar, Banner, CardHero, withLayoutPage } from '@/components';
+import { SITE_NAME } from '@/utils/config';
 
 const HomePage: NextPage = () => {
   return (

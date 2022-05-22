@@ -1,6 +1,6 @@
 import { FunctionComponent, PropsWithChildren } from 'react';
 import { Parallax, ParallaxProps } from 'react-parallax';
-import clsxm from 'utils/helpers/clsxm';
+import clsxm from '@/utils/helpers/clsxm';
 
 export interface Props extends ParallaxProps {
   overlay?: number;

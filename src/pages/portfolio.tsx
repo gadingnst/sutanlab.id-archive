@@ -8,8 +8,8 @@ import {
   Card,
   Image,
   withLayoutPage
-} from 'components';
-import { Portfolio } from 'types/contents';
+} from '@/components';
+import { Portfolio } from '@/types/contents';
 
 type Props = {
   contents: Portfolio[];
@@ -17,10 +17,10 @@ type Props = {
 
 export const getStaticProps = async(ctx: GetStaticPropsContext): Promise<GetStaticPropsResult<Props>> => {
   const { locale } = ctx;
-  const { default: contents } = await import(`contents/portfolio/${locale}`)
+  const { default: contents } = await import(`@/contents/portfolio/${locale}`)
     .catch((err) => {
       if (err.code === 'MODULE_NOT_FOUND') {
-        return import(`contents/portfolio/en`);
+        return import(`@/contents/portfolio/en`);
       }
       throw err;
     });

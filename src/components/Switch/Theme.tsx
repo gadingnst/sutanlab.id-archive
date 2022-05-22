@@ -1,6 +1,6 @@
 import { Fragment, FunctionComponent, useCallback } from 'react';
-import clsxm from 'utils/helpers/clsxm';
-import useAppTheme from 'hooks/stores/useAppTheme';
+import clsxm from '@/utils/helpers/clsxm';
+import useAppTheme from '@/hooks/stores/useAppTheme';
 
 export interface Props {
   className?: string;

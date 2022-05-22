@@ -1,7 +1,7 @@
 import { FunctionComponent, PropsWithChildren, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { useMounted, useToggler, useOutsideClick } from 'hooks';
-import clsxm from 'utils/helpers/clsxm';
+import { useMounted, useToggler, useOutsideClick } from '@/hooks';
+import clsxm from '@/utils/helpers/clsxm';
 import styles from './index.module.css';
 
 export interface Props {

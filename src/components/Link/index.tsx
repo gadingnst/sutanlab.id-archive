@@ -1,6 +1,6 @@
 import { FunctionComponent, MouseEvent, PropsWithChildren, useCallback } from 'react';
 import { useRouter } from 'next/router';
-import { isURL } from 'utils/helpers/url';
+import { isURL } from '@/utils/helpers/url';
 
 export interface Props {
   to?: string;

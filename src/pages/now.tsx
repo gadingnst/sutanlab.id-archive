@@ -1,6 +1,6 @@
 import { GetStaticPropsContext, GetStaticPropsResult, NextPage } from 'next';
-import { Content, Footer, Navbar, Banner, CardHero, ContentParser, withLayoutPage } from 'components';
-import { MDContents, parseContent } from 'scripts/content-parser';
+import { Content, Footer, Navbar, Banner, CardHero, ContentParser, withLayoutPage } from '@/components';
+import { MDContents, parseContent } from '@/server/content-parser';
 import { Fragment } from 'react';
 
 type Props = {

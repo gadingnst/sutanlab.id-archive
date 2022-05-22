@@ -1,6 +1,6 @@
 import { FunctionComponent, PropsWithChildren } from 'react';
 import NextHead from 'next/head';
-import { AUTHOR_FULLNAME } from 'utils/config';
+import { AUTHOR_FULLNAME } from '@/utils/config';
 
 interface Props {
   title?: string;

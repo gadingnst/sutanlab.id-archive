@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
-import clsxm from 'utils/helpers/clsxm';
-import Button from 'components/Button';
+import Button from '@/components/Button';
+import clsxm from '@/utils/helpers/clsxm';
 import styles from './close.module.css';
 
 export interface Props {

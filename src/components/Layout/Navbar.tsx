@@ -1,17 +1,20 @@
-import Link from 'components/Link';
-import SwitchTheme from 'components/Switch/Theme';
-import ButtonClose from 'components/Button/Close';
 import { Fragment, FunctionComponent, ReactNode, useCallback, useState } from 'react';
-import { SITE_NAME } from 'utils/config';
-import clsxm from 'utils/helpers/clsxm';
-import styles from './styles.module.css';
-import Icon from 'components/Image/Icon';
-import Modal from 'components/Modal';
-import Dropdown from 'components/Dropdown';
 import { useRouter } from 'next/router';
-import { useToggler, useMounted } from 'hooks';
-import iconAppLogo from 'assets/icons/app/logo.svg';
-import iconHamburger from 'assets/icons/tools/hamburger.svg';
+
+import Link from '@/components/Link';
+import SwitchTheme from '@/components/Switch/Theme';
+import ButtonClose from '@/components/Button/Close';
+import Icon from '@/components/Image/Icon';
+import Modal from '@/components/Modal';
+import Dropdown from '@/components/Dropdown';
+
+import { useToggler, useMounted } from '@/hooks';
+import { SITE_NAME } from '@/utils/config';
+import clsxm from '@/utils/helpers/clsxm';
+
+import iconAppLogo from '@/assets/icons/app/logo.svg';
+import iconHamburger from '@/assets/icons/tools/hamburger.svg';
+import styles from './styles.module.css';
 
 export interface Props {
   title?: ReactNode|string;

@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import { Fragment } from 'react';
-import { Content, Footer, Navbar, Banner, CardHero, Image, withLayoutPage } from 'components';
-import { AUTHOR_NAME } from 'utils/config';
+import { Content, Footer, Navbar, Banner, CardHero, Image, withLayoutPage } from '@/components';
+import { AUTHOR_NAME } from '@/utils/config';
 
 import imgProfile from 'assets/images/authors/gading-talks.jpeg';
 

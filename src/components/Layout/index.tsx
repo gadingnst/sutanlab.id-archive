@@ -1,7 +1,7 @@
 import { NextPage } from 'next';
 import { FunctionComponent, Fragment, PropsWithChildren } from 'react';
-import Head from 'components/Head';
-import { SITE_NAME } from 'utils/config';
+import Head from '@/components/Head';
+import { SITE_NAME } from '@/utils/config';
 
 export interface Props {
   title: string;

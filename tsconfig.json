@@ -14,10 +14,15 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "*": ["node_modules/*"]
+    },
     "plugins": [
       { "name": "typescript-plugin-css-modules" }
-    ]
+    ],
+
   },
   "include": [
     "next-env.d.ts",

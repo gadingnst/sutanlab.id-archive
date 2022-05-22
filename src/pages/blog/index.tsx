@@ -8,8 +8,8 @@ import {
   Card,
   Image,
   withLayoutPage
-} from 'components';
-import { getBlogList, MetaContents } from 'scripts/content-parser';
+} from '@/components';
+import { getBlogList, MetaContents } from '@/server/content-parser';
 
 type Props = {
   contents: MetaContents[];

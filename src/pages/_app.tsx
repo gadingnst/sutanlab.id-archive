@@ -1,8 +1,8 @@
 import type { AppProps } from 'next/app';
 import { Fragment, FunctionComponent, memo, useRef } from 'react';
 import NProgress from 'nextjs-progressbar';
-import { useMounted, useUpdated } from 'hooks';
-import useAppTheme from 'hooks/stores/useAppTheme';
+import { useMounted, useUpdated } from '@/hooks';
+import useAppTheme from '@/hooks/stores/useAppTheme';
 import 'styles/globals.css';
 
 const App: FunctionComponent<AppProps> = (props) => {

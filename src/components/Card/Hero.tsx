@@ -1,6 +1,6 @@
 import { FunctionComponent, PropsWithChildren } from 'react';
-import Card, { Props as CardProps } from 'components/Card';
-import clsxm from 'utils/helpers/clsxm';
+import Card, { Props as CardProps } from '@/components/Card';
+import clsxm from '@/utils/helpers/clsxm';
 
 const CardHero: FunctionComponent<PropsWithChildren<CardProps>> = (props) => {
   const { className, children, ...cardProps } = props;

@@ -1,15 +1,15 @@
 import { GetStaticPathsResult, GetStaticPropsContext, GetStaticPropsResult, NextPage } from 'next';
 import { Fragment } from 'react';
-import { Content, Footer, Navbar, Banner, CardHero, withLayoutPage, ContentParser } from 'components';
-import { getBlogPaths, MDContents, parseContent } from 'scripts/content-parser';
-import { IS_DEV } from 'utils/config';
+import { Content, Footer, Navbar, Banner, CardHero, withLayoutPage, ContentParser } from '@/components';
+import { getAllBlogPaths, MDContents, parseContent } from '@/server/content-parser';
+import { IS_DEV } from '@/utils/config';
 
 type Props = {
   contents: MDContents;
 };
 
 export const getStaticPaths = async(): Promise<GetStaticPathsResult> => {
-  const paths = await getBlogPaths();
+  const paths = await getAllBlogPaths();
   return {
     paths,
     fallback: false

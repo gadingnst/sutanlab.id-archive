@@ -2,7 +2,7 @@
 import { MouseEventHandler, useCallback, useRef } from 'react';
 import NextImage, { ImageProps } from 'next/image';
 import SVG from 'react-inlinesvg';
-import clsxm from 'utils/helpers/clsxm';
+import clsxm from '@/utils/helpers/clsxm';
 
 export type Props = ImageProps & {
   src: ImageProps['src'];

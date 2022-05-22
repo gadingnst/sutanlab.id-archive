@@ -1,8 +1,8 @@
 import { FunctionComponent } from 'react';
-import { Link, Button } from 'components';
-import { AUTHOR_NAME, GITHUB_USERNAME, PRODUCTION_URL, SITE_NAME } from 'utils/config';
+import { Link, Button } from '@/components';
+import { AUTHOR_NAME, GITHUB_USERNAME, PRODUCTION_URL, SITE_NAME } from '@/utils/config';
+import clsxm from '@/utils/helpers/clsxm';
 import styles from './styles.module.css';
-import clsxm from 'utils/helpers/clsxm';
 
 export interface Props {
   className?: string;

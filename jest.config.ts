@@ -31,10 +31,24 @@ const customConfig: Config.InitialOptions = {
     }
   },
   moduleNameMapper: {
-    'src/(.*)': '<rootDir>/src/$1',
-    'components/(.*)': '<rootDir>/src/components/$1',
-    'pages/(.*)': '<rootDir>/src/pages/$1',
-    '\\.(scss|sass|css)$': 'identity-obj-proxy'
+    /**
+     * Handle CSS imports (with CSS modules)
+     * @see https://jestjs.io/docs/webpack#mocking-css-modules
+     */
+    '\\.(scss|sass|css)$': 'identity-obj-proxy',
+
+    /**
+     * Handle image imports
+     * @see https://jestjs.io/docs/webpack#handling-static-assets
+     */
+    '^.+\\.(jpg|jpeg|png|gif|webp|avif|svg)$':
+      '<rootDir>/__mocks__/fileMock.js',
+
+    /**
+     * Handle alias import and module path alias
+     */
+    '^@/(.*)$': '<rootDir>/src/$1'
+
   },
   coverageDirectory: '<rootDir>/coverage',
   collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}']

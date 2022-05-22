@@ -1,4 +1,4 @@
-import { GITHUB_USERNAME } from 'utils/config';
+import { GITHUB_USERNAME } from '@/utils/config';
 
 const portfolio = [
   {

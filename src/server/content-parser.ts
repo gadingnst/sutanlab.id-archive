@@ -3,9 +3,9 @@ import path from 'path';
 import matter from 'gray-matter';
 import { bundleMDX } from 'mdx-bundler';
 import readingTime, { ReadTimeResults } from 'reading-time';
-import day from 'utils/day';
-import { IS_DEV } from 'utils/config';
-import { I18n } from 'types/contents';
+import day from '@/utils/day';
+import { IS_DEV } from '@/utils/config';
+import { I18n } from '@/types/contents';
 
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrism from 'rehype-prism-plus';
@@ -36,6 +36,11 @@ export interface MDContents {
   meta: MetaContents;
 }
 
+export interface MetaLocale {
+  meta: MetaContents;
+  locale: string;
+}
+
 export const rootDir = path.join(process.cwd(), 'src');
 export const contentsDir = path.join(rootDir, 'contents');
 
@@ -55,7 +60,7 @@ function formatReadingTime(content: string): FormatReadingTime {
  *
  * @param filePath - path to file
  * @param language - language of file
- * @returns {Promise<string>} - asynchronouse content string
+ * @returns {Promise<string>} - asynchronous content string
  */
 async function readContent(filePath: string, language = 'en'): Promise<string> {
   const files = await Fs.readdir(filePath).catch(() => []);
@@ -80,25 +85,43 @@ async function getBlogMeta(filePath: string, language: string): Promise<MetaCont
 }
 
 /**
- * @param type - type of content published or drafts
- * @returns - MetaContents and locale
+ * Get all published or drafts blog
+ * @param language - filter language of file 'en'|'id'
+ * @returns {Promise<MetaLocale[]>} - asynchronous published and drafts blog contents
  */
-async function getAllPostMeta(type: 'published'|'drafts') {
+async function getAllBlog(language?: string): Promise<MetaLocale[]> {
+  const [published, draft] = await Promise.all([
+    getAllBlogMeta('published', language),
+    IS_DEV ? Promise.resolve([]) : getAllBlogMeta('drafts', language)
+  ]);
+  return [...published, ...draft];
+}
+
+/**
+ * @param type - type of content published or drafts
+ * @param language - filter language of file 'en'|'id'
+ * @returns {Promise<MetaLocale[]>} - asynchronous all blog meta and locale
+ */
+async function getAllBlogMeta(type: 'published'|'drafts', language?: string): Promise<MetaLocale[]> {
   const postsPath = path.join(contentsDir, 'posts');
   const filePath = path.join(postsPath, type);
   const slugPaths = await Fs.readdir(filePath).catch(() => []);
   const result = await Promise.all(slugPaths.map(async(slugPath) => {
     const blogPaths = path.join(filePath, slugPath);
-    const i18n = Object.values(I18n);
-    return Promise.all(i18n.map(async language => {
+    if (language) {
       const meta = await getBlogMeta(blogPaths, language);
+      return { meta, language };
+    }
+    const i18n = Object.values(I18n);
+    return Promise.all(i18n.map(async lang => {
+      const meta = await getBlogMeta(blogPaths, lang);
       return {
         meta,
-        locale: language.replace(/\.(md|mdx)$/, '')
+        locale: lang.replace(/\.(md|mdx)$/, '')
       };
     }));
   }));
-  return result.flat(1);
+  return (language ? result : result.flat(1)) as MetaLocale[];
 }
 
 /**
@@ -143,14 +166,11 @@ export async function parseContent(slugParam: string, language = 'en'): Promise<
 
 /**
  * Get all blog static paths
- * @returns {Promise<GetStaticPathsResult['paths']>} - Next static paths
+ * @returns {Promise<GetStaticPathsResult['paths']>} - asynchronous next static paths
  */
-export async function getBlogPaths(): Promise<GetStaticPathsResult['paths']> {
-  const [published, draft] = await Promise.all([
-    getAllPostMeta('published'),
-    IS_DEV ? Promise.resolve([]) : getAllPostMeta('drafts')
-  ]);
-  return [...published, ...draft].map(({ meta, locale }) => ({
+export async function getAllBlogPaths(): Promise<GetStaticPathsResult['paths']> {
+  const contents = await getAllBlog();
+  return contents.map(({ meta, locale }) => ({
     params: {
       slug: meta.slug
     },
@@ -164,10 +184,6 @@ export async function getBlogPaths(): Promise<GetStaticPathsResult['paths']> {
  * @returns {Promise<MDContents[]>} - asynchronous all content meta
  */
 export async function getBlogList(language = 'en'): Promise<MetaContents[]> {
-  const fullPath = path.join(contentsDir, 'posts', 'published');
-  const dirs = await Fs.readdir(fullPath).catch(() => []);
-  return Promise.all(dirs.map(async(dir) => {
-    const filePath = path.join(fullPath, dir);
-    return getBlogMeta(filePath, language);
-  }));
+  const contents = await getAllBlog(language);
+  return contents.map(({ meta }) => meta);
 }

@@ -1,5 +1,5 @@
 import { FunctionComponent, PropsWithChildren } from 'react';
-import clsxm from 'utils/helpers/clsxm';
+import clsxm from '@/utils/helpers/clsxm';
 import styles from './index.module.css';
 
 export interface Props {
