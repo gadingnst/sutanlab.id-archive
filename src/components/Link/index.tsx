@@ -3,13 +3,13 @@ import { useRouter } from 'next/router';
 import { isURL } from '@/utils/helpers/url';
 
 export interface Props {
-  to?: string;
   href?: string;
+  asPath?: string;
   className?: string;
   disabled?: boolean;
   target?: string;
   title?: string;
-  locale?: string;
+  locale?: string|false;
   onClick?: (event: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>) => void;
 }
 
@@ -19,7 +19,7 @@ const Link: FunctionComponent<PropsWithChildren<Props>> = (props) => {
   const {
     children,
     href,
-    to,
+    asPath,
     disabled,
     className,
     title,
@@ -28,20 +28,17 @@ const Link: FunctionComponent<PropsWithChildren<Props>> = (props) => {
     onClick
   } = props;
 
-  const link = href || to;
-
   const clickHandler = useCallback((event: MouseEvent<HTMLAnchorElement, globalThis.MouseEvent>) => {
     event.preventDefault();
     if (onClick && !disabled) onClick(event);
-    if (link && !disabled && link !== '#') {
-      if (isURL(link)) {
-        window.open(link, target);
+    if (href && !disabled && href !== '#') {
+      if (isURL(href)) {
+        window.open(href, target);
       } else {
-        if (locale) {
-          router.push(link, link, { locale });
-        } else {
-          router.push(link);
-        }
+        const as = asPath || href;
+        const opts = { locale };
+        const args = [href, as, opts] as const;
+        router.push(...args);
       }
     }
   }, []);
@@ -50,19 +47,16 @@ const Link: FunctionComponent<PropsWithChildren<Props>> = (props) => {
   if (disabled) classes += ' cursor-not-allowed';
 
   return (
-    <a role="link" className={classes} href={link} onClick={clickHandler} title={title}>
+    <a role="link" className={classes} href={href} onClick={clickHandler} title={title}>
       {children}
     </a>
   );
 };
 
 Link.defaultProps = {
-  to: '',
-  href: '',
   className: 'text-primary dark:text-accent-2',
   disabled: false,
-  target: '_blank',
-  title: ''
+  target: '_blank'
 };
 
 export default Link;

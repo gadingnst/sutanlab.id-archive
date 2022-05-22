@@ -59,7 +59,7 @@ const Dropdown = (props: PropsWithChildren<Props>) => {
 
   useOutsideClick(() => {
     toggler(false);
-  }, ref);
+  }, [ref]);
 
   return (
     <div

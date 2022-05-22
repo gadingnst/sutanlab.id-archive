@@ -25,7 +25,7 @@ const Modal: FunctionComponent<PropsWithChildren<Props>> = (props) => {
 
   useOutsideClick(() => {
     toggler(false);
-  }, refContent);
+  }, [refContent]);
 
   if (renderable) {
     const Component = (

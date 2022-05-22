@@ -37,7 +37,7 @@ const Navbar: FunctionComponent<Props> = (props) => {
   const { title, className } = props;
   const [transparent, setTransparent] = useState(true);
   const [modalVisibility, modalToggler] = useToggler();
-  const { pathname, locale } = useRouter();
+  const { pathname, locale, asPath } = useRouter();
   const textShadowClass = transparent ? 'util--text-shadow' : '';
 
   const headerClass = transparent
@@ -78,6 +78,7 @@ const Navbar: FunctionComponent<Props> = (props) => {
                 <Dropdown.Item key={code} active={code === locale}>
                   <Link
                     href={pathname}
+                    asPath={asPath}
                     locale={code}
                     className={clsxm(
                       'text-dark-70 dark:text-white',
