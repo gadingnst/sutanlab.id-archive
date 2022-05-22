@@ -5,7 +5,7 @@
 
   p, ul, ol, dl, pre, table, blockquote, form, fieldset, .article-content {
     line-height: 1.8;
-    @apply mb-12;
+    @apply mb-24;
   }
 
   ul, ol {
@@ -21,5 +21,9 @@
 
   ol {
     @apply list-decimal;
+  }
+
+  iframe {
+    @apply max-w-full;
   }
 }

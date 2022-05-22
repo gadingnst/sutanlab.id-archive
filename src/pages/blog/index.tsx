@@ -7,7 +7,8 @@ import {
   Banner,
   Card,
   Image,
-  withLayoutPage
+  withLayoutPage,
+  Link
 } from '@/components';
 import { getBlogList, MetaContents } from '@/server/content-parser';
 
@@ -59,9 +60,13 @@ const BlogListPage: NextPage<Props> = (props) => {
                 />
               </div>
               <div className="flex flex-col pt-12 pb-16 px-16">
-                <p className="mb-4 text-primary dark:text-primary-2">
+                <Link
+                  href="/blog/[slug]"
+                  asPath={`/blog/${item.slug}`}
+                  className="mb-4 text-primary dark:text-primary-2"
+                >
                   {item.title}
-                </p>
+                </Link>
                 <p className="text-sm">
                   {item.description}
                 </p>

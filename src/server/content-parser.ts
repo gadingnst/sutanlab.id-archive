@@ -1,3 +1,4 @@
+import { GetStaticPathsResult } from 'next';
 import Fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
@@ -11,7 +12,8 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrism from 'rehype-prism-plus';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
-import { GetStaticPathsResult } from 'next';
+import rehypeKatex from 'rehype-katex';
+import remarkMath from 'remark-math';
 
 export interface FormatReadingTime extends ReadTimeResults {
   cups: string;
@@ -85,19 +87,6 @@ async function getBlogMeta(filePath: string, language: string): Promise<MetaCont
 }
 
 /**
- * Get all published or drafts blog
- * @param language - filter language of file 'en'|'id'
- * @returns {Promise<MetaLocale[]>} - asynchronous published and drafts blog contents
- */
-async function getAllBlog(language?: string): Promise<MetaLocale[]> {
-  const [published, draft] = await Promise.all([
-    getAllBlogMeta('published', language),
-    IS_DEV ? Promise.resolve([]) : getAllBlogMeta('drafts', language)
-  ]);
-  return [...published, ...draft];
-}
-
-/**
  * @param type - type of content published or drafts
  * @param language - filter language of file 'en'|'id'
  * @returns {Promise<MetaLocale[]>} - asynchronous all blog meta and locale
@@ -125,6 +114,19 @@ async function getAllBlogMeta(type: 'published'|'drafts', language?: string): Pr
 }
 
 /**
+ * Get all published or drafts blog
+ * @param language - filter language of file 'en'|'id'
+ * @returns {Promise<MetaLocale[]>} - asynchronous published and drafts blog contents
+ */
+async function getAllBlog(language?: string): Promise<MetaLocale[]> {
+  const [published, draft] = await Promise.all([
+    getAllBlogMeta('published', language),
+    IS_DEV ? Promise.resolve([]) : getAllBlogMeta('drafts', language)
+  ]);
+  return [...published, ...draft];
+}
+
+/**
  *
  * @param slugParam - slug of the content
  * @param language - language of the content (default: en)
@@ -139,11 +141,16 @@ export async function parseContent(slugParam: string, language = 'en'): Promise<
     source: fileContents,
     cwd: rootDir,
     mdxOptions(options) {
-      options.remarkPlugins = [...(options?.remarkPlugins ?? []), remarkGfm];
+      options.remarkPlugins = [
+        ...(options?.remarkPlugins ?? []),
+        remarkGfm,
+        remarkMath
+      ];
       options.rehypePlugins = [
         ...(options?.rehypePlugins ?? []),
         rehypeSlug,
         rehypePrism,
+        rehypeKatex,
         [
           rehypeAutolinkHeadings,
           {

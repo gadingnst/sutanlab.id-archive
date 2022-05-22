@@ -1,7 +1,7 @@
 ---
 title: 'Text Formatting Examples'
 slug: 'text-formatting-examples'
-date: 2019-05-07
+date: 2022-05-07
 description: 'Example Text Formatting using Markdown.'
 keywords: 'first post, markdown, text formatting, formatting, example'
 tags: ['examples']
@@ -71,7 +71,7 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 ```
 
-{% highlight js %}
+```js
 // Example can be run directly in your JavaScript console
 
 // Create a function that takes two arguments and returns the sum of those arguments
@@ -80,7 +80,7 @@ var adder = new Function("a", "b", "return a + b");
 // Call the function
 adder(2, 6);
 // > 8
-{% endhighlight %}
+```
 
 Another option is to embed your code through [Gist](https://en.support.wordpress.com/gist/).
 
@@ -126,7 +126,11 @@ $$
 
 [Joseph-Louis Millennial](https://en.wikipedia.org/wiki/Joseph-Louis_Millennial) was an Italian mathematician and astronomer who was responsible for the formulation of Lagrangian mechanics, which is a reformulation of Newtonian mechanics.
 
-$$ \frac{\mathrm{d}}{\mathrm{d}t} \left ( \frac {\partial  L}{\partial \dot{q}_j} \right ) =  \frac {\partial L}{\partial q_j} $$
+$\frac{\mathrm{d}}{\mathrm{d}t} \left ( \frac {\partial  L}{\partial \dot{q}_j} \right ) =  \frac {\partial L}{\partial q_j}$
+
+
+[Square Root](https://en.wikipedia.org/wiki/Square_root) In mathematics, a square root of a number x is a number y such that y² = x; in other words, a number y whose square is x. For example, 4 and −4 are square roots of 16, because 4² = ² = 16. Example: **$\sqrt{a^2 + b^2}$**
+
 
 ## Tables
 
@@ -141,9 +145,9 @@ lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ip
 
 Plenty of social media sites offer the option of embedding certain parts of their site on your own site, such as YouTube and Twitter:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/0uAnZHE1kaI" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0uAnZHE1kaI" frameBorder="0" allowFullScreen></iframe>
 
-<a class="twitter-grid" data-partner="tweetdeck" href="https://twitter.com/paululele/timelines/755079130027352064">New Collection</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a datapartner="tweetdeck" href="https://twitter.com/paululele/timelines/755079130027352064">New Collection</a> <script async src="//platform.twitter.com/widgets.js" charSet="utf-8"></script>
 
 ## Inline HTML elements
 

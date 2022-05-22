@@ -1,0 +1,3 @@
+div.math-display {
+  @apply overflow-x-auto mb-24;
+}

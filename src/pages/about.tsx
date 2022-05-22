@@ -3,7 +3,7 @@ import { Fragment } from 'react';
 import { Content, Footer, Navbar, Banner, CardHero, Image, withLayoutPage } from '@/components';
 import { AUTHOR_NAME } from '@/utils/config';
 
-import imgProfile from 'assets/images/authors/gading-talks.jpeg';
+import imgProfile from '@/assets/images/authors/gading-talks.jpeg';
 
 const AboutPage: NextPage = () => {
   return (

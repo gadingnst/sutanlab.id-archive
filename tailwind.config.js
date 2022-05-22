@@ -16,6 +16,14 @@ module.exports = {
       courgette: ['"Courgette"', 'cursive'],
       poppins: ['"Poppins"', 'sans-serif']
     },
+    container: {
+      screens: {
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px'
+      }
+    },
     width: {
       0: 0,
       10: '10%',
