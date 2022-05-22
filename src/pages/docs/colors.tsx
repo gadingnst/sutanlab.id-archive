@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { Fragment, FunctionComponent, PropsWithChildren } from 'react';
-import { Content, Link, SwitchTheme, withLayoutPage } from 'components';
 import { NextPage } from 'next';
-import { SITE_NAME } from 'utils/config';
+import { Fragment, FunctionComponent, PropsWithChildren } from 'react';
+import { Content, Link, SwitchTheme, withLayoutPage } from '@/components';
+import { SITE_NAME } from '@/utils/config';
 
 const theme = require('../../../tailwind.config').theme;
 const themeColors = Object.entries(theme.colors);
