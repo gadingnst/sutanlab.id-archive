@@ -131,6 +131,8 @@ $\frac{\mathrm{d}}{\mathrm{d}t} \left ( \frac {\partial  L}{\partial \dot{q}_j} 
 
 [Square Root](https://en.wikipedia.org/wiki/Square_root) In mathematics, a square root of a number $x$ is a number $y$ such that $y^2 = x;$ in other words, a number $y$ whose square is $x$. For example, $4$ and $-4$ are square roots of $16$, because $4^2$ = $^2$ = $16$. **$\sqrt{a^5 + b^2}$**
 
+See: [MathJax cheatseet](https://jojozhuang.github.io/tutorial/mathjax-cheat-sheet-for-mathematical-notation/)
+
 
 ## Tables
 

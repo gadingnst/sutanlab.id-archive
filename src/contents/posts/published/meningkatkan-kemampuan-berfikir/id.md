@@ -16,21 +16,22 @@ Ada salah satu bagian dari akal, yaitu ***Berfikir***. Siapa sih yang tidak tahu
 
 Secara istilah, Berfikir adalah suatu aktivitas otak yang dapat mengubungkan partikel-partikel pengetahuan/informasi yang ada di dalam otak kita guna untuk dapat membentuk sebuah keputusan atau jawaban. Sebagai penjelasannnya, coba kita lihat exercise berikut.
 
-```
-1 + 1 = ?
-2 x 5 = ?
-7 - 2 = ?
-```
+$1 + 1 = ?$
+
+$7 - 2 = ?$
+
+$2 * 5 = ?$
 
 Pada persoalan diatas, jelas kita dapat dengan mudah menemukan jawabannya. Kira-kira seperti itulah contoh sederhana ***pengalaman***, jawaban dari persoalan tersebut sudah tertanam di otak kita. Jadi, kita tinggal mengambil jawaban tersebut dari otak tanpa harus berfikir lebih lama lagi, karena kita sudah sering bertemu dengan persoalannya. Beda lagi kalau persoalan tersebut dikasih ke anak yang baru memulai sekolah, mereka pasti membutuhkan waktu yang lebih lama untuk menemukan jawabannya, karena mereka sendiri belum ada pengalaman dari persoalan tersebut.
 
 Lalu, bagaimana kalau dengan ini?
 
-```
-69321 + 771425 = ?
-429 x 732 = ?
-12732 - 6654 = ?
-```
+$429 * (7!) = ?$
+
+$69321 + \sqrt{2^5} = ?$
+
+$12732 - 2^{\sqrt{2^3}-2} = ?$
+
 
 Yap, kita akan agak kesulitan dan lebih memakan waktu untuk menemukan jawaban dari persoalan diatas. Itu karena kita mungkin belum pernah bertemu dengan persoalan tersebut. Tapi ada yang menarik disini, walaupun kita belum bertemu dengan persoalan tersebut sebelumnya, kita tetap bisa menyelesaikannya dengan menggunakan basic-basic kecil dari pengetahuan dan pengalaman yang sudah kita alami sebelumnya. Proses inilah yang disebut berfikir.
 
