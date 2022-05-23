@@ -26,11 +26,11 @@ Pada persoalan diatas, jelas kita dapat dengan mudah menemukan jawabannya. Kira-
 
 Lalu, bagaimana kalau dengan ini?
 
-$429 * (7!) = ?$
+$429 \times (7!) = ?$
 
-$69321 + \sqrt{2^5} = ?$
+$69321 + \sqrt{25} = ?$
 
-$12732 - 2^{\sqrt{2^3}-2} = ?$
+$12732 \div \frac{2^{\sqrt{2^3}}}{2} = ?$
 
 
 Yap, kita akan agak kesulitan dan lebih memakan waktu untuk menemukan jawaban dari persoalan diatas. Itu karena kita mungkin belum pernah bertemu dengan persoalan tersebut. Tapi ada yang menarik disini, walaupun kita belum bertemu dengan persoalan tersebut sebelumnya, kita tetap bisa menyelesaikannya dengan menggunakan basic-basic kecil dari pengetahuan dan pengalaman yang sudah kita alami sebelumnya. Proses inilah yang disebut berfikir.
