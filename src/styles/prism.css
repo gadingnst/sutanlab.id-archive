@@ -18,6 +18,13 @@ http://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascr
 * @license MIT 2016-2020
 */
 
+/*
+* Modified by Gading Nasution
+* e-mail: contact@gading.dev
+*
+* @license MIT
+*/
+
 /* Scrollbars */
 
 :root {
@@ -157,7 +164,6 @@ div.code-toolbar > .toolbar a,
 div.code-toolbar > .toolbar button,
 div.code-toolbar > .toolbar span {
   color: var(--foreground) !important;
-  font-size: 0.8em;
   padding: 0.5em;
   background: var(--comment);
   border-radius: 0.5em;
@@ -197,9 +203,9 @@ pre[class*='language-'] {
   word-wrap: normal;
   line-height: 1.5;
 
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
 
   -webkit-hyphens: none;
   -moz-hyphens: none;
@@ -209,13 +215,26 @@ pre[class*='language-'] {
 
 /* Code blocks */
 
+pre > code {
+  @apply table;
+}
+
 pre, pre[class*='language-'] {
   background: var(--background);
   border-radius: 0.5em;
   padding: 1em;
-  margin: 0.5em 0;
   overflow: auto;
   height: auto;
+}
+
+div.rehype-code-title {
+  border-radius: 0.5em 0.5em 0 0;
+  padding: 0.75em 1em;
+  color: var(--foreground);
+  background-color: #3E4672;
+  & + pre {
+    @apply mt-0 rounded-t-0;
+  }
 }
 
 :not(pre) > code[class*='language-'],

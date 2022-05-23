@@ -13,8 +13,10 @@ import { SITE_NAME } from '@/utils/config';
 import clsxm from '@/utils/helpers/clsxm';
 
 import iconAppLogo from '@/assets/icons/app/logo.svg';
+import iconAppLogoSecondary from '@/assets/icons/app/logo-secondary.svg';
 import iconHamburger from '@/assets/icons/tools/hamburger.svg';
 import styles from './styles.module.css';
+import useAppTheme from '@/hooks/stores/useAppTheme';
 
 export interface Props {
   title?: ReactNode|string;
@@ -38,6 +40,8 @@ const Navbar: FunctionComponent<Props> = (props) => {
   const [transparent, setTransparent] = useState(true);
   const [modalVisibility, modalToggler] = useToggler();
   const { pathname, locale, asPath } = useRouter();
+  const [theme] = useAppTheme();
+
   const textShadowClass = transparent ? 'util--text-shadow' : '';
 
   const headerClass = transparent
@@ -59,7 +63,11 @@ const Navbar: FunctionComponent<Props> = (props) => {
     <Fragment>
       <nav className={clsxm(styles.header, headerClass, className)}>
         <div className={styles['header-container']}>
-          <Icon className="inline-block xxs:hidden mr-8" src={iconAppLogo} size={32} />
+          <Icon
+            className="inline-block xxs:hidden mr-8"
+            src={theme.current === 'dark' ? iconAppLogo : iconAppLogoSecondary}
+            size={32}
+          />
           <Link
             href="/"
             className={clsxm(

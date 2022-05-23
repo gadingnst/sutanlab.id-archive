@@ -71,7 +71,7 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 ```
 
-```js
+```js:adder.js
 // Example can be run directly in your JavaScript console
 
 // Create a function that takes two arguments and returns the sum of those arguments
@@ -129,7 +129,7 @@ $$
 $\frac{\mathrm{d}}{\mathrm{d}t} \left ( \frac {\partial  L}{\partial \dot{q}_j} \right ) =  \frac {\partial L}{\partial q_j}$
 
 
-[Square Root](https://en.wikipedia.org/wiki/Square_root) In mathematics, a square root of a number x is a number y such that y² = x; in other words, a number y whose square is x. For example, 4 and −4 are square roots of 16, because 4² = ² = 16. Example: **$\sqrt{a^2 + b^2}$**
+[Square Root](https://en.wikipedia.org/wiki/Square_root) In mathematics, a square root of a number $x$ is a number $y$ such that $y^2 = x;$ in other words, a number $y$ whose square is $x$. For example, $4$ and $-4$ are square roots of $16$, because $4^2$ = $^2$ = $16$. **$\sqrt{a^5 + b^2}$**
 
 
 ## Tables

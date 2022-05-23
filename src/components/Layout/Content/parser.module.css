@@ -3,7 +3,7 @@
     @apply font-bold mt-24 mb-12;
   }
 
-  p, ul, ol, dl, pre, table, blockquote, form, fieldset, .article-content {
+  p, ul, ol, dl, pre, table, blockquote, form, fieldset {
     line-height: 1.8;
     @apply mb-24;
   }

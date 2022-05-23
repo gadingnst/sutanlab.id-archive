@@ -24,15 +24,15 @@ Anggap saja di dalam file `components/MainLayout.js`
 import React, { Component } from 'react'
 
 export default class MainLayout extends Component {
-    render() {
-        const { children } = this.props
+  render() {
+    const { children } = this.props
 
-        return (
-            <div className="main-layout">
-                {children}
-            </div>
-        )
-    }
+    return (
+      <div className="main-layout">
+        {children}
+      </div>
+    )
+  }
 }
 ```
 
@@ -45,15 +45,15 @@ import React, { Component } from 'react'
 import MainLayout from './components/MainLayout'
 
 export default class App extends Component {
-    render() {
-        return (
-            <MainLayout>
-                <p>My Contents</p>
-                <p>My other Contents</p>
-                <p>Lorem ipsum</p>
-            </MainLayout>
-        )
-    }
+  render() {
+    return (
+      <MainLayout>
+        <p>My Contents</p>
+        <p>My other Contents</p>
+        <p>Lorem ipsum</p>
+      </MainLayout>
+    )
+  }
 }
 ```
 
@@ -65,15 +65,15 @@ Cukup sederhana, kata `children` itu kita ganti menjadi `children()`, contohnya 
 import React, { Component } from 'react'
 
 export default class MainLayout extends Component {
-    render() {
-        const { children } = this.props
+  render() {
+    const { children } = this.props
 
-        return (
-            <div className="main-layout">
-                {children()}
-            </div>
-        )
-    }
+    return (
+      <div className="main-layout">
+        {children()}
+      </div>
+    )
+  }
 }
 ```
 
@@ -87,33 +87,33 @@ Supaya cepet mudeng, kita langsung coba aja contohnya. Asumsikan kita ingin memb
 import React, { Component } from 'react'
 
 export default class DataList extends Component {
-    contructor(props) {
-        super(props)
-        this.state = {
-            loading: true,
-            error: null,
-            data: []
-        }
+  contructor(props) {
+    super(props)
+    this.state = {
+      loading: true,
+      error: null,
+      data: []
     }
+  }
 
-    componentDidMount() {
-        const { endpoint } = this.props
-        window.fetch(endpoint)
-            .then(response => response.json())
-            .then(data => this.setState({ data }))
-            .catch(error => this.setState({ error }))
-            .finally(() => this.setState({ loading: false }))
-    }
+  componentDidMount() {
+    const { endpoint } = this.props
+    window.fetch(endpoint)
+      .then(response => response.json())
+      .then(data => this.setState({ data }))
+      .catch(error => this.setState({ error }))
+      .finally(() => this.setState({ loading: false }))
+  }
 
-    render() {
-        return (
-            <div className="container">
-                <ul className="data-list">
-                    {this.props.children(this.state)}
-                </ul>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div className="container">
+        <ul className="data-list">
+          {this.props.children(this.state)}
+        </ul>
+      </div>
+    )
+  }
 }
 ```
 
@@ -124,33 +124,33 @@ import React, { Component } from 'react'
 import DataList from './components/DataList'
 
 export default class App extends Component {
-    render() {
-        return (
-            <DataList endpoint="https://api.example.id/articles">
-                {state => {
-                    if (state.loading) {
-                        return (
-                            <h3>Loading...</h3>
-                        )
-                    }
+  render() {
+    return (
+      <DataList endpoint="https://api.example.id/articles">
+        {state => {
+          if (state.loading) {
+            return (
+              <h3>Loading...</h3>
+            )
+          }
 
-                    if (state.error) {
-                        return (
-                            <h3>An error occured during fetch data, try again.</h3>
-                        )
-                    }
+          if (state.error) {
+            return (
+              <h3>An error occured during fetch data, try again.</h3>
+            )
+          }
 
-                    return state.data.map((article, idx) => (
-                        <li key={idx}>
-                            <a href={article.link}>
-                                {article.title}
-                            </a>
-                        </li>
-                    ))
-                }}
-            </DataList>
-        )
-    }
+          return state.data.map((article, idx) => (
+            <li key={idx}>
+              <a href={article.link}>
+                {article.title}
+              </a>
+            </li>
+          ))
+        }}
+      </DataList>
+    )
+  }
 }
 ```
 
@@ -169,34 +169,34 @@ import React, { Component } from 'react'
 import DataList from './components/DataList'
 
 export default class App extends Component {
-    render() {
-        return (
-            <DataList
-                endpoint="https://api.example.id/articles"
-                render={state => {
-                    if (state.loading) {
-                        return (
-                            <h3>Loading...</h3>
-                        )
-                    }
+  render() {
+    return (
+      <DataList
+        endpoint="https://api.example.id/articles"
+        render={state => {
+          if (state.loading) {
+            return (
+              <h3>Loading...</h3>
+            )
+          }
 
-                    if (state.error) {
-                        return (
-                            <h3>An error occured during fetch data, try again.</h3>
-                        )
-                    }
+          if (state.error) {
+            return (
+              <h3>An error occured during fetch data, try again.</h3>
+            )
+          }
 
-                    return state.data.map((article, idx) => (
-                        <li key={idx}>
-                            <a href={article.link}>
-                                {article.title}
-                            </a>
-                        </li>
-                    ))
-                }}
-            />
-        )
-    }
+          return state.data.map((article, idx) => (
+            <li key={idx}>
+              <a href={article.link}>
+                {article.title}
+              </a>
+            </li>
+          ))
+        }}
+      />
+    )
+  }
 }
 ```
 

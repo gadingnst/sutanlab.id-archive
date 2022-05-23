@@ -10,6 +10,7 @@ import { I18n } from '@/types/contents';
 
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrism from 'rehype-prism-plus';
+import rehypeCodeTitles from 'rehype-code-titles';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import rehypeKatex from 'rehype-katex';
@@ -149,6 +150,7 @@ export async function parseContent(slugParam: string, language = 'en'): Promise<
       options.rehypePlugins = [
         ...(options?.rehypePlugins ?? []),
         rehypeSlug,
+        rehypeCodeTitles,
         rehypePrism,
         rehypeKatex,
         [
