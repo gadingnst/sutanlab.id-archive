@@ -11,7 +11,8 @@
     "lint:fix": "tsc --noEmit && eslint src --ignore-pattern 'src/public' --fix",
     "test:unit": "jest",
     "test:unit:watch": "jest --watch",
-    "test:unit:coverage": "jest --ci --json --coverage --testLocationInResults --outputFile=report.json"
+    "test:unit:coverage": "jest --ci --json --coverage --testLocationInResults --outputFile=report.json",
+    "cloudinary:upload": "ts-node ./scripts/cloudinary-upload.ts"
   },
   "dependencies": {
     "@gadingnst/store-swr": "^0.3.1",
@@ -21,6 +22,7 @@
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-inlinesvg": "^3.0.0",
+    "react-lazy-load-image-component": "^1.5.4",
     "react-nanny": "^2.14.0",
     "react-parallax": "^3.3.0",
     "swr": "^1.2.2"
@@ -30,10 +32,13 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@types/react": "18.0.9",
+    "@types/react-lazy-load-image-component": "^1.5.2",
     "@typescript-eslint/eslint-plugin": "^5.18.0",
     "@typescript-eslint/parser": "^5.21.0",
     "autoprefixer": "^10.4.7",
+    "cloudinary": "^1.30.0",
     "clsx": "^1.1.1",
+    "dotenv": "^16.0.1",
     "eslint": "^8.15.0",
     "eslint-config-next": "^12.1.4",
     "gray-matter": "^4.0.3",

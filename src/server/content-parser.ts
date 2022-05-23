@@ -5,15 +5,14 @@ import matter from 'gray-matter';
 import { bundleMDX } from 'mdx-bundler';
 import readingTime, { ReadTimeResults } from 'reading-time';
 import day from '@/utils/day';
-import { IS_DEV } from '@/utils/config';
 import { I18n } from '@/types/contents';
 
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrism from 'rehype-prism-plus';
 import rehypeCodeTitles from 'rehype-code-titles';
 import rehypeSlug from 'rehype-slug';
-import remarkGfm from 'remark-gfm';
 import rehypeKatex from 'rehype-katex';
+import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 
 export interface FormatReadingTime extends ReadTimeResults {
@@ -120,11 +119,12 @@ async function getAllBlogMeta(type: 'published'|'drafts', language?: string): Pr
  * @returns {Promise<MetaLocale[]>} - asynchronous published and drafts blog contents
  */
 async function getAllBlog(language?: string): Promise<MetaLocale[]> {
-  const [published, draft] = await Promise.all([
-    getAllBlogMeta('published', language),
-    IS_DEV ? Promise.resolve([]) : getAllBlogMeta('drafts', language)
+  const [published] = await Promise.all([
+    getAllBlogMeta('published', language)
+    // TODO: add draft blog only on Development Environment
+    // IS_DEV ? getAllBlogMeta('drafts', language) : Promise.resolve([])
   ]);
-  return [...published, ...draft];
+  return [...published];
 }
 
 /**
