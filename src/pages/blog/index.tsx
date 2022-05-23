@@ -6,9 +6,9 @@ import {
   Navbar,
   Banner,
   Card,
-  Image,
   withLayoutPage,
-  Link
+  Link,
+  ImageCloudinary
 } from '@/components';
 import { getBlogList, MetaContents } from '@/server/content-parser';
 
@@ -48,15 +48,15 @@ const BlogListPage: NextPage<Props> = (props) => {
         <div className="grid grid-cols-1 gap-28 max-w-5xl md:grid-cols-2 -mt-80">
           {contents.map(item => (
             <Card hoverEffect className="rounded-12 overflow-hidden" key={item.slug}>
-              <div className="relative w-full h-[200px]">
-                <Image
-                  priority
+              <div className="relative w-full overflow-hidden h-[200px]">
+                <ImageCloudinary
                   src={item.image}
-                  layout="fill"
-                  objectFit="contain"
                   alt={item.title}
-                  placeholder="empty"
-                  className="transition-transform duration-200 hover:scale-110"
+                  className="object-cover"
+                  wrapperClassName="w-full"
+                  width="100%"
+                  height={200}
+                  placeholderScaling={0.1}
                 />
               </div>
               <div className="flex flex-col pt-12 pb-16 px-16">

@@ -123,3 +123,10 @@ blockquote {
   }
 }
 /* End Normalize */
+
+.content-parser {
+  .content-image {
+    display: flex !important;
+  }
+  @apply text-dark-70 dark:text-white;
+}

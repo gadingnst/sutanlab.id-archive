@@ -1,25 +1,35 @@
 import { FunctionComponent } from 'react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { LazyLoadImage, LazyLoadImageProps } from 'react-lazy-load-image-component';
 import getCloudinaryPath from '@/utils/helpers/cloudinary';
 import { IS_DEV } from '@/utils/config';
 
-interface Props {
+interface Props extends LazyLoadImageProps {
   src: string;
-  alt?: string;
+  placeholderScaling?: number;
 }
 
 const ImageCloudinary: FunctionComponent<Props> = (props) => {
-  const { src, alt } = props;
+  const { src, height, width, placeholderScaling, style, ...otherProps } = props;
+  const isExternal = src.startsWith('https://');
+  const source = isExternal ? src : getCloudinaryPath(src);
+  const placeholder = isExternal ? src : getCloudinaryPath(src, placeholderScaling);
+
   return (
     <LazyLoadImage
-      src={IS_DEV ? src : getCloudinaryPath(src)}
-      placeholderSrc={IS_DEV ? src : getCloudinaryPath(src, 0.2)}
-      alt={alt}
+      {...otherProps}
+      src={IS_DEV ? src : source}
+      placeholderSrc={IS_DEV ? src : placeholder}
+      style={{ ...style, height, width }}
       effect="blur"
-      wrapperClassName="flex items-center justify-content-center w-full"
-      className="mx-auto"
     />
   );
+};
+
+ImageCloudinary.defaultProps = {
+  className: '',
+  style: {},
+  wrapperClassName: '',
+  placeholderScaling: 0.15 /* 15% */
 };
 
 export default ImageCloudinary;

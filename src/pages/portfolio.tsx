@@ -6,8 +6,8 @@ import {
   Navbar,
   Banner,
   Card,
-  Image,
-  withLayoutPage
+  withLayoutPage,
+  ImageCloudinary
 } from '@/components';
 import { Portfolio } from '@/types/contents';
 
@@ -53,14 +53,14 @@ const PortfolioPage: NextPage<Props> = (props) => {
         <div className="grid grid-cols-1 gap-28 max-w-5xl md:grid-cols-2 lg:grid-cols-3 -mt-80">
           {contents.map(item => (
             <Card hoverEffect className="rounded-12 overflow-hidden" key={item.image}>
-              <div className="relative w-full h-[200px]">
-                <Image
+              <div className="relative w-full overflow-hidden h-[200px]">
+                <ImageCloudinary
                   src={item.image}
-                  layout="fill"
-                  objectFit="contain"
-                  placeholder="empty"
                   alt={item.name}
-                  className="transition-transform duration-200 hover:scale-110"
+                  width="100%"
+                  height="200px"
+                  className="object-contain"
+                  wrapperClassName="w-full"
                 />
               </div>
               <div className="flex flex-col pt-12 pb-16 px-16">

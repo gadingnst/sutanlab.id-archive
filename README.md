@@ -10,8 +10,8 @@ Under development 🚧
 - [x] Dark Mode
 - [x] Mobile friendly
 - [x] Beautiful but performant
-- [x] Image optimized
-- [ ] i18n (internationalization). [Reference](https://nextjs.org/docs/advanced-features/i18n-routing#dynamic-routes-and-getstaticprops-pages)
+- [x] Image optimized with Cloudinary scaling & Blur Lazyload
+- [x] i18n (internationalization). [Reference](https://nextjs.org/docs/advanced-features/i18n-routing#dynamic-routes-and-getstaticprops-pages)
 - [ ] Offline-first
 - [ ] Push notifications support
 - [ ] Reading-time
