@@ -12,8 +12,8 @@ const Footer: FunctionComponent<Props> = (props) => {
   const { className } = props;
   return (
     <footer className={clsxm('w-full h-full', className, styles.footer)}>
-      <div className="flex container mx-auto my-64 flex-col justify-between lg:flex-row">
-        <p className="text-2xl text-dark text-left">
+      <div className="flex container mx-auto my-64 flex-col justify-between max-w-5xl lg:flex-row">
+        <p className="text-2xl text-left">
           Let&lsquo;s get in touch on my social.
         </p>
         <div className="relative h-full my-24 lg:my-0">
@@ -55,8 +55,8 @@ const Footer: FunctionComponent<Props> = (props) => {
           </Button>
         </div>
       </div>
-      <hr className="container" />
-      <div className="container w-full mx-auto my-48 text-sm">
+      <hr className="container max-w-5xl" />
+      <div className="container w-full mx-auto my-48 text-sm max-w-5xl">
         <span className="inline-block">&copy;&nbsp;{new Date().getFullYear()}&nbsp;</span>
         <Link className="inline-block" href={PRODUCTION_URL}>{SITE_NAME}</Link>
         <span className="inline-block">&nbsp;&bull;&nbsp;</span>

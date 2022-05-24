@@ -21,12 +21,13 @@
   &::before {
     content: "";
     z-index: -1;
-    top: 78px;
-    height: 2000px;
-    transform: skew(0, -6.25deg);
+    transform: skew(0, -10.25deg);
+    @screen md {
+      transform: skew(0, -5.25deg);
+    }
     @apply
       absolute left-0 right-0 transition-colors duration-200
-      bg-light-70;
+      bg-light-70 top-[150px] h-[2000px];
   }
   @apply relative overflow-hidden p-16 mt-56;
 }
