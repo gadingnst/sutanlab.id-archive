@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
 import { LazyLoadImage, LazyLoadImageProps } from 'react-lazy-load-image-component';
-import getCloudinaryPath from '@/utils/helpers/cloudinary';
+import cloudinary from '@/utils/helpers/cloudinary';
 import { IS_DEV } from '@/utils/config';
 
 interface Props extends LazyLoadImageProps {
@@ -19,8 +19,8 @@ const ImageCloudinary: FunctionComponent<Props> = (props) => {
   } = props;
 
   const isOnMedia = src.startsWith('/media/');
-  const source = !isOnMedia ? src : getCloudinaryPath(src);
-  const placeholder = !isOnMedia ? src : getCloudinaryPath(src, placeholderScaling);
+  const source = !isOnMedia ? src : cloudinary(src);
+  const placeholder = !isOnMedia ? src : cloudinary(src, placeholderScaling);
 
   return (
     <LazyLoadImage

@@ -6,7 +6,6 @@ description: 'Mengenal higher-order function di JavaScript, seperti: map(), filt
 keywords: 'functional, higher-order function, fungsi, javascript, array, map, filter, reduce, tutorial'
 tags: ['javascript', 'functional', 'higherorderfunction']
 image: '/media/banners/7.jpg'
-sourceJS: ['/media/blog/mengenal-higher-order-function-di-javascript/test.js']
 ---
 
 Jika kamu mempelajari bahasa pemrograman JavaScript, kamu akan menemukan istilah *higher-order function*. Meskipun awalnya akan terdengar rumit, namun sebenarnya mudah jika dipelajari dan dipahami. Yang membuat JavaScript cocok untuk bahasa pemrograman fungsional adalah karena JavaScript memiliki *higher-order function*. Sebenarnya *Higher-Order function* adalah fungsi yang *common* di JavaScript, jika kamu sudah pernah memprogram dengan bahasa JavaScript mungkin kamu pernah menggunakan tanpa menyadarinya.
@@ -19,7 +18,6 @@ Dalam tulisan ini, kita akan membahas beberapa *higher-order function*, antara l
 #### Array.map()
 `Array.map()` adalah salah satu metode dari *higher-order function* bawaan yang berfungsi membuat *array* baru dengan memanggil fungsi *callback* yang disediakan sebagai argumen pada setiap elemen dalam *array*. Metode `map()` akan mengambil setiap nilai yang dikembalikan dari fungsi *callback*, lalu membuat array baru dengan menggunakan nilai-nilai yang baru.
 
-**Berikut ilustrasinya**
 ![Ilustrasi Array.map()](/media/blog/mengenal-higher-order-function-di-javascript/map.gif)
 
 Untuk lebih jelasnya mari kita praktekkan saja, katakanlah kita memiliki *array* yang berisi *number* dengan nilai tahun lahir. Kita ingin membuat *array* baru yang menghitung umur dari tahun lahir tersebut dengan tahun sekarang.
@@ -35,8 +33,24 @@ for (let i = 0; i < tahunLahir.length; i++) {
 
 alert(umur) // hasil: [21,20,19,18,17]
 ```
-Berikut hasilnya:
-<button onclick="withoutMap()">Click here!</button>
+<State
+  initial={{
+    withoutMap: function() {
+      let tahunLahir = [1998, 1999, 2000, 2001, 2002]
+      const umur = []
+      for (let i = 0; i < tahunLahir.length; i++) {
+        umur.push(new Date().getFullYear() - tahunLahir[i])
+      }
+      alert(umur)
+    }
+  }}
+>
+  <State.Observe>
+    {({ state }) => (
+      <Button onClick={state.withoutMap}>Lihat hasil</Button>
+    )}
+  </State.Observe>
+</State>
 
 **Menggunakan *Array.map()***
 ```js
@@ -45,8 +59,21 @@ const umur = tahunLahir.map(tahun => new Date().getFullYear() - tahun)
 
 alert(umur) // hasil: [21,20,19,18,17]
 ```
-Berikut hasilnya:
-<button onclick="withMap()">Click here!</button>
+<State
+  initial={{
+    withMap: function() {
+      let tahunLahir = [1998, 1999, 2000, 2001, 2002]
+      const umur = tahunLahir.map(tahun => new Date().getFullYear() - tahun)
+      alert(umur)
+    }
+  }}
+>
+  <State.Observe>
+    {({ state }) => (
+      <Button onClick={state.withMap}>Lihat hasil</Button>
+    )}
+  </State.Observe>
+</State>
 
 Bisa dilihat kode akan lebih singkat jika kita menggunakan `Array.map()`. Fungsi *callback* `tahun => new Date().getFullYear() - tahun` dipanggil pada setiap anggota array yang ada di *variabel* **tahunLahir**
 
@@ -54,7 +81,6 @@ Bisa dilihat kode akan lebih singkat jika kita menggunakan `Array.map()`. Fungsi
 
 `Array.filter()` adalah salah satu metode dari *higher-order function* bawaan yang berfungsi untuk membuat *array* baru dengan mengoperasikan fungsi *callback* pada setiap anggota dengan mem-*filter* nilai-nilai didalam *array* yang sudah ada. Adapun argumen yang ada pada *callback* `filter()` adalah: *value*, *index*.
 
-**Berikut ilustrasinya**
 ![Ilustrasi Array.filter()](/media/blog/mengenal-higher-order-function-di-javascript/filter.gif)
 
 Untuk lebih jelasnya, mari kita coba actionnya. Katakanlah kita memiliki *array* yang berisi *object* dengan properti nama dan umur. Kita ingin membuat *array* yang hanya berisi orang-orang dengan usia yang lebih dari atau sama dengan 18 tahun.
@@ -79,8 +105,32 @@ for (let i = 0; i < orang.length; i++) {
 
 alert(orangDiizinkan) // ['Joni','Mark','Toni']
 ```
-Berikut hasilnya:
-<button onclick="withoutFilter()">Click here!</button>
+<State
+  initial={{
+    withoutFilter: function() {
+      let orang = [
+        { nama: 'Sutan', umur: 16 },
+        { nama: 'Joni', umur: 18 },
+        { nama: 'Mark', umur: 27 },
+        { nama: 'Back', umur: 14 },
+        { nama: 'Toni', umur: 24},
+      ]
+      const orangDiizinkan = []
+      for (let i = 0; i < orang.length; i++) {
+        if (orang[i].umur >= 18) {
+          orangDiizinkan.push(orang[i].nama);
+        }
+      }
+      alert(orangDiizinkan)
+    }
+  }}
+>
+  <State.Observe>
+    {({ state }) => (
+      <Button onClick={state.withoutFilter}>Lihat hasil</Button>
+    )}
+  </State.Observe>
+</State>
 
 **Menggunakan *Array.filter()* dan *Array.map()***
 ```js
@@ -95,8 +145,27 @@ let orang = [
 orang = orang.filter(orang => orang.umur >= 18)
 alert(orang.map(orang => orang.nama)) // ['Joni','Mark','Toni']
 ```
-Berikut hasilnya:
-<button onclick="withFilter()">Click here!</button>
+<State
+  initial={{
+    withFilter: function() {
+      let orang = [
+        { nama: 'Sutan', umur: 16 },
+        { nama: 'Joni', umur: 18 },
+        { nama: 'Mark', umur: 27 },
+        { nama: 'Back', umur: 14 },
+        { nama: 'Toni', umur: 24},
+      ]
+      orang = orang.filter(orang => orang.umur >= 18)
+      alert(orang.map(orang => orang.nama))
+    }
+  }}
+>
+  <State.Observe>
+    {({ state }) => (
+      <Button onClick={state.withFilter}>Lihat hasil</Button>
+    )}
+  </State.Observe>
+</State>
 
 ### Array.reduce()
 
@@ -104,7 +173,6 @@ Berikut hasilnya:
 
 Jika tidak ada *initialValue* yang disediakan, maka *accumulator* akan sama dengan elemen pertama dalam *array* dan *currentValue* akan sama dengan elemen kedua dalam *array*.
 
-**Berikut ilustrasinya**
 ![Ilustrasi Array.reduce()](/media/blog/mengenal-higher-order-function-di-javascript/reduce.gif)
 
 Memang agak rumit jika mendengar penjelasan `reduce()` ini. Untuk contoh sederhananya, anggaplah kita mempunyai data seperti ini:
@@ -136,16 +204,71 @@ for (let i = 0; i < keranjang.length; i++) {
 }
 alert('Rp.' + totalHarga) // Hasil: Rp.78000
 ```
-Berikut hasilnya:
-<button onclick="withoutReduce()">Click here!</button>
+<State
+  initial={{
+    withoutReduce: function() {
+      let keranjang = [
+        {
+          produk: 'Indomie Mie Goreng',
+          harga: 2500
+        },
+        {
+          produk: 'Aqua Gelas',
+          harga: 500
+        },
+        {
+          produk: 'Sepatu Sport',
+          harga: 75000
+        }
+      ]
+      let totalHarga = 0
+      for (let i = 0; i < keranjang.length; i++) {
+        totalHarga += keranjang[i].harga
+      }
+      alert('Rp.' + totalHarga)
+    }
+  }}
+>
+  <State.Observe>
+    {({ state }) => (
+      <Button onClick={state.withoutReduce}>Lihat hasil</Button>
+    )}
+  </State.Observe>
+</State>
 
 **Menggunakan *Array.reduce()***
 ```js
 const totalHarga = keranjang.reduce((acc, cur) => acc + cur.harga, 0)
 alert('Rp.' + totalHarga) // Hasil: Rp.78000
 ```
-Berikut hasilnya:
-<button onclick="withReduce()">Click here!</button>
+<State
+  initial={{
+    withReduce: function() {
+      let keranjang = [
+        {
+          produk: 'Indomie Mie Goreng',
+          harga: 2500
+        },
+        {
+          produk: 'Aqua Gelas',
+          harga: 500
+        },
+        {
+          produk: 'Sepatu Sport',
+          harga: 75000
+        }
+      ]
+      const totalHarga = keranjang.reduce((acc, cur) => acc + cur.harga, 0)
+      alert('Rp.' + totalHarga)
+    }
+  }}
+>
+  <State.Observe>
+    {({ state }) => (
+      <Button onClick={state.withReduce}>Lihat hasil</Button>
+    )}
+  </State.Observe>
+</State>
 
 ### Terus, apa keunggulannya ?
 Mungkin kamu akan bertanya - tanya apa keunggulan menggunakan *higher-order function* daripada *for-loop* tradisional seperti biasanya. Ya, dengan menggunakan *higher-order function*, kita dapat melakukan *chaining*. *Chaining* sendiri adalah sebuah teknik pemrograman yang menggunakan *return* dari satu fungsi sebagai argumen untuk fungsi seterusnya. Belum jelas ? mari kita lihat contohnya. Anggaplah kita mempunyai data seperti ini.
@@ -198,10 +321,61 @@ const rataNilaiLulus = siswaLulus.reduce((acc, cur) => acc + cur.nilaiAkhir, 0) 
 document.writeln('Siswa yang lulus: ', JSON.stringify(siswaLulus, null, 2))
 document.write('Rata-rata nilai siswa yang lulus: ', Number(rataNilaiLulus).toFixed(2))
 ```
-Hasilnya bisa dilihat disini:
-<button onclick="kasus()">Click here!</button>
-<p style="white-space: pre" id="siswa">...</p>
-<p id="ratanilai">...</p>
+<State
+  initial={{
+    kasus: function() {
+      const siswa = [
+        {
+          nama: 'Sutan Gading',
+          nilaiTugas: 70,
+          nilaiUts: 80,
+          nilaiUas: 74
+        },
+        {
+          nama: 'Alex',
+          nilaiTugas: 30,
+          nilaiUts: 40,
+          nilaiUas: 97
+        },
+        {
+          nama: 'Si Muning',
+          nilaiTugas: 25,
+          nilaiUts: 40,
+          nilaiUas: 75
+        },
+        {
+          nama: 'Toni Stark',
+          nilaiTugas: 60,
+          nilaiUts: 70,
+          nilaiUas: 94
+        },
+        {
+          nama: 'Jay Boy',
+          nilaiTugas: 40,
+          nilaiUts: 50,
+          nilaiUas: 54
+        }
+      ]
+      const siswaLulus = siswa.map(item => ({
+        nama: item.nama,
+        nilaiAkhir: (item.nilaiTugas * 0.2) + (item.nilaiUts * 0.3) + (item.nilaiUas * 0.5)
+      })).filter(item => item.nilaiAkhir >= 60)
+      const rataNilaiLulus = siswaLulus.reduce((acc, cur) => acc + cur.nilaiAkhir, 0) / siswaLulus.length
+      document.getElementById('siswa').textContent = 'Siswa yang lulus: ' + JSON.stringify(siswaLulus, null, 2)
+      document.getElementById('ratanilai').textContent = 'Rata-rata nilai siswa yang lulus: ' + Number(rataNilaiLulus).toFixed(2)
+    }
+  }}
+>
+  <State.Observe>
+    {({ state }) => (
+      <>
+        <Button onClick={state.kasus}>Lihat hasil</Button>
+        <p style={{ whiteSpace: 'pre' }} id="siswa">...</p>
+        <p id="ratanilai">...</p>
+      </>
+    )}
+  </State.Observe>
+</State>
 
 Bagaimana ? simple dan singkat kan ? Mungkin akan lebih panjang dan bertele-tele jika kita menyelesaikan masalah di atas dengan menggunakan *for-loop* tradisional seperti biasanya. Jadi, *higher-order function* disini hadir untuk memudahkan dan mempersingkat penyelesaian masalah yang ada.
 

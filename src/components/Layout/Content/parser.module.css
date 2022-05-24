@@ -8,6 +8,10 @@
     @apply mb-24;
   }
 
+  button {
+    @apply mb-24 text-sm sm:text-base;
+  }
+
   ul, ol {
     li {
       @apply pl-4;
