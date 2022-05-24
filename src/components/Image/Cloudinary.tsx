@@ -9,10 +9,18 @@ interface Props extends LazyLoadImageProps {
 }
 
 const ImageCloudinary: FunctionComponent<Props> = (props) => {
-  const { src, height, width, placeholderScaling, style, ...otherProps } = props;
-  const isExternal = src.startsWith('https://');
-  const source = isExternal ? src : getCloudinaryPath(src);
-  const placeholder = isExternal ? src : getCloudinaryPath(src, placeholderScaling);
+  const {
+    src,
+    height,
+    width,
+    placeholderScaling,
+    style,
+    ...otherProps
+  } = props;
+
+  const isOnMedia = src.startsWith('/media/');
+  const source = !isOnMedia ? src : getCloudinaryPath(src);
+  const placeholder = !isOnMedia ? src : getCloudinaryPath(src, placeholderScaling);
 
   return (
     <LazyLoadImage

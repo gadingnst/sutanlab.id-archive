@@ -56,7 +56,7 @@ const BlogListPage: NextPage<Props> = (props) => {
                   wrapperClassName="w-full"
                   width="100%"
                   height={200}
-                  placeholderScaling={0.1}
+                  placeholderScaling={0.075}
                 />
               </div>
               <div className="flex flex-col pt-12 pb-16 px-16">
