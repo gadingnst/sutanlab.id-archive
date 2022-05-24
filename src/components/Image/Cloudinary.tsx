@@ -23,9 +23,8 @@ const ImageCloudinary: FunctionComponent<Props> = (props) => {
   } = props;
 
   const [loading, setLoading] = useToggler(true);
-  const isOnMedia = src.startsWith('/media/');
-  const source = !isOnMedia ? src : cloudinary(src);
-  const placeholder = !isOnMedia ? src : cloudinary(src, placeholderScaling);
+  const source = cloudinary(src);
+  const placeholder = cloudinary(src, placeholderScaling);
 
   return (
     <span className="flex relative items-center justify-center">

@@ -7,10 +7,14 @@ import { CLOUDINARY_CLOUD_NAME } from '@/utils/config';
  * @returns {string} - image url
  */
 function cloudinary(path: string, imgScale?: number): string {
-  const scaling = imgScale ? `w_${imgScale},h_${imgScale},c_scale/` : '';
-  const basePath =
-    `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/${scaling}gading.dev${path}`;
-  return basePath;
+  const isOnMedia = path.startsWith('/media/');
+  if (isOnMedia) {
+    const scaling = imgScale ? `w_${imgScale},h_${imgScale},c_scale/` : '';
+    const basePath =
+      `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/${scaling}gading.dev${path}`;
+    return basePath;
+  }
+  return path;
 }
 
 export default cloudinary;
