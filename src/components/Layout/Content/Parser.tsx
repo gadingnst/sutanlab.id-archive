@@ -6,7 +6,6 @@ import State from './StatefulMDX';
 import clsxm from '@/utils/helpers/clsxm';
 import styles from './parser.module.css';
 import 'katex/dist/katex.min.css';
-import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export interface Props extends MDXContentProps {
   className?: string;

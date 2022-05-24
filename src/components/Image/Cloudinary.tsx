@@ -1,6 +1,8 @@
 import { FunctionComponent } from 'react';
 import { LazyLoadImage, LazyLoadImageProps } from 'react-lazy-load-image-component';
+import { useToggler } from '@/hooks';
 import cloudinary from '@/utils/helpers/cloudinary';
+import clsxm from '@/utils/helpers/clsxm';
 import { IS_DEV } from '@/utils/config';
 
 interface Props extends LazyLoadImageProps {
@@ -15,21 +17,30 @@ const ImageCloudinary: FunctionComponent<Props> = (props) => {
     width,
     placeholderScaling,
     style,
+    className,
     ...otherProps
   } = props;
 
+  const [loading, setLoading] = useToggler(true);
   const isOnMedia = src.startsWith('/media/');
   const source = !isOnMedia ? src : cloudinary(src);
   const placeholder = !isOnMedia ? src : cloudinary(src, placeholderScaling);
 
   return (
-    <LazyLoadImage
-      {...otherProps}
-      src={IS_DEV ? src : source}
-      placeholderSrc={IS_DEV ? src : placeholder}
-      style={{ ...style, height, width }}
-      effect="blur"
-    />
+    <span className="flex relative items-center justify-center">
+      <LazyLoadImage
+        {...otherProps}
+        src={IS_DEV ? src : source}
+        placeholderSrc={IS_DEV ? src : placeholder}
+        style={{ ...style, height, width }}
+        effect="blur"
+        afterLoad={setLoading}
+        className={clsxm('min-h-[50px]', className)}
+      />
+      {loading && (
+        <span className="spinner absolute" />
+      )}
+    </span>
   );
 };
 
