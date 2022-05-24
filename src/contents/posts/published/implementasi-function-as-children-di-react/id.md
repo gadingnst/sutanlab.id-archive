@@ -6,7 +6,6 @@ description: 'Function as Children adalah salah satu component pattern di React 
 keywords: 'react, component, komponen, facc, function, javascript, component composition'
 tags: ['javascript', 'react', 'callback', 'closure']
 image: '/media/blog/implementasi-function-as-children-di-react/bg-facc.png'
-sourceCSS: []
 ---
 
 **React** adalah salah satu *library* JavaScript yang populer, cukup banyak perusahaan-perusahaan yang menggunakan React pada teknologi *frontend*-nya. Karena terminologi dari react ini adalah berbasis komponen, banyak sekali *component pattern* yang bisa kita gunakan untuk membangun komponen di React. Seperti contohnya: ***Stateless/Stateful Component, HOC (Higher-Order Component), Proxy Component, FaCC (Function as Child Component)*** *(yang akan kita bahas di tulisan ini)*, dan masih banyak lagi *component pattern* lainnya yang mungkin penulis juga belum mengetahuinya haha. Oke, langsung aja kita bahas...

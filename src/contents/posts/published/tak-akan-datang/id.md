@@ -6,7 +6,6 @@ description: 'My bullshit motivation.'
 keywords: 'life, kehidupan, waktu, motivasi, motivation'
 tags: ['time', 'motivation']
 image: '/media/banners/1.jpg'
-sourcsCSS: []
 ---
 
 Waktu ketika kita merasa sempurna

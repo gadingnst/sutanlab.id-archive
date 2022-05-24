@@ -107,14 +107,14 @@ INIT POST - A shortcut to create an initial structure for my posts.
 ------------------------------------------------------------------------------
 Usage: ./post.sh [options] <post name>
 Options:
-  -h, --help        output instructions
-  -c, --create      create post
-  -d, --draft       create draft post
-  -p, --publish     publish/promote a draft to a post
+    -h, --help        output instructions
+    -c, --create      create post
+    -d, --draft       create draft post
+    -p, --publish     publish/promote a draft to a post
 Example:
-  ./post.sh -c How to replace strings with sed
+    ./post.sh -c How to replace strings with sed
 Important Notes:
-  - This script was created to generate new text files to my blog.
+    - This script was created to generate new text files to my blog.
 Copyright (c) Vitor Britto './initpost.sh' (Modified by Sutan Nst.)
 Licensed under the MIT license.
 ------------------------------------------------------------------------------
@@ -132,8 +132,6 @@ initpost_content() {
     echo "keywords: \"\""
     echo "tags: []"
     echo "image: \"/media/banners/${RAND_NUM}.jpg\""
-    echo "sourceCSS: []"
-    echo "sourceJS: []"
     echo "---"
 }
 
@@ -170,18 +168,18 @@ promote_draft() {
     if [ ! -f "$FILE_NAME" ]; then
         e_header "Promoting draft..."
         if [ -f "${DRAFTPATH}/${FILE_NAME}" ]; then
-          if mkdir -p "${POSTPATH}/${POST_NAME}" && mv "${DRAFTPATH}/${FILE_NAME}" "${POSTPATH}/${FILE_NAME}"; then
-              mkdir -p "${BLOGMEDIAPATH}/${POST_NAME}"
-              sed -i -e "s/date: .*/date: ${CURRENT_DATE}/" ${POSTPATH}/${FILE_NAME}
-              rm -rf "${DRAFTPATH}/${POST_NAME}"
-              e_success "Draft promoted successfully!"
-          else
-              e_warning "File already exists or draft promotion failed."
-              exit 1
-          fi
+            if mkdir -p "${POSTPATH}/${POST_NAME}" && mv "${DRAFTPATH}/${FILE_NAME}" "${POSTPATH}/${FILE_NAME}"; then
+                mkdir -p "${BLOGMEDIAPATH}/${POST_NAME}"
+                sed -i -e "s/date: .*/date: ${CURRENT_DATE}/" ${POSTPATH}/${FILE_NAME}
+                rm -rf "${DRAFTPATH}/${POST_NAME}"
+                e_success "Draft promoted successfully!"
+            else
+                e_warning "File already exists or draft promotion failed."
+                exit 1
+            fi
         else
-          e_warning "File not exists."
-          exit 1
+            e_warning "File not exists."
+            exit 1
         fi
     fi
 }
@@ -215,7 +213,6 @@ main() {
         promote_draft $*
         exit
     fi
-
 }
 
 # Initialize

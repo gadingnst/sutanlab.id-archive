@@ -6,7 +6,6 @@ description: 'Menggunakan higher-order function dapat mempersingkat kode serta m
 keywords: 'functional, higher-order function, fungsi, javascript, array, tutorial, sort, find, findIndex'
 tags: ['javascript', 'functional', 'higherorderfunction']
 image: '/media/banners/3.jpg'
-sourceCSS: []
 sourceJS: ['/media/blog/mengenal-higher-order-function-di-javascript-part-2/case.js']
 ---
 

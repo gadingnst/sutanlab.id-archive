@@ -6,7 +6,6 @@ description: 'Mengenal higher-order function di JavaScript, seperti: map(), filt
 keywords: 'functional, higher-order function, fungsi, javascript, array, map, filter, reduce, tutorial'
 tags: ['javascript', 'functional', 'higherorderfunction']
 image: '/media/banners/7.jpg'
-sourceCSS: []
 sourceJS: ['/media/blog/mengenal-higher-order-function-di-javascript/test.js']
 ---
 

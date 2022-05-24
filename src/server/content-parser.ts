@@ -27,8 +27,6 @@ export interface MetaContents {
   keywords: string;
   image: string;
   tags: string[];
-  sourceCSS: string[];
-  sourceJS: string[];
   readTime: FormatReadingTime;
 }
 

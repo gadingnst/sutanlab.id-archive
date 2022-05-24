@@ -6,7 +6,6 @@ description: 'Ada sebuah cara unik untuk meningkatkan kemampuan berfikir dan pro
 keywords: 'meningkatkan kemampuan berfikir, kemampuan berfikir, akal, berfikir, life, thinking, self upgrade, life hack, problem solving, edward de bono, six thinking hats, thinking hats'
 tags: ['life', 'problem solving', 'six thinking hats']
 image: '/media/blog/meningkatkan-kemampuan-berfikir/banner.jpg'
-sourceCSS: []
 ---
 
 Manusia adalah mahluk sempurna, yang diciptakan Allah dengan memiliki Akal. Akal ini adalah salah satu bekal dari tuhan kita yang menjadikan kita mahluk sempurna. Tentu saja, jika kita dapat menggunakannya dengan baik.

@@ -6,7 +6,6 @@ description: 'Tidak hanya OOP, paradigma fungsional juga memiliki konsep dan atu
 keywords: 'functional paradigm, paradigma fungsional, pure function, curried function, recursive function, currying, recursive, callback, closure, fungsi'
 tags: ['functional', 'purefunction', 'recursive', 'currying', 'closure', 'higherorderfunction']
 image: '/media/banners/5.jpg'
-sourceCSS: []
 ---
 
 Pada artikel sebelumnya kita sudah membahas macam-macam *higher-order function* di JavaScript. Nah pertanyaannya, apakah *higher-order function* hanya ada pada JavaScript ? Jawabannya, **tidak**. *Higher-order function* tersedia *built-in* di banyak bahasa pemrograman modern yang khususnya memiliki paradigma fungsional, bahkan kita bisa membuatnya sendiri pada bahasa pemrograman apapun. Lalu apakah sebenarnya *higher-order function* itu? Nah, *Higher-order function* sendiri termasuk salah satu dari konsep atau teknik yang ada pada paradigma fungsional. Pada artikel ini gua akan membahas apa saja konsep yang biasanya digunakan pada paradigma fungsional. Oke, tidak perlu panjang lebar langsung aja kita mulai.

@@ -6,7 +6,6 @@ description: "Iri adalah sifat manusiawi. But, you don't really know about other
 keywords: 'iri, thoughts, sifat manusiawi, programming, instagram, twitter'
 tags: ['iri', 'life', 'thoughts']
 image: '/media/banners/0.jpg'
-sourceCSS: []
 ---
 
 Sebelum masuk ke pandangan gw terhadap IRI, gw pingin bercerita dan bersenda gurau dulu sedikit. Jadi gini, gw yakin disini pada menggunakan Instagram, dan mungkin ada beberapa yang menggunakan Twitter juga. Ya, kedua sosmed itu gw berani bilang adalah tempat *show-off* atau pamer.
