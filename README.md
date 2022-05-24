@@ -9,17 +9,16 @@ Under development 🚧
 ### Ongoing Features
 - [x] Dark Mode
 - [x] Mobile friendly
-- [x] Beautiful but performant
-- [x] Image optimized with Cloudinary scaling & Blur Lazyload
+- [x] Image optimized with Cloudinary scaling & Lazyload with blur effect like Instagram
 - [x] i18n (internationalization). [Reference](https://nextjs.org/docs/advanced-features/i18n-routing#dynamic-routes-and-getstaticprops-pages)
-- [ ] Offline-first
-- [ ] Push notifications support
-- [ ] Reading-time
-- [ ] SEO Optimized
+- [x] Reading-time
 - [ ] Feed RSS & Sitemap
-- [ ] Comment system
+- [ ] SEO Optimized
 - [ ] Social share (FB, Linkedin, Twitter, Tumblr, WA, Telegram)
+- [ ] Comment system
 - [ ] Posts pagination
+- [ ] Push notifications support
+- [ ] Offline-first
 - [ ] Search posts
 - [ ] Sorting posts by category & tags
 
