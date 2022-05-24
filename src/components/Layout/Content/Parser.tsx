@@ -25,7 +25,7 @@ const ContentImage: FunctionComponent<ContentImageProps> = (props) => {
         src={src}
         alt={alt}
         wrapperClassName="content-image items-center w-full"
-        className="mx-auto rounded-8"
+        className="mx-auto rounded-8 max-h-[500px]"
       />
       <span className="block text-center italic text-xs mt-8">
         {alt}

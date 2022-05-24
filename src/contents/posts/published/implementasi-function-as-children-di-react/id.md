@@ -12,7 +12,7 @@ image: '/media/blog/implementasi-function-as-children-di-react/bg-facc.png'
 
 ---
 
-***Function as Child Component (FaCC)*** atau bisa juga disebut ***Function as Children*** sebenarnya memiliki nama lain, yaitu ***Render Callback***. Kenapa bisa dinamain *Render Callback*? Nanti akan kita bahas di akhir tulisan (*Untuk bahasan ***callback*** lebih lanjut, bisa lihat di tulisan gua sebelumnya tentang konsep pada paradigma fungsional [disini](https://sutanlab.id/blog/konsep-pada-paradigma-pemrograman-fungsional)*).  Hmm menarik ya, so disini gua nyebutnya sebagai ***FaCC*** aja oke? Biar ga kepanjangan hehe.
+***Function as Child Component (FaCC)*** atau bisa juga disebut ***Function as Children*** sebenarnya memiliki nama lain, yaitu ***Render Callback***. Kenapa bisa dinamain *Render Callback*? Nanti akan kita bahas di akhir tulisan (*Untuk bahasan ***callback*** lebih lanjut, bisa lihat di tulisan gua sebelumnya tentang konsep pada paradigma fungsional [disini](/blog/konsep-pada-paradigma-pemrograman-fungsional)*).  Hmm menarik ya, so disini gua nyebutnya sebagai ***FaCC*** aja oke? Biar ga kepanjangan hehe.
 
 Jadi, ***FaCC*** ini adalah salah satu *pattern* pada *component* di react yang menjadikan *children props* sebagai fungsi. Biasanya kita menggunakan *children props* seperti ini:
 
