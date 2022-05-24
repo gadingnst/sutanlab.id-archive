@@ -4,14 +4,13 @@
 require('dotenv').config();
 
 import Path from 'path';
-import isImage from 'is-image';
 import CloudinaryInstance from 'cloudinary';
 import {
   CLOUDINARY_API_KEY,
   CLOUDINARY_API_SECRET,
   CLOUDINARY_CLOUD_NAME
 } from '../src/utils/config';
-import getFiles from '../src/server/get-files';
+import { getFiles, isImage } from '../src/server/files';
 import ConcurrencyManager from '../src/utils/lib/ConcurrencyManager';
 
 const Cloudinary = CloudinaryInstance.v2;
@@ -32,17 +31,17 @@ async function syncMedia() {
   console.log('> Uploading all files in local `media` folder to Cloudinary.');
   for await (const file of getFiles(mediaDir)) {
     const pathToUpload = Path.join('media', file.replace(mediaDir, ''));
-    const fullFileName = Path.basename(pathToUpload);
+    const fileName = Path.basename(pathToUpload);
     const folderName = Path.dirname(pathToUpload);
-    const extension = Path.extname(fullFileName);
-    const fileName = fullFileName.slice(0, -extension.length);
+    const extension = Path.extname(fileName);
+    const name = fileName.slice(0, -extension.length);
     if (isImage(pathToUpload)) {
       concurrent.add(async() => {
         process.stdout.write(`.`);
         const response = await Cloudinary.uploader.upload(
           file,
           {
-            public_id: fileName,
+            public_id: name,
             folder: `gading.dev/${folderName}`,
             overwrite: false
           }
