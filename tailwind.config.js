@@ -148,6 +148,9 @@ module.exports = {
       screens: {
         xxs: '360px',
         xs: '428px'
+      },
+      scale: {
+        '102': '1.02'
       }
     }
   },

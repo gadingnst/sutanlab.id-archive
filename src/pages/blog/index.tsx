@@ -11,9 +11,11 @@ import {
   ImageCloudinary
 } from '@/components';
 import { getBlogList, MetaContents } from '@/server/content-parser';
+import postDate from '@/utils/helpers/post-date';
 
 type Props = {
   contents: MetaContents[];
+  locale?: string;
 };
 
 export const getStaticProps = async(ctx: GetStaticPropsContext): Promise<GetStaticPropsResult<Props>> => {
@@ -21,13 +23,14 @@ export const getStaticProps = async(ctx: GetStaticPropsContext): Promise<GetStat
   const contents = await getBlogList(locale);
   return {
     props: {
-      contents: JSON.parse(JSON.stringify(contents))
+      contents,
+      locale
     }
   };
 };
 
 const BlogListPage: NextPage<Props> = (props) => {
-  const { contents } = props;
+  const { contents, locale } = props;
   return (
     <Fragment>
       <Navbar />
@@ -45,7 +48,7 @@ const BlogListPage: NextPage<Props> = (props) => {
         </div>
       </Banner>
       <Content className="flex items-center justify-center">
-        <div className="grid grid-cols-1 gap-28 max-w-5xl md:grid-cols-2 -mt-80">
+        <div className="grid grid-cols-1 gap-28 max-w-5xl sm:grid-cols-2 -mt-80">
           {contents.map(item => (
             <Card hoverEffect className="rounded-12 overflow-hidden" key={item.slug}>
               <div className="relative w-full overflow-hidden h-[200px]">
@@ -60,14 +63,34 @@ const BlogListPage: NextPage<Props> = (props) => {
                 />
               </div>
               <div className="flex flex-col pt-12 pb-16 px-16">
-                <Link
-                  href="/blog/[slug]"
-                  asPath={`/blog/${item.slug}`}
-                  className="mb-4 text-primary dark:text-primary-2"
-                >
-                  {item.title}
-                </Link>
-                <p className="text-sm">
+                <div className="flex flex-col justify-between items-center min-h-[50px]">
+                  <div className="w-full text-center">
+                    <Link
+                      href="/blog/[slug]"
+                      asPath={`/blog/${item.slug}`}
+                      className="mb-4 text-primary dark:text-primary-2"
+                    >
+                      {item.title}
+                    </Link>
+                  </div>
+                  <div className="flex my-8 text-xs text-light-20 dark:text-light-20">
+                    <span className="text-light-20 dark:text-light-20 pr-8 -mr-2">
+                      🗓
+                    </span>
+                    <span className="text-light-20 dark:text-light-20 mr-4">
+                      {postDate(item.date, locale)}
+                    </span>
+                    •
+                    <span className="text-light-20 dark:text-light-20 ml-4 pr-8 -mr-2">
+                      {item.readTime.cups}
+                    </span>
+                    <span className="text-light-20 dark:text-light-20">
+                      {item.readTime.text}
+                    </span>
+                  </div>
+                </div>
+                <hr className="w-full mt-0 mb-12" />
+                <p className="text-center text-sm">
                   {item.description}
                 </p>
               </div>

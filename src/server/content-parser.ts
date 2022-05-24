@@ -22,7 +22,7 @@ export interface FormatReadingTime extends ReadTimeResults {
 export interface MetaContents {
   title: string;
   slug: string;
-  date: Date|string;
+  date: string;
   description: string;
   keywords: string;
   image: string;
@@ -80,6 +80,7 @@ async function readContent(filePath: string, language = 'en'): Promise<string> {
 async function getBlogMeta(filePath: string, language: string): Promise<MetaContents> {
   const fileContents = await readContent(filePath, language);
   const { content, data } = matter(fileContents);
+  data.date = day(data.date).format('YYYY-MM-DD');
   const readTime = formatReadingTime(content);
   return { ...data, readTime } as MetaContents;
 }
@@ -192,5 +193,11 @@ export async function getAllBlogPaths(): Promise<GetStaticPathsResult['paths']> 
  */
 export async function getBlogList(language = 'en'): Promise<MetaContents[]> {
   const contents = await getAllBlog(language);
-  return contents.map(({ meta }) => meta);
+  return contents
+    .sort((a, b) => {
+      const dateA = day(a.meta.date);
+      const dateB = day(b.meta.date);
+      return dateB.isBefore(dateA) ? -1 : 1;
+    })
+    .map(({ meta }) => meta);
 }
