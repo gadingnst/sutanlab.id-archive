@@ -21,7 +21,7 @@ jobs:
         run: |
           npm install
       - name: Sync Media Files
-        env: |
+        env:
           CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
           CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
         run: |
