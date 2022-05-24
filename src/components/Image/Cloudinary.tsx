@@ -4,6 +4,7 @@ import { useToggler } from '@/hooks';
 import cloudinary from '@/utils/helpers/cloudinary';
 import clsxm from '@/utils/helpers/clsxm';
 import { IS_DEV } from '@/utils/config';
+import styles from './cloudinary.module.css';
 
 interface Props extends LazyLoadImageProps {
   src: string;
@@ -38,7 +39,7 @@ const ImageCloudinary: FunctionComponent<Props> = (props) => {
         className={clsxm('min-h-[50px]', className)}
       />
       {loading && (
-        <span className="spinner absolute" />
+        <span className={clsxm(styles.spinner, 'absolute')} />
       )}
     </span>
   );
