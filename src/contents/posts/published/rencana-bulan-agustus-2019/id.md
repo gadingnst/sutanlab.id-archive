@@ -7,7 +7,6 @@ keywords: 'kampus, planning, rencana, wisuda, polsri'
 tags: ['campus', 'planning']
 image: '/media/banners/2.jpg'
 sourceCSS: []
-sourceJS: []
 ---
 
 Alih - alih masuk bulan agustus.. Ga terasa ini udah bulan agustus ke 3 ketika aku pertama kali masuk kampus, 3 tahun terasa lebih cepat. Namun banyak sekali pengalaman yang aku dapat dikampus ini, Coding, love, friends, knowledge dan lainnya.

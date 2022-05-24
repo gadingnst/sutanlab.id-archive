@@ -3,7 +3,6 @@
 
 require('dotenv').config();
 
-import Fs from 'fs/promises';
 import Path from 'path';
 import CloudinaryInstance from 'cloudinary';
 import {
@@ -11,7 +10,8 @@ import {
   CLOUDINARY_API_SECRET,
   CLOUDINARY_CLOUD_NAME
 } from '../src/utils/config';
-import Concurrency from '../src/utils/lib/Concurrency';
+import getFiles from '../src/server/get-files';
+import ConcurrencyManager from '../src/utils/lib/ConcurrencyManager';
 
 const Cloudinary = CloudinaryInstance.v2;
 Cloudinary.config({
@@ -23,26 +23,12 @@ Cloudinary.config({
 const rootDir = process.cwd();
 const mediaDir = Path.resolve(rootDir, 'public', 'media');
 
-/**
- *
- * @param dir - directory to be read
- * @see https://stackoverflow.com/a/45130990
- */
-async function* getFiles(dir: string): any {
-  const dirents = await Fs.readdir(dir, { withFileTypes: true });
-  for (const dirent of dirents) {
-    const res = Path.resolve(dir, dirent.name);
-    if (dirent.isDirectory()) {
-      yield* getFiles(res);
-    } else {
-      yield res;
-    }
-  }
-}
-
-async function main() {
-  const concurrent = new Concurrency({ workers: 5, withPing: true });
-  console.log('> Uploading all files in `media` folder to Cloudinary...');
+async function syncMedia() {
+  console.log('> Syncing `media` files...');
+  const concurrent = new ConcurrencyManager({ workers: 5, withPing: true });
+  console.log('> Deleting `media` folder in Cloudinary...');
+  await Cloudinary.api.delete_resources_by_prefix('gading.dev/media/');
+  console.log('> Uploading all files in local `media` folder to Cloudinary.');
   for await (const file of getFiles(mediaDir)) {
     const pathToUpload = Path.join('media', file.replace(mediaDir, ''));
     const fullFileName = Path.basename(pathToUpload);
@@ -50,6 +36,7 @@ async function main() {
     const extension = Path.extname(fullFileName);
     const fileName = fullFileName.slice(0, -extension.length);
     concurrent.add(async() => {
+      process.stdout.write(`.`);
       const response = await Cloudinary.uploader.upload(
         file,
         {
@@ -62,7 +49,7 @@ async function main() {
     });
   }
   await concurrent.run();
-  console.log('Done:', concurrent.getListedProcess());
+  console.log('\n> Done:', concurrent.getListedProcess());
 }
 
-main();
+syncMedia();

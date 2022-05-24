@@ -7,7 +7,6 @@ keywords: 'meningkatkan kemampuan berfikir, kemampuan berfikir, akal, berfikir, 
 tags: ['life', 'problem solving', 'six thinking hats']
 image: '/media/blog/meningkatkan-kemampuan-berfikir/banner.jpg'
 sourceCSS: []
-sourceJS: []
 ---
 
 Manusia adalah mahluk sempurna, yang diciptakan Allah dengan memiliki Akal. Akal ini adalah salah satu bekal dari tuhan kita yang menjadikan kita mahluk sempurna. Tentu saja, jika kita dapat menggunakannya dengan baik.

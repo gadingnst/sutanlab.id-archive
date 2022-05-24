@@ -7,7 +7,6 @@ keywords: 'iri, thoughts, sifat manusiawi, programming, instagram, twitter'
 tags: ['iri', 'life', 'thoughts']
 image: '/media/banners/0.jpg'
 sourceCSS: []
-sourceJS: []
 ---
 
 Sebelum masuk ke pandangan gw terhadap IRI, gw pingin bercerita dan bersenda gurau dulu sedikit. Jadi gini, gw yakin disini pada menggunakan Instagram, dan mungkin ada beberapa yang menggunakan Twitter juga. Ya, kedua sosmed itu gw berani bilang adalah tempat *show-off* atau pamer.
