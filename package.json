@@ -40,7 +40,7 @@
     "cloudinary": "^1.30.0",
     "clsx": "^1.1.1",
     "dotenv": "^16.0.1",
-    "eslint": "^8.15.0",
+    "eslint": "^8.16.0",
     "eslint-config-next": "^12.1.6",
     "gray-matter": "^4.0.3",
     "husky": "^7.0.4",
