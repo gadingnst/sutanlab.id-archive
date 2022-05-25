@@ -55,7 +55,7 @@ const BlogListPage: NextPage<Props> = (props) => {
                 <ImageCloudinary
                   src={item.image}
                   alt={item.title}
-                  className="object-cover"
+                  className="object-cover w-full"
                   wrapperClassName="w-full"
                   width="100%"
                   height={200}

@@ -77,6 +77,7 @@ Nah, sekarang kita dapat memecah susunan rencana akhir tersebut menjadi 4 *state
 4. ***Settled*** (Diselesaikan, artinya janji akan masuk kedalam *state* ini jika sudah dilaksanakan atau mencapai batas waktu, berhasil atau gagal)
 
 So, berikut adalah *state* dari alur ***Promise*** yang ada di JavaScript sebenarnya:
+
 ![Promise states](/media/blog/memahami-konsep-promise-di-javascript/promise-state.jpg)
 
 ---

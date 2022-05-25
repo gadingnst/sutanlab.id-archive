@@ -21,10 +21,11 @@ const ContentImage: FunctionComponent<ContentImageProps> = (props) => {
   return (
     <Fragment>
       <SharedComponents.ImageCloudinary
+        zoomable
         src={src}
         alt={alt}
         wrapperClassName="content-image items-center w-full"
-        className="mx-auto rounded-8 max-h-[500px]"
+        className="mx-auto rounded-8 max-h-[500px] cursor-pointer"
       />
       <span className="block text-center italic text-xs mt-8">
         {alt}

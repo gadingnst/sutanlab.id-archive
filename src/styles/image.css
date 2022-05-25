@@ -15,3 +15,17 @@
   transition: opacity .5s;
   @apply opacity-100;
 }
+
+.content-parser {
+  @apply text-dark-70 dark:text-white;
+}
+
+body > div[aria-label="Zoomed image"], .content-parser {
+  .content-image {
+    display: flex !important;
+  }
+}
+
+body > div[aria-label="Zoomed image"] img {
+  @apply rounded-0;
+}

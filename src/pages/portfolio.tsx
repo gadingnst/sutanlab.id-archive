@@ -55,6 +55,7 @@ const PortfolioPage: NextPage<Props> = (props) => {
             <Card hoverEffect className="rounded-12 overflow-hidden" key={item.image}>
               <div className="relative w-full overflow-hidden h-[200px]">
                 <ImageCloudinary
+                  zoomable
                   src={item.image}
                   alt={item.name}
                   width="100%"
