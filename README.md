@@ -9,8 +9,9 @@ Under development 🚧
 ### Ongoing Features
 - [x] Dark Mode
 - [x] Mobile friendly
+- [x] Stateful MDX (Can write stateful MDX in the markdown)
 - [x] Image optimized with Cloudinary scaling & Lazyload with blur effect like Instagram
-- [x] i18n (internationalization). [Reference](https://nextjs.org/docs/advanced-features/i18n-routing#dynamic-routes-and-getstaticprops-pages)
+- [x] Internationalization content (for now, only [Now Page](https://gading.dev/now)). [Reference](https://nextjs.org/docs/advanced-features/i18n-routing#dynamic-routes-and-getstaticprops-pages)
 - [x] Reading-time
 - [ ] Page Transition
 - [ ] Feed RSS & Sitemap
