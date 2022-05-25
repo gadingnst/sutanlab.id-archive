@@ -1,8 +1,10 @@
 export { default as Layout, withLayoutPage } from './Layout';
 export { default as Navbar } from './Layout/Navbar';
 export { default as Content } from './Layout/Content';
-export { default as ContentParser } from './Layout/Content/Parser';
 export { default as Footer } from './Layout/Footer';
+
+export { default as ContentParser } from './Layout/Content/Parser';
+export { default as ContentInfo } from './Layout/Content/Info';
 
 export { default as Image } from './Image';
 export { default as Icon } from './Image/Icon';

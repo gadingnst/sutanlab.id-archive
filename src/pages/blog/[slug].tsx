@@ -1,11 +1,12 @@
 import { GetStaticPathsResult, GetStaticPropsContext, GetStaticPropsResult, NextPage } from 'next';
 import { Fragment } from 'react';
-import { Content, Footer, Navbar, Banner, CardHero, withLayoutPage, ContentParser } from '@/components';
+import { Content, Footer, Navbar, Banner, CardHero, withLayoutPage, ContentParser, ContentInfo } from '@/components';
 import { getAllBlogPaths, MDContents, parseContent } from '@/server/content-parser';
 import { IS_DEV } from '@/utils/config';
 
 type Props = {
   contents: MDContents;
+  locale?: string;
 };
 
 export const getStaticPaths = async(): Promise<GetStaticPathsResult> => {
@@ -29,7 +30,8 @@ export const getStaticProps = async(ctx: GetStaticPropsContext): Promise<GetStat
   if (contents) {
     return {
       props: {
-        contents
+        contents,
+        locale
       }
     };
   }
@@ -39,7 +41,7 @@ export const getStaticProps = async(ctx: GetStaticPropsContext): Promise<GetStat
 };
 
 const BlogDetailPage: NextPage<Props> = (props) => {
-  const { contents } = props;
+  const { contents, locale } = props;
   const { meta, content } = contents;
   return (
     <Fragment>
@@ -48,13 +50,19 @@ const BlogDetailPage: NextPage<Props> = (props) => {
         bgImage={meta.image}
         className="font-courgette text-white util--text-shadow text-center"
       >
-        <div className="-mt-48">
-          <h1 className="font-bold text-4xl mb-8 text-white dark:text-white">
+        <div className="-mt-48 px-8 md:px-0">
+          <h1 className="font-bold text-xl sm:text-2xl md:text-3xl mb-8 text-white dark:text-white underline" style={{ textUnderlinePosition: 'under' }}>
             {meta.title}
           </h1>
-          <p className="text-lg px-8 text-white dark:text-white">
+          <p className="font-bold text-base sm:text-lg px-8 text-white dark:text-white leading-tight">
             {meta.description}”
           </p>
+          <ContentInfo
+            meta={meta}
+            locale={locale}
+            className="font-poppins text-xs mt-12 opacity-80"
+            colorClassName="text-light-50 dark:text-light-50"
+          />
         </div>
       </Banner>
       <Content>

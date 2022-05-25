@@ -34,7 +34,7 @@ Banner.defaultProps = {
   overlay: 0.35,
   height: '70vh',
   strength: -150,
-  containerClassName: 'container flex flex-col items-center justify-center w-full'
+  containerClassName: 'container flex flex-col items-center justify-center w-full max-w-5xl'
 };
 
 export default Banner;

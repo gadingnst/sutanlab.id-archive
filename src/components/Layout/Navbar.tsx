@@ -31,8 +31,8 @@ export const menus = [
 ];
 
 export const i18nList = new Map([
-  ['en', <>🇺🇸&nbsp;&nbsp;&nbsp;EN</>],
-  ['id', <>🇮🇩&nbsp;&nbsp;&nbsp;ID</>]
+  ['en', <>🇺🇸&nbsp;&nbsp;EN</>],
+  ['id', <>🇮🇩&nbsp;&nbsp;ID</>]
 ]);
 
 const Navbar: FunctionComponent<Props> = (props) => {
@@ -48,11 +48,11 @@ const Navbar: FunctionComponent<Props> = (props) => {
     ? 'bg-transparent' : 'bg-primary shadow-bottom dark:bg-dark-40';
 
   const onScroll = useCallback(() => {
-    setTransparent(window.scrollY < 80);
+    setTransparent(window.scrollY < 5);
   }, []);
 
   useMounted(() => {
-    setTransparent(window.scrollY < 80);
+    setTransparent(window.scrollY < 5);
     window.addEventListener('scroll', onScroll);
     return () => {
       window.removeEventListener('scroll', onScroll);
@@ -122,7 +122,7 @@ const Navbar: FunctionComponent<Props> = (props) => {
                 </Link>
               ))}
             </div>
-            <div className="block ml-12 md:hidden">
+            <div className="block md:hidden">
               <Icon
                 color="white"
                 src={iconHamburger}

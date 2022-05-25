@@ -8,10 +8,10 @@ import {
   Card,
   withLayoutPage,
   Link,
-  ImageLazy
+  ImageLazy,
+  ContentInfo
 } from '@/components';
 import { getBlogList, MetaContents } from '@/server/content-parser';
-import postDate from '@/utils/helpers/post-date';
 
 type Props = {
   contents: MetaContents[];
@@ -73,21 +73,11 @@ const BlogListPage: NextPage<Props> = (props) => {
                       {item.title}
                     </Link>
                   </div>
-                  <div className="flex my-8 text-xs text-light-20 dark:text-light-20">
-                    <span className="text-light-20 dark:text-light-20 pr-8 -mr-2">
-                      🗓
-                    </span>
-                    <span className="text-light-20 dark:text-light-20 mr-4">
-                      {postDate(item.date, locale)}
-                    </span>
-                    •
-                    <span className="text-light-20 dark:text-light-20 ml-4 pr-8 -mr-2">
-                      {item.readTime.cups}
-                    </span>
-                    <span className="text-light-20 dark:text-light-20">
-                      {item.readTime.text}
-                    </span>
-                  </div>
+                  <ContentInfo
+                    className="flex my-8 text-xs"
+                    meta={item}
+                    locale={locale}
+                  />
                 </div>
                 <hr className="w-full mt-0 mb-12" />
                 <p className="text-center text-sm">
