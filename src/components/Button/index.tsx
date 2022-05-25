@@ -1,5 +1,6 @@
 import { FunctionComponent, PropsWithChildren } from 'react';
 import clsxm from '@/utils/helpers/clsxm';
+import Link from '@/components/Link';
 
 export interface Props {
   text?: string;
@@ -17,17 +18,26 @@ const Button: FunctionComponent<PropsWithChildren<Props>> = (props) => {
     onClick
   } = props;
 
-  const Tag = `${href ? 'a' : 'button'}` as keyof JSX.IntrinsicElements;
+  if (href) {
+    return (
+      <Link
+        href={href}
+        onClick={onClick}
+        className={clsxm('relative cursor-pointer transition-all rounded-8 p-8', className)}
+      >
+        {children || text}
+      </Link>
+    );
+  }
 
   return (
-    <Tag
+    <button
       role="button"
       className={clsxm('relative cursor-pointer transition-all rounded-8 p-8', className)}
       onClick={onClick}
-      {...(href ? { href } : {})}
     >
       {children || text}
-    </Tag>
+    </button>
   );
 };
 

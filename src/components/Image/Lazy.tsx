@@ -5,7 +5,7 @@ import { useToggler } from '@/hooks';
 import cloudinary from '@/utils/helpers/cloudinary';
 import clsxm from '@/utils/helpers/clsxm';
 import { IS_DEV } from '@/utils/config';
-import styles from './cloudinary.module.css';
+import styles from './lazy.module.css';
 import 'react-medium-image-zoom/dist/styles.css';
 
 interface Props extends LazyLoadImageProps {
@@ -14,7 +14,7 @@ interface Props extends LazyLoadImageProps {
   placeholderScaling?: number;
 }
 
-const ImageCloudinary: FunctionComponent<Props> = (props) => {
+const ImageLazy: FunctionComponent<Props> = (props) => {
   const {
     src,
     zoomable,
@@ -75,7 +75,7 @@ const ImageCloudinary: FunctionComponent<Props> = (props) => {
   return ImageComponent;
 };
 
-ImageCloudinary.defaultProps = {
+ImageLazy.defaultProps = {
   className: '',
   style: {},
   zoomable: false,
@@ -83,4 +83,4 @@ ImageCloudinary.defaultProps = {
   placeholderScaling: 0.15 /* 15% */
 };
 
-export default ImageCloudinary;
+export default ImageLazy;

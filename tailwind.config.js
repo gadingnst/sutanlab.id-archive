@@ -151,6 +151,17 @@ module.exports = {
       },
       scale: {
         '102': '1.02'
+      },
+      colors: {
+        'github': '#222222',
+        'linkedin': '#0073b1',
+        'instagram': '#e4405f',
+        'facebook': '#3b5999',
+        'twitter': '#1da1f2',
+        'tumblr': '#37455c',
+        'whatsapp': '#06d755',
+        'telegram': '#35ace1',
+        'youtube': '#cd201f'
       }
     }
   },

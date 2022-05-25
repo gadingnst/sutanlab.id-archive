@@ -1,12 +1,56 @@
 import { FunctionComponent } from 'react';
 import { Link, Button } from '@/components';
-import { AUTHOR_NAME, GITHUB_USERNAME, PRODUCTION_URL, SITE_NAME } from '@/utils/config';
+import {
+  AUTHOR_NAME,
+  FACEBOOK_USERNAME,
+  GITHUB_USERNAME,
+  INSTAGRAM_USERNAME,
+  LINKEDIN_USERNAME,
+  PRODUCTION_URL,
+  SITE_NAME,
+  TWITTER_USERNAME
+} from '@/utils/config';
 import clsxm from '@/utils/helpers/clsxm';
 import styles from './styles.module.css';
+import Icon from '../Image/Icon';
+
+import iconGithub from '@/assets/icons/logo/octocat.svg';
+import iconLinkedin from '@/assets/icons/logo/linkedin.svg';
+import iconInstagram from '@/assets/icons/logo/instagram.svg';
+import iconFacebook from '@/assets/icons/logo/facebook.svg';
+import iconTwitter from '@/assets/icons/logo/twitter.svg';
 
 export interface Props {
   className?: string;
 }
+
+const socialLinks = [
+  {
+    color: 'bg-github',
+    logo: iconGithub,
+    url: `https://github.com/${GITHUB_USERNAME}`
+  },
+  {
+    color: 'bg-linkedin',
+    logo: iconLinkedin,
+    url: `https://linkedin.com/in/${LINKEDIN_USERNAME}`
+  },
+  {
+    color: 'bg-instagram',
+    logo: iconInstagram,
+    url: `https://instagram.com/${INSTAGRAM_USERNAME}`
+  },
+  {
+    color: 'bg-facebook',
+    logo: iconFacebook,
+    url: `https://facebook.com/${FACEBOOK_USERNAME}`
+  },
+  {
+    color: 'bg-twitter',
+    logo: iconTwitter,
+    url: `https://twitter.com/${TWITTER_USERNAME}`
+  }
+];
 
 const Footer: FunctionComponent<Props> = (props) => {
   const { className } = props;
@@ -16,43 +60,16 @@ const Footer: FunctionComponent<Props> = (props) => {
         <p className="text-2xl text-left">
           Let&lsquo;s get in touch on my social.
         </p>
-        <div className="relative h-full my-24 lg:my-0">
-          <Button
-            href="#"
-            className="bg-primary text-white rounded-8 p-8 mx-4 dark:text-white"
-          >
-            H
-          </Button>
-          <Button
-            href="#"
-            className="bg-primary text-white rounded-8 p-8 mx-4 dark:text-white"
-          >
-            H
-          </Button>
-          <Button
-            href="#"
-            className="bg-primary text-white da rounded-8 p-8 mx-4 dark:text-whitev"
-          >
-            H
-          </Button>
-          <Button
-            href="#"
-            className="bg-primary text-white rounded-8 p-8 mx-4 dark:text-white"
-          >
-            H
-          </Button>
-          <Button
-            href="#"
-            className="bg-primary text-white rounded-8 p-8 mx-4 dark:text-white"
-          >
-            H
-          </Button>
-          <Button
-            href="#"
-            className="bg-primary text-white rounded-8 p-8 mx-4 dark:text-white"
-          >
-            H
-          </Button>
+        <div className="flex items-center relative h-full my-24 lg:my-0">
+          {socialLinks.map((socialLink) => (
+            <Button
+              key={socialLink.url}
+              href={socialLink.url}
+              className={`${socialLink.color} shadow-all rounded-8 px-[11px] py-[6px] mx-4 hover:-mt-8`}
+            >
+              <Icon color="white" size={14} src={socialLink.logo} className="-mt-4" />
+            </Button>
+          ))}
         </div>
       </div>
       <hr className="container max-w-5xl" />

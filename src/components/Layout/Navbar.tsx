@@ -124,6 +124,7 @@ const Navbar: FunctionComponent<Props> = (props) => {
             </div>
             <div className="block ml-12 md:hidden">
               <Icon
+                color="white"
                 src={iconHamburger}
                 className="cursor-pointer"
                 onClick={modalToggler}

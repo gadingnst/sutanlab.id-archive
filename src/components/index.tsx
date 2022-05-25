@@ -6,8 +6,8 @@ export { default as Footer } from './Layout/Footer';
 
 export { default as Image } from './Image';
 export { default as Icon } from './Image/Icon';
+export { default as ImageLazy } from './Image/Lazy';
 export { default as Banner } from './Image/Banner';
-export { default as ImageCloudinary } from './Image/Cloudinary';
 
 export { default as Card } from './Card';
 export { default as CardHero } from './Card/Hero';

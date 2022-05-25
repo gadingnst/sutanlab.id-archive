@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { MouseEventHandler, useCallback, useRef } from 'react';
 import NextImage, { ImageProps } from 'next/image';
-import SVG from 'react-inlinesvg';
+import SVG, { Props as SVGProps } from 'react-inlinesvg';
 import clsxm from '@/utils/helpers/clsxm';
 
 export type Props = ImageProps & {
@@ -10,6 +10,7 @@ export type Props = ImageProps & {
   fallbackSrc?: string;
   classNameWrapper?: string;
   onClick?: MouseEventHandler<HTMLImageElement> | MouseEventHandler<SVGAElement>;
+  svgProps?: SVGProps;
 };
 
 export const DEFAULT = 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==';
@@ -19,6 +20,8 @@ const Image = (props: Props) => {
     inline,
     fallbackSrc,
     classNameWrapper,
+    color,
+    svgProps,
     ...nextImageProps
   } = props;
 
@@ -46,6 +49,9 @@ const Image = (props: Props) => {
     Component.current = (
       <SVG
         cacheRequests
+        {...svgProps}
+        fill={svgProps?.fill ?? color}
+        stroke={svgProps?.stroke ?? color}
         src={source}
         className={className}
         width={width}
@@ -80,6 +86,7 @@ Image.defaultProps = {
   classNameWrapper: '',
   fallbackSrc: '',
   inline: false,
+  svgProps: {},
   onClick: () => void 0
 };
 

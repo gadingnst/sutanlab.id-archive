@@ -12,6 +12,7 @@ Under development 🚧
 - [x] Image optimized with Cloudinary scaling & Lazyload with blur effect like Instagram
 - [x] i18n (internationalization). [Reference](https://nextjs.org/docs/advanced-features/i18n-routing#dynamic-routes-and-getstaticprops-pages)
 - [x] Reading-time
+- [ ] Page Transition
 - [ ] Feed RSS & Sitemap
 - [ ] SEO Optimized
 - [ ] Social share (FB, Linkedin, Twitter, Tumblr, WA, Telegram)

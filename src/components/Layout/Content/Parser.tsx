@@ -20,7 +20,7 @@ const ContentImage: FunctionComponent<ContentImageProps> = (props) => {
   const { src, alt } = props;
   return (
     <Fragment>
-      <SharedComponents.ImageCloudinary
+      <SharedComponents.ImageLazy
         zoomable
         src={src}
         alt={alt}

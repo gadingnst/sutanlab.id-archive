@@ -8,7 +8,7 @@ import {
   Card,
   withLayoutPage,
   Link,
-  ImageCloudinary
+  ImageLazy
 } from '@/components';
 import { getBlogList, MetaContents } from '@/server/content-parser';
 import postDate from '@/utils/helpers/post-date';
@@ -52,7 +52,7 @@ const BlogListPage: NextPage<Props> = (props) => {
           {contents.map(item => (
             <Card hoverEffect className="rounded-12 overflow-hidden" key={item.slug}>
               <div className="relative w-full overflow-hidden h-[200px]">
-                <ImageCloudinary
+                <ImageLazy
                   src={item.image}
                   alt={item.title}
                   className="object-cover w-full"

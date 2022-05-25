@@ -73,7 +73,7 @@ const Dropdown = (props: PropsWithChildren<Props>) => {
         onClick={toggler}
         className={styles.button}
       >
-        {title} <Icon src={iconCaretDown} size={12} className="-mt-4" />
+        {title} <Icon color="white" src={iconCaretDown} size={12} className="-mt-4" />
       </Button>
       {show && (
         <div

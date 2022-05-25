@@ -7,7 +7,7 @@ import {
   Banner,
   Card,
   withLayoutPage,
-  ImageCloudinary
+  ImageLazy
 } from '@/components';
 import { Portfolio } from '@/types/contents';
 
@@ -54,7 +54,7 @@ const PortfolioPage: NextPage<Props> = (props) => {
           {contents.map(item => (
             <Card hoverEffect className="rounded-12 overflow-hidden" key={item.image}>
               <div className="relative w-full overflow-hidden h-[200px]">
-                <ImageCloudinary
+                <ImageLazy
                   zoomable
                   src={item.image}
                   alt={item.name}
