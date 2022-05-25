@@ -11,7 +11,7 @@ import {
   CLOUDINARY_CLOUD_NAME
 } from '../src/utils/config';
 import { getFiles, isImage } from '../src/server/files';
-import ConcurrencyManager from '../src/utils/lib/ConcurrencyManager';
+import PromiseQueue from '../src/utils/lib/PromiseQueue';
 
 const Cloudinary = CloudinaryInstance.v2;
 Cloudinary.config({
@@ -25,7 +25,10 @@ const mediaDir = Path.resolve(rootDir, 'public', 'media');
 
 async function syncMedia() {
   console.log('> Syncing `media` files...');
-  const concurrent = new ConcurrencyManager({ workers: 5, withPing: true });
+
+  // setup queue for uploading with 7 concurrent uploads
+  const queue = new PromiseQueue({ concurrent: 7 });
+
   console.log('> Deleting `media` folder in Cloudinary...');
   await Cloudinary.api.delete_resources_by_prefix('gading.dev/media/');
   console.log('> Uploading all files in local `media` folder to Cloudinary.');
@@ -36,22 +39,19 @@ async function syncMedia() {
     const extension = Path.extname(fileName);
     const name = fileName.slice(0, -extension.length);
     if (isImage(pathToUpload)) {
-      concurrent.add(async() => {
-        process.stdout.write(`.`);
-        const response = await Cloudinary.uploader.upload(
-          file,
-          {
-            public_id: name,
-            folder: `gading.dev/${folderName}`,
-            overwrite: false
-          }
-        );
+      queue.add(async() => {
+        process.stdout.write('.');
+        const response = await Cloudinary.uploader.upload(file, {
+          public_id: name,
+          folder: `gading.dev/${folderName}`,
+          overwrite: false
+        });
         return response.public_id;
       });
     }
   }
-  await concurrent.run();
-  console.log('\n> Done:', concurrent.getListedProcess());
+  await queue.runAll();
+  console.log('\n> Done:', queue.getListedProcess());
 }
 
 syncMedia();
