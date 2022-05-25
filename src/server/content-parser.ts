@@ -15,10 +15,6 @@ import rehypeKatex from 'rehype-katex';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 
-export interface FormatReadingTime extends ReadTimeResults {
-  cups: string;
-}
-
 export interface MetaContents {
   title: string;
   slug: string;
@@ -27,7 +23,7 @@ export interface MetaContents {
   keywords: string;
   image: string;
   tags: string[];
-  readTime: FormatReadingTime;
+  readTime: ReadTimeResults;
 }
 
 export interface MDContents {
@@ -47,13 +43,11 @@ export const contentsDir = path.join(rootDir, 'contents');
 /**
  *
  * @param content - content to be parsed
- * @returns {FormatReadingTime} - formatted reading time
+ * @returns {ReadTimeResults} - formatted reading time
  */
-function formatReadingTime(content: string): FormatReadingTime {
+function formatReadingTime(content: string): ReadTimeResults {
   const { minutes, ...otherResult } = readingTime(content);
-  const cupsCount = Math.round(minutes / 5);
-  const cups = `${new Array(cupsCount || 1).fill('☕️').join('')}`;
-  return { minutes, cups, ...otherResult };
+  return { minutes, ...otherResult };
 }
 
 /**

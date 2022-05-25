@@ -60,7 +60,7 @@ const BlogDetailPage: NextPage<Props> = (props) => {
           <ContentInfo
             meta={meta}
             locale={locale}
-            className="font-poppins text-xs mt-12 opacity-80"
+            className="font-poppins text-xs mt-12 opacity-95"
             colorClassName="text-light-50 dark:text-light-50"
           />
         </div>

@@ -21,7 +21,7 @@ const ContentInfo: FunctionComponent<Props> = (props) => {
       </span>
         •
       <span className={`${colorClassName} ml-4 pr-8 -mr-2`}>
-        {meta.readTime.cups}
+        ☕️
       </span>
       <span className={colorClassName}>
         {meta.readTime.text}
