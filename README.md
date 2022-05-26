@@ -10,16 +10,17 @@
 - [Yarn](https://yarnpkg.com/)
 
 ### Ongoing Features
-- [x] Mobile friendly + offline-first with PWA Module
-- [x] Beautiful but performant
-- [x] Push notifications support
-- [x] Reading-time
-- [x] Dark Mode
+- [x] Mobile friendly
+- [x] Offline-first with PWA Module
+- [x] Push notifications support with [OneSignal](https://onesignal.com/pricing) and [Zapier](https://zapier.com/apps/onesignal/integrations/rss/8120/send-onesignal-push-notifications-for-new-items-in-an-rss-feed) Integration
+- [x] Reading-time prediction like Medium
 - [x] SEO Optimized
 - [x] Image optimized
 - [x] Feed RSS & Sitemap
-- [x] Comment system with disqus
+- [x] Comment & Reaction System with [Disqus](https://disqus.com) plugin
 - [x] Social share (FB, Linkedin, Twitter, Tumblr, WA, Telegram)
+- [x] Dark Mode
+- [x] Page transition and effect
 - [x] Posts pagination
 - [x] Search posts
 - [ ] Sorting posts by category & tags
