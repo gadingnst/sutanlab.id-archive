@@ -1,8 +1,8 @@
 {
   "redirects": [
     {
-      "source": "/:path*",
-      "destination": "https://gading.dev/id/:path*"
+      "source": "/*",
+      "destination": "https://gading.dev/id/*"
     }
   ]
 }
