@@ -3,6 +3,10 @@
     {
       "source": "/*",
       "destination": "https://gading.dev/id/*"
+    },
+    {
+      "source": "/:path*",
+      "destination": "https://gading.dev/id/:path*"
     }
   ]
 }
